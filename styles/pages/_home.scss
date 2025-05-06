@@ -1,0 +1,319 @@
+// Hero Section
+.hero-section {
+	padding: $spacing-12 0;
+	background-color: $color-background;
+	position: relative;
+	overflow: hidden;
+
+	@include md {
+		padding: $spacing-20 0;
+	}
+
+	.hero {
+		@include flex-column;
+
+		@include lg {
+			flex-direction: row;
+			align-items: center;
+			gap: $spacing-10;
+		}
+	}
+
+	.hero-content {
+		@include flex-column;
+
+		@include lg {
+			flex: 1;
+		}
+	}
+
+	.hero-title {
+		font-size: 2.25rem;
+		font-weight: $font-weight-bold;
+		margin-bottom: $spacing-4;
+		line-height: 1.2;
+
+		@include sm {
+			font-size: 3rem;
+		}
+
+		@include md {
+			font-size: 3.75rem;
+			margin-bottom: $spacing-6;
+		}
+	}
+
+	.text-gradient {
+		background: linear-gradient(to right, $color-primary, $color-accent);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		color: transparent;
+	}
+
+	.hero-description {
+		font-size: 1.125rem;
+		color: $color-muted-foreground;
+		margin-bottom: $spacing-8;
+
+		@include md {
+			font-size: 1.25rem;
+		}
+	}
+
+	.hero-actions {
+		display: flex;
+		gap: $spacing-4;
+		flex-wrap: wrap;
+
+		@include sm {
+			flex-wrap: nowrap;
+		}
+	}
+
+	.hero-image {
+		margin-top: $spacing-8;
+
+		@include lg {
+			flex: 1;
+			margin-top: 0;
+		}
+
+		.hero-img {
+			width: 100%;
+			max-width: 28rem;
+			margin: 0 auto;
+			border-radius: $radius-lg;
+			box-shadow: $shadow-lg;
+		}
+	}
+}
+
+// About Section
+.about-section {
+	background-color: $color-gray-50;
+	padding: $spacing-16 0;
+
+	@include md {
+		padding: $spacing-20 0;
+	}
+
+	.about-grid {
+		@include grid(1, $spacing-8);
+
+		@include md {
+			@include grid(2, $spacing-12);
+			align-items: center;
+		}
+	}
+
+	.about-image {
+		position: relative;
+
+		.image-bg {
+			position: absolute;
+			inset: 0;
+			background: linear-gradient(
+				to bottom right,
+				$color-primary,
+				$color-primary-light
+			);
+			border-radius: $radius-lg;
+			transform: rotate(3deg);
+		}
+
+		.image-content {
+			position: relative;
+			background-color: $color-background;
+			border-radius: $radius-lg;
+			height: 100%;
+			min-height: 16rem;
+			transform: rotate(-3deg);
+			@include flex-center;
+
+			@include md {
+				min-height: 24rem;
+			}
+		}
+	}
+}
+
+// Skills Section
+.skills-section {
+	background-color: $color-background;
+	padding: $spacing-16 0;
+
+	@include md {
+		padding: $spacing-20 0;
+	}
+
+	.section-title {
+		font-size: 1.875rem;
+		font-weight: $font-weight-bold;
+		text-align: center;
+		margin-bottom: $spacing-8;
+		color: $color-foreground;
+
+		@include sm {
+			font-size: 2.25rem;
+		}
+
+		@include md {
+			font-size: 3rem;
+			margin-bottom: $spacing-12;
+		}
+	}
+
+	.skills-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: $spacing-6;
+
+		@include sm {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@include lg {
+			grid-template-columns: repeat(4, 1fr);
+			gap: $spacing-8;
+		}
+	}
+
+	.skill-card {
+		background-color: $color-background;
+		border-radius: $radius-lg;
+		box-shadow: $shadow-md;
+		transition: $transition-default;
+
+		&:hover {
+			transform: translateY(-4px);
+			box-shadow: $shadow-lg;
+		}
+	}
+
+	.skill-card-content {
+		padding: $spacing-6;
+	}
+
+	.skill-title {
+		font-size: 1.25rem;
+		font-weight: $font-weight-bold;
+		margin-bottom: $spacing-2;
+		color: $color-foreground;
+
+		@include sm {
+			font-size: 1.5rem;
+		}
+	}
+
+	.skill-description {
+		font-size: 0.875rem;
+		color: $color-muted-foreground;
+
+		@include sm {
+			font-size: 1rem;
+		}
+	}
+
+	.view-all-skills {
+		text-align: center;
+		margin-top: $spacing-12;
+	}
+}
+
+// Certifications Section
+.certifications-section {
+	background-color: $color-gray-50;
+	padding: $spacing-16 0;
+
+	@include md {
+		padding: $spacing-20 0;
+	}
+
+	.view-all {
+		text-align: center;
+		margin-top: $spacing-12;
+	}
+}
+
+// Projects Section
+.projects-section {
+	background-color: $color-background;
+	padding: $spacing-16 0;
+
+	@include md {
+		padding: $spacing-20 0;
+	}
+
+	.view-all {
+		text-align: center;
+		margin-top: $spacing-12;
+	}
+}
+
+// Contact Section
+.contact-section {
+	background-color: $color-gray-50;
+	padding: $spacing-16 0;
+
+	@include md {
+		padding: $spacing-20 0;
+	}
+
+	.contact-form-wrapper {
+		max-width: 36rem;
+		margin: 0 auto;
+
+		.form-card {
+			background-color: $color-background;
+			border-radius: $radius-lg;
+			box-shadow: $shadow-md;
+			padding: $spacing-6;
+			border: 1px solid $color-border;
+
+			@include sm {
+				padding: $spacing-8;
+			}
+		}
+	}
+}
+
+// Newsletter Section
+.newsletter-section {
+	background-color: $color-background;
+	padding: $spacing-12 0;
+
+	@include md {
+		padding: $spacing-16 0;
+	}
+
+	.newsletter-container {
+		max-width: 36rem;
+		margin: 0 auto;
+
+		.newsletter-card {
+			background: linear-gradient(
+				to bottom right,
+				rgba($color-primary, 0.1),
+				rgba($color-primary-light, 0.1)
+			);
+			border-radius: $radius-xl;
+			padding: $spacing-6;
+
+			@include sm {
+				padding: $spacing-8;
+				border-radius: $radius-3xl;
+			}
+		}
+
+		.newsletter-form {
+			@include flex-column;
+			gap: $spacing-3;
+			margin-top: $spacing-6;
+
+			@include sm {
+				flex-direction: row;
+			}
+		}
+	}
+}

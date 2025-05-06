@@ -1,0 +1,253 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Root variables for Tailwind theme */
+:root {
+	--background: 0 0% 100%;
+	--foreground: 222.2 84% 4.9%;
+	--card: 0 0% 100%;
+	--card-foreground: 222.2 84% 4.9%;
+	--popover: 0 0% 100%;
+	--popover-foreground: 222.2 84% 4.9%;
+	--primary: 270 76% 53%;
+	--primary-foreground: 0 0% 100%;
+	--secondary: 270 20% 96%;
+	--secondary-foreground: 270 60% 40%;
+	--muted: 270 20% 96%;
+	--muted-foreground: 270 10% 40%;
+	--accent: 270 20% 96%;
+	--accent-foreground: 270 60% 40%;
+	--destructive: 0 84.2% 60.2%;
+	--destructive-foreground: 0 0% 100%;
+	--border: 270 20% 88%;
+	--input: 270 20% 88%;
+	--ring: 270 76% 53%;
+	--radius: 0.5rem;
+}
+
+.dark {
+	--background: 222.2 84% 4.9%;
+	--foreground: 210 40% 98%;
+	--card: 222.2 84% 4.9%;
+	--card-foreground: 210 40% 98%;
+	--popover: 222.2 84% 4.9%;
+	--popover-foreground: 210 40% 98%;
+	--primary: 270 76% 53%;
+	--primary-foreground: 0 0% 100%;
+	--secondary: 270 20% 16%;
+	--secondary-foreground: 0 0% 100%;
+	--muted: 270 20% 16%;
+	--muted-foreground: 270 10% 70%;
+	--accent: 270 20% 16%;
+	--accent-foreground: 0 0% 100%;
+	--destructive: 0 62.8% 30.6%;
+	--destructive-foreground: 0 0% 100%;
+	--border: 270 20% 26%;
+	--input: 270 20% 26%;
+	--ring: 270 76% 53%;
+}
+
+/* Custom styles for components */
+@layer components {
+	/* Hero section */
+	.hero-section {
+		@apply py-12 md:py-20 bg-background relative overflow-hidden;
+	}
+
+	.hero {
+		@apply flex flex-col lg:flex-row lg:items-center lg:gap-10;
+	}
+
+	.hero-content {
+		@apply flex flex-col lg:flex-1;
+	}
+
+	.hero-title {
+		@apply text-4xl sm:text-5xl md:text-6xl font-bold mb-4 md:mb-6 leading-tight;
+	}
+
+	.text-gradient {
+		@apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600;
+	}
+
+	.hero-description {
+		@apply text-lg md:text-xl text-muted-foreground mb-8;
+	}
+
+	.hero-actions {
+		@apply flex gap-4 flex-wrap sm:flex-nowrap;
+	}
+
+	.hero-image {
+		@apply mt-8 lg:mt-0 lg:flex-1;
+	}
+
+	.hero-img {
+		@apply w-full max-w-md mx-auto rounded-lg shadow-lg;
+	}
+
+	/* Skills section */
+	.skills-section {
+		@apply py-16 md:py-20 bg-background;
+	}
+
+	.skills-grid {
+		@apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8;
+	}
+
+	.skill-card {
+		@apply bg-background rounded-lg shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+	}
+
+	.skill-card-content {
+		@apply p-6;
+	}
+
+	.skill-title {
+		@apply text-xl font-bold mb-2 text-foreground;
+	}
+
+	.skill-description {
+		@apply text-sm sm:text-base text-muted-foreground;
+	}
+
+	.view-all-skills {
+		@apply mt-12 text-center;
+	}
+
+	/* Buttons */
+	.btn {
+		@apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md transition-colors;
+		@apply sm:px-6 sm:py-3 sm:text-base;
+	}
+
+	.btn-primary {
+		@apply bg-primary text-primary-foreground hover:bg-primary/90;
+	}
+
+	.btn-outline {
+		@apply border border-input bg-background hover:bg-accent hover:text-accent-foreground;
+	}
+
+	.btn-rounded {
+		@apply rounded-full;
+	}
+
+	/* Header */
+	.header {
+		@apply sticky top-0 z-50 bg-background/80 backdrop-blur-md;
+	}
+
+	.header-inner {
+		@apply flex items-center justify-between p-6 lg:px-8;
+	}
+
+	.logo {
+		@apply text-xl font-bold text-primary;
+	}
+
+	.desktop-nav {
+		@apply hidden md:flex gap-x-12;
+	}
+
+	.nav-link {
+		@apply text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors;
+	}
+
+	.mobile-nav-container {
+		@apply md:hidden;
+	}
+
+	.mobile-menu-button {
+		@apply text-foreground;
+	}
+
+	.mobile-nav-wrapper {
+		@apply fixed inset-0 z-50 flex justify-end;
+	}
+
+	.mobile-nav-overlay {
+		@apply bg-black/60 absolute inset-0;
+	}
+
+	.mobile-nav {
+		@apply relative w-64 bg-background shadow-lg h-full;
+	}
+
+	.mobile-nav-header {
+		@apply flex justify-end p-4;
+	}
+
+	.mobile-nav-close {
+		@apply text-foreground;
+	}
+
+	.nav-links {
+		@apply flex flex-col bg-background  px-6 py-4 gap-6;
+	}
+
+	/* Footer */
+	.footer {
+		@apply bg-background border-t border-border;
+	}
+
+	.footer-content {
+		@apply mx-auto max-w-7xl overflow-hidden px-4 sm:px-6 py-12 sm:py-16 lg:px-8;
+	}
+
+	.footer-nav {
+		@apply mb-8 grid grid-cols-2 sm:flex sm:justify-center sm:space-x-12;
+	}
+
+	.footer-nav-item {
+		@apply pb-6;
+	}
+
+	.footer-link {
+		@apply text-sm leading-6 text-muted-foreground hover:text-foreground;
+	}
+
+	.social-links {
+		@apply mt-8 flex flex-wrap justify-center gap-6 sm:gap-8;
+	}
+
+	.social-link {
+		@apply text-muted-foreground hover:text-primary;
+	}
+
+	.copyright {
+		@apply mt-8 text-center text-xs sm:text-sm leading-5 text-muted-foreground;
+	}
+}
+
+/* Custom animations */
+@keyframes float {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+}
+
+.animate-float {
+	animation: float 5s ease-in-out infinite;
+}
+
+/* Additional custom styles for Lucide icons */
+.skill-icon {
+	@apply w-12 h-12 mb-4 text-primary;
+}
+
+@media (max-width: 640px) {
+	.skill-icon {
+		@apply w-10 h-10;
+	}
+}
+
+/* Section title */
+.section-title {
+	@apply text-3xl font-bold mb-8 text-center text-foreground sm:text-4xl md:text-5xl md:mb-12;
+}
