@@ -2,8 +2,8 @@
 
 import { motion } from 'framer-motion';
 import {
-	Code,
 	Database,
+	Code,
 	LineChart,
 	Server,
 	Cpu,
@@ -12,57 +12,37 @@ import {
 	Layers
 } from 'lucide-react';
 import Link from 'next/link';
+import { certifications } from '../data/certifications';
 
-const skills = [
-	{
-		icon: <Database className='skill-icon' />,
-		title: 'Data Science',
-		description:
-			'Machine learning models, data analysis, and predictive analytics to extract valuable insights from your data.'
-	},
-	{
-		icon: <Code className='skill-icon' />,
-		title: 'Full Stack Development',
-		description:
-			'End-to-end web applications with modern frameworks and responsive design principles.'
-	},
-	{
-		icon: <LineChart className='skill-icon' />,
-		title: 'Data Visualization',
-		description:
-			'Interactive dashboards and visualizations that make complex data accessible and actionable.'
-	},
-	{
-		icon: <Server className='skill-icon' />,
-		title: 'API Development',
-		description:
-			'Robust and scalable APIs that connect your applications and services seamlessly.'
-	},
-	{
-		icon: <Cpu className='skill-icon' />,
-		title: 'Cloud Computing',
-		description:
-			'Designing and implementing scalable solutions using AWS, Azure, and Google Cloud.'
-	},
-	{
-		icon: <Globe className='skill-icon' />,
-		title: 'DevOps',
-		description:
-			'CI/CD pipelines, containerization, and infrastructure as code for seamless deployment.'
-	},
-	{
-		icon: <Lock className='skill-icon' />,
-		title: 'Cybersecurity',
-		description:
-			'Implementing secure coding practices and protecting applications from common vulnerabilities.'
-	},
-	{
-		icon: <Layers className='skill-icon' />,
-		title: 'Database Design',
-		description:
-			'Designing efficient database schemas and optimizing queries for performance.'
-	}
-];
+// Map certification categories to icons
+const iconMap = {
+	'Data Analytics': LineChart,
+	'Data Science': Database,
+	NLP: Globe,
+	Python: Code,
+	'Artificial Intelligence': Cpu,
+	Development: Code,
+	Devops: Server,
+	'ELK Stack': Layers
+};
+
+// Generate unique skills from certifications
+const uniqueCategories = Array.from(
+	new Set(certifications.map((cert) => cert.category))
+);
+
+const skills = uniqueCategories.map((category) => {
+	// Determine icon component, fallback to Code
+	const IconComponent = (iconMap[category as keyof typeof iconMap] ||
+		Code) as React.ElementType;
+	return {
+		icon: <IconComponent className='skill-icon' />,
+		title: category,
+		description: `Skills and expertise in ${category} gained through ${
+			certifications.filter((c) => c.category === category).length
+		} certification(s).`
+	};
+});
 
 export default function Skills({
 	limit,
