@@ -113,7 +113,7 @@ export default function PortfolioGrid() {
 										src={project.imageUrl || '/placeholder.svg'}
 										alt={project.title}
 										fill
-										style={{ objectFit: 'cover' }}
+										style={{ objectFit: 'cover', objectPosition: 'top' }}
 										className='transition-transform duration-300 ease-in-out group-hover:scale-105'
 									/>
 									<motion.div

@@ -79,43 +79,6 @@ export const certifications = [
 	},
 	{
 		id: 9,
-		title: 'AI Foundations for Everyone Specialization Certificate',
-		description:
-			'Fundamentals of Artificial Intelligence with real-world applications',
-		imageUrl: '/certifications/ai-foundations-ibm.webp',
-		category: 'Artificial Intelligence',
-		issuer: 'AI',
-		date: 'May 2025'
-	},
-	{
-		id: 10,
-		title: 'Applied Data Science Specialization Certificate',
-		description: 'Hands-on skills in data science with real-world applications',
-		imageUrl: '/certifications/applied-data-science-ibm.webp',
-		category: 'Data Science',
-		issuer: 'IBM',
-		date: 'April 2025'
-	},
-	{
-		id: 11,
-		title: 'Data Science Fundamentals Specialization Certificate',
-		description: 'Introduction to data science concepts and techniques',
-		imageUrl: '/certifications/data-science-fundamentals-ibm.webp',
-		category: 'Data Science',
-		issuer: 'IBM',
-		date: 'April 2025'
-	},
-	{
-		id: 12,
-		title: 'Introduction to Data Science Specialization Certificate',
-		description: 'Learn the basic techniques in data science and analysis',
-		imageUrl: '/certifications/intro-data-science-ibm.webp',
-		category: 'Data Science',
-		issuer: 'IBM',
-		date: 'April 2025'
-	},
-	{
-		id: 13,
 		title: 'Meta Back-End Developer Professional Certificate',
 		description:
 			'Building scalable back-end services using modern technologies',
@@ -125,7 +88,7 @@ export const certifications = [
 		date: 'September 2024'
 	},
 	{
-		id: 14,
+		id: 10,
 		title: 'Meta Front-End Developer Professional Certificate',
 		description: 'Developing modern, responsive front-end web applications',
 		imageUrl: '/certifications/meta-frontend-developer.webp',
@@ -134,7 +97,7 @@ export const certifications = [
 		date: 'August 2024'
 	},
 	{
-		id: 15,
+		id: 11,
 		title: 'Meta iOS Developer Professional Certificate',
 		description: 'Skills for developing native mobile apps for iOS platforms',
 		imageUrl: '/certifications/meta-ios-developer.webp',
@@ -143,7 +106,7 @@ export const certifications = [
 		date: 'March 2025'
 	},
 	{
-		id: 16,
+		id: 12,
 		title: 'Meta Database Engineer Professional Certificate',
 		description: 'Expertise in database management, design, and optimization',
 		imageUrl: '/certifications/meta-database-engineer.webp',
@@ -152,12 +115,49 @@ export const certifications = [
 		date: 'August 2024'
 	},
 	{
-		id: 17,
+		id: 13,
 		title: 'Meta React Native Professional Certificate',
 		description: 'Building cross-platform mobile apps using React Native',
 		imageUrl: '/certifications/meta-react-native.webp',
 		category: 'Development',
 		issuer: 'Meta',
+		date: 'April 2025'
+	},
+	{
+		id: 14,
+		title: 'AI Foundations for Everyone Specialization Certificate',
+		description:
+			'Fundamentals of Artificial Intelligence with real-world applications',
+		imageUrl: '/certifications/ai-foundations-ibm.webp',
+		category: 'Artificial Intelligence',
+		issuer: 'AI',
+		date: 'May 2025'
+	},
+	{
+		id: 15,
+		title: 'Applied Data Science Specialization Certificate',
+		description: 'Hands-on skills in data science with real-world applications',
+		imageUrl: '/certifications/applied-data-science-ibm.webp',
+		category: 'Data Science',
+		issuer: 'IBM',
+		date: 'April 2025'
+	},
+	{
+		id: 16,
+		title: 'Data Science Fundamentals Specialization Certificate',
+		description: 'Introduction to data science concepts and techniques',
+		imageUrl: '/certifications/data-science-fundamentals-ibm.webp',
+		category: 'Data Science',
+		issuer: 'IBM',
+		date: 'April 2025'
+	},
+	{
+		id: 17,
+		title: 'Introduction to Data Science Specialization Certificate',
+		description: 'Learn the basic techniques in data science and analysis',
+		imageUrl: '/certifications/intro-data-science-ibm.webp',
+		category: 'Data Science',
+		issuer: 'IBM',
 		date: 'April 2025'
 	},
 	{
