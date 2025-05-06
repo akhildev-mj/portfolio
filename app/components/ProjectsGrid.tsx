@@ -94,8 +94,8 @@ export default function ProjectsGrid({
 									<Image
 										src={project.imageUrl || '/placeholder.svg'}
 										alt={project.title}
-										layout='fill'
-										objectFit='cover'
+										fill
+										style={{ objectFit: 'cover' }}
 										className='transition-transform duration-300 ease-in-out group-hover:scale-105'
 									/>
 									<motion.div
@@ -177,8 +177,8 @@ export default function ProjectsGrid({
 									<Image
 										src={selectedProject.imageUrl || '/placeholder.svg'}
 										alt={selectedProject.title}
-										layout='fill'
-										objectFit='cover'
+										fill
+										style={{ objectFit: 'cover' }}
 										className='rounded-lg'
 									/>
 								</div>

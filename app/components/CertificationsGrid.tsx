@@ -93,8 +93,8 @@ export default function CertificationsGrid({
 									<Image
 										src={certificate.imageUrl || '/placeholder.svg'}
 										alt={certificate.title}
-										layout='fill'
-										objectFit='cover'
+										fill
+										style={{ objectFit: 'cover' }}
 										className='transition-transform duration-300 ease-in-out group-hover:scale-105'
 									/>
 									<motion.div
@@ -162,8 +162,8 @@ export default function CertificationsGrid({
 									<Image
 										src={selectedCertificate.imageUrl || '/placeholder.svg'}
 										alt={selectedCertificate.title}
-										layout='fill'
-										objectFit='contain'
+										fill
+										style={{ objectFit: 'contain' }}
 									/>
 								</div>
 								<div className='mt-4 text-center'>
