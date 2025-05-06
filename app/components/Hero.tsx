@@ -26,8 +26,11 @@ export default function Hero() {
 								className='btn btn-primary btn-rounded'>
 								View My Certifications
 							</Link>
-							<a href='#contact' className='btn btn-outline'>
-								Contact Me <span aria-hidden='true'>→</span>
+							<a
+								href='https://www.credly.com/users/akhildevmj'
+								className='btn btn-outline'
+								target='_blank'>
+								Credly Badges <span aria-hidden='true'>→</span>
 							</a>
 						</div>
 					</motion.div>

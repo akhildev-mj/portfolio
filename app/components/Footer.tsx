@@ -6,34 +6,27 @@ export default function Footer() {
 		<footer className='footer'>
 			<div className='footer-content'>
 				<nav className='footer-nav' aria-label='Footer'>
-					{[
-						'Home',
-						'About',
-						'Skills',
-						'Certifications',
-						'Projects',
-						'Contact'
-					].map((item) => (
-						<div key={item} className='footer-nav-item'>
-							<Link
-								href={
-									item === 'Home'
-										? '/'
-										: item === 'About'
-										? '/#about'
-										: item === 'Skills'
-										? '/skills'
-										: item === 'Projects'
-										? '/projects'
-										: item === 'Certifications'
-										? '/certifications'
-										: `/#${item.toLowerCase()}`
-								}
-								className='footer-link'>
-								{item}
-							</Link>
-						</div>
-					))}
+					{['Home', 'Skills', 'Certifications', 'Projects', 'Contact'].map(
+						(item) => (
+							<div key={item} className='footer-nav-item'>
+								<Link
+									href={
+										item === 'Home'
+											? '/'
+											: item === 'Skills'
+											? '/skills'
+											: item === 'Projects'
+											? '/projects'
+											: item === 'Certifications'
+											? '/certifications'
+											: `/#${item.toLowerCase()}`
+									}
+									className='footer-link'>
+									{item}
+								</Link>
+							</div>
+						)
+					)}
 				</nav>
 
 				<div className='social-links'>

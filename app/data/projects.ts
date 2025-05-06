@@ -36,18 +36,6 @@ export const projects = [
 			'https://github.com/akhildev-mj/IBM-Developing-AI-Applications-with-Python-and-Flask'
 	},
 	{
-		id: 3,
-		title: 'Google Advanced Data Analytics Final Project',
-		description:
-			'Projects and coursework for the Google Advanced Data Analytics Certification.',
-		imageUrl: '/projects/google-da.webp',
-		category: 'Data Science',
-		technologies: ['Python', 'SQL', 'Tableau', 'BigQuery'],
-		liveUrl: '',
-		githubUrl:
-			'https://github.com/akhildev-mj/Google-Advanced-Data-Analytics-Certification'
-	},
-	{
 		id: 4,
 		title: 'Polynomial Regression',
 		description:
