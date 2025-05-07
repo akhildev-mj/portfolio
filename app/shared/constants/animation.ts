@@ -1,1 +1,1 @@
-export const USE_IN_VIEW_AMOUNT = 0.15;
+export const USE_IN_VIEW_AMOUNT = 0.1;
