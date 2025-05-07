@@ -8,12 +8,7 @@ import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github } from 'lucide-react';
 import { DialogTitle } from '@radix-ui/react-dialog';
-import { projects } from '../data/projects';
-
-const categories = [
-	'All',
-	...new Set(projects.map((project) => project.category))
-];
+import { categories, projects } from '../data/projects';
 
 export default function ProjectsGrid({
 	limit,

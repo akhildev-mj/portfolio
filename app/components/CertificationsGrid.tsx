@@ -6,12 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { certifications } from '../data/certifications';
-
-const categories = [
-	'All',
-	...new Set(certifications.map((cert) => cert.category))
-];
+import { categories, certifications } from '../data/certifications';
 
 export default function CertificationsGrid({
 	limit,

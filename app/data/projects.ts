@@ -68,3 +68,19 @@ export const projects = [
 		githubUrl: 'https://github.com/akhildev-mj/portfolio'
 	}
 ];
+
+export const categories = [
+	'All',
+	...new Set(
+		Object.entries(
+			projects.reduce((acc, cert) => {
+				const category = cert.category;
+				if (acc[category]) acc[category]++;
+				else acc[category] = 1;
+				return acc;
+			}, {} as Record<string, number>)
+		)
+			.sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+			.map(([category]) => category)
+	)
+];
