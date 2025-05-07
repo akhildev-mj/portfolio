@@ -23,7 +23,7 @@ export default function CertificationsPage() {
 					</div>
 				</div>
 			</div>
-			<CertificationsGrid showHeading={false} />
+			<CertificationsGrid isHomePage={false} showHeading={false} />
 		</div>
 	);
 }

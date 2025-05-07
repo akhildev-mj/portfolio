@@ -8,6 +8,7 @@ import {
 	useSpring,
 	useInView
 } from 'framer-motion';
+import { USE_IN_VIEW_AMOUNT } from '../shared/constants';
 
 const timelineEvents = [
 	{
@@ -153,7 +154,7 @@ function TimelineEvent({
 	onToggle: () => void;
 }) {
 	const ref = useRef(null);
-	const isInView = useInView(ref, { once: true, amount: 0.5 });
+	const isInView = useInView(ref, { once: true, amount: USE_IN_VIEW_AMOUNT });
 
 	return (
 		<motion.div

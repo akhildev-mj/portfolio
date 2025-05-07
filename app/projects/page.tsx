@@ -22,7 +22,7 @@ export default function ProjectsPage() {
 					</div>
 				</div>
 			</div>
-			<ProjectsGrid showHeading={false} />
+			<ProjectsGrid isHomePage={false} showHeading={false} />
 		</div>
 	);
 }

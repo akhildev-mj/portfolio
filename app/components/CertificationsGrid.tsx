@@ -8,13 +8,16 @@ import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { categories, certifications } from '../data/certifications';
 import { ChevronRight } from 'lucide-react';
+import { USE_IN_VIEW_AMOUNT } from '../shared/constants';
 
 export default function CertificationsGrid({
+	isHomePage = true,
 	limit,
 	showHeading = true
 }: {
 	limit?: number;
 	showHeading?: boolean;
+	isHomePage?: boolean;
 }) {
 	const [filter, setFilter] = useState('All');
 	const [selectedCertificate, setSelectedCertificate] = useState<
@@ -22,7 +25,10 @@ export default function CertificationsGrid({
 	>(null);
 	const [isDialogOpen, setIsDialogOpen] = useState(false);
 	const sectionRef = useRef(null);
-	const isInView = useInView(sectionRef, { once: false, amount: 0.05 });
+
+	const isInView = isHomePage
+		? useInView(sectionRef, { once: false, amount: USE_IN_VIEW_AMOUNT })
+		: useInView(sectionRef, { once: true });
 
 	const filteredCertifications =
 		filter === 'All'
@@ -99,7 +105,7 @@ export default function CertificationsGrid({
 				<motion.div
 					variants={containerVariants}
 					initial='hidden'
-					animate={isInView ? 'visible' : 'hidden'}>
+					animate={isHomePage ? (isInView ? 'visible' : 'hidden') : 'visible'}>
 					{showHeading && (
 						<motion.div
 							className='text-center mb-8 sm:mb-12'

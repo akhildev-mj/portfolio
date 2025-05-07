@@ -1,7 +1,5 @@
 # 🚀 Akhildev MJ — Developer Portfolio
 
-![Screenshot](public/preview.png)
-
 A modern, responsive portfolio website built with **Next.js**, **Tailwind CSS**, and **Radix UI**. It showcases projects, certifications, and skills with elegant animations, charts, and interactive UI components.
 
 🌐 **Live Site**: [akhildev.vercel.app](https://akhildev.vercel.app)

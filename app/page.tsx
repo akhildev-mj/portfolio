@@ -10,8 +10,8 @@ export default function Home() {
 		<>
 			<Hero />
 			<AboutUs />
-			<CertificationsGrid limit={3} />
-			<ProjectsGrid limit={3} />
+			<CertificationsGrid limit={3} isHomePage={true} />
+			<ProjectsGrid limit={3} isHomePage={true} />
 			<div id='contact'>
 				<ContactForm />
 			</div>

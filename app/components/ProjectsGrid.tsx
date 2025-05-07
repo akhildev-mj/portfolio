@@ -8,13 +8,16 @@ import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github, ChevronRight } from 'lucide-react';
 import { categories, projects } from '../data/projects';
+import { USE_IN_VIEW_AMOUNT } from '../shared/constants';
 
 export default function ProjectsGrid({
+	isHomePage = true,
 	limit,
 	showHeading = true
 }: {
 	limit?: number;
 	showHeading?: boolean;
+	isHomePage?: boolean;
 }) {
 	const [filter, setFilter] = useState('All');
 	const [selectedProject, setSelectedProject] = useState<
@@ -22,7 +25,10 @@ export default function ProjectsGrid({
 	>(null);
 	const [isDialogOpen, setIsDialogOpen] = useState(false);
 	const sectionRef = useRef(null);
-	const isInView = useInView(sectionRef, { once: false, amount: 0.05 });
+
+	const isInView = isHomePage
+		? useInView(sectionRef, { once: false, amount: USE_IN_VIEW_AMOUNT })
+		: useInView(sectionRef, { once: true });
 
 	const filteredProjects =
 		filter === 'All'
@@ -99,7 +105,7 @@ export default function ProjectsGrid({
 				<motion.div
 					variants={containerVariants}
 					initial='hidden'
-					animate={isInView ? 'visible' : 'hidden'}>
+					animate={isHomePage ? (isInView ? 'visible' : 'hidden') : 'visible'}>
 					{showHeading && (
 						<motion.div
 							className='text-center mb-8 sm:mb-12'

@@ -12,10 +12,11 @@ import {
 	Globe,
 	ChevronRight
 } from 'lucide-react';
+import { USE_IN_VIEW_AMOUNT } from '../shared/constants';
 
 export default function AboutUs() {
 	const ref = useRef(null);
-	const isInView = useInView(ref, { once: false, amount: 0.3 });
+	const isInView = useInView(ref, { once: false, amount: USE_IN_VIEW_AMOUNT });
 
 	// Animation variants
 	const containerVariants = {
@@ -58,7 +59,7 @@ export default function AboutUs() {
 
 	const skillItemVariants = {
 		hidden: { opacity: 0, y: 15 },
-		visible: (i) => ({
+		visible: (i: number) => ({
 			opacity: 1,
 			y: 0,
 			transition: {
@@ -82,7 +83,7 @@ export default function AboutUs() {
 
 	const statNumberVariants = {
 		hidden: { opacity: 0, scale: 0.8 },
-		visible: (i) => ({
+		visible: (i: number) => ({
 			opacity: 1,
 			scale: 1,
 			transition: {
