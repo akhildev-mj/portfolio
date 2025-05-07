@@ -49,7 +49,6 @@ export default function ContactForm() {
 		setIsSubmitting(true);
 		// Simulate API call
 		setTimeout(() => {
-			console.log(values);
 			setIsSubmitting(false);
 			form.reset();
 			alert("Thank you for your message. We'll get back to you soon!");

@@ -46,7 +46,6 @@ export default function Contact() {
 		setIsSubmitting(true);
 		// Simulate API call
 		setTimeout(() => {
-			console.log(values);
 			setIsSubmitting(false);
 			toast({
 				title: 'Message sent!',

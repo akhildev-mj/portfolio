@@ -6,15 +6,15 @@ export default function Footer() {
 		<footer className='footer'>
 			<div className='footer-content'>
 				<nav className='footer-nav' aria-label='Footer'>
-					{['Home', 'Skills', 'Certifications', 'Projects', 'Contact'].map(
+					{['Home', 'About', 'Certifications', 'Projects', 'Contact'].map(
 						(item) => (
 							<div key={item} className='footer-nav-item'>
 								<Link
 									href={
 										item === 'Home'
 											? '/'
-											: item === 'Skills'
-											? '/skills'
+											: item === 'About'
+											? '/#about'
 											: item === 'Projects'
 											? '/projects'
 											: item === 'Certifications'

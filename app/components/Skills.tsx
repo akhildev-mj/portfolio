@@ -1,5 +1,7 @@
 'use client';
 
+import type React from 'react';
+
 import { motion } from 'framer-motion';
 import {
 	Database,
@@ -8,7 +10,6 @@ import {
 	Server,
 	Cpu,
 	Globe,
-	Lock,
 	Layers
 } from 'lucide-react';
 import Link from 'next/link';

@@ -2,25 +2,46 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { Award } from 'lucide-react';
 
 export default function Hero() {
+	// Animation variants for staggered animations
+	const containerVariants = {
+		hidden: { opacity: 0 },
+		visible: {
+			opacity: 1,
+			transition: {
+				staggerChildren: 0.3
+			}
+		}
+	};
+
+	const itemVariants = {
+		hidden: { opacity: 0, y: 20 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: { duration: 0.8 }
+		}
+	};
+
 	return (
 		<section className='hero-section'>
 			<div className='container'>
-				<div className='hero'>
-					<motion.div
-						className='hero-content'
-						initial={{ opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.8 }}>
-						<h1 className='hero-title'>
+				<motion.div
+					className='hero'
+					variants={containerVariants}
+					initial='hidden'
+					animate='visible'>
+					<motion.div className='hero-content' variants={itemVariants}>
+						<motion.h1 className='hero-title' variants={itemVariants}>
 							<span className='text-gradient'>Akhildev MJ</span>
-						</h1>
-						<p className='hero-description'>
+						</motion.h1>
+						<motion.p className='hero-description' variants={itemVariants}>
 							Data Scientist & Full Stack Developer crafting intelligent
 							solutions through code and analytics.
-						</p>
-						<div className='hero-actions'>
+						</motion.p>
+						<motion.div className='hero-actions' variants={itemVariants}>
 							<Link
 								href='/certifications'
 								className='btn btn-primary btn-rounded'>
@@ -28,25 +49,56 @@ export default function Hero() {
 							</Link>
 							<a
 								href='https://www.credly.com/users/akhildevmj'
-								className='btn btn-outline'
-								target='_blank'>
-								Credly Badges <span aria-hidden='true'>→</span>
+								className='group flex items-center gap-2 text-foreground hover:text-primary transition-colors px-2 py-3'
+								target='_blank'
+								rel='noreferrer'>
+								<Award className='h-5 w-5' />
+								<span className='relative font-medium'>
+									Credly Badges
+									<span className='absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full'></span>
+								</span>
 							</a>
-						</div>
+						</motion.div>
 					</motion.div>
 					<motion.div
 						className='hero-image'
-						initial={{ opacity: 0, x: 20 }}
-						animate={{ opacity: 1, x: 0 }}
-						transition={{ duration: 0.8, delay: 0.6 }}>
+						variants={itemVariants}
+						whileHover={{ scale: 1.03 }}
+						transition={{ type: 'spring', stiffness: 300, damping: 15 }}>
 						<img
 							src='/hero.webp'
 							alt='Data visualization'
 							className='hero-img'
 						/>
 					</motion.div>
-				</div>
+				</motion.div>
 			</div>
+
+			{/* Animated background elements */}
+			<motion.div
+				className='absolute -top-20 -right-20 w-64 h-64 rounded-full bg-primary/5 z-0'
+				animate={{
+					scale: [1, 1.2, 1],
+					rotate: [0, 90, 0]
+				}}
+				transition={{
+					duration: 20,
+					repeat: Number.POSITIVE_INFINITY,
+					repeatType: 'reverse'
+				}}
+			/>
+			<motion.div
+				className='absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-primary/5 z-0'
+				animate={{
+					scale: [1, 1.1, 1],
+					rotate: [0, -45, 0]
+				}}
+				transition={{
+					duration: 25,
+					repeat: Number.POSITIVE_INFINITY,
+					repeatType: 'reverse'
+				}}
+			/>
 		</section>
 	);
 }

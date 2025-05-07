@@ -33,7 +33,6 @@ export default function NewsletterSubscribe() {
 		setIsSubmitting(true);
 		// Simulate API call
 		setTimeout(() => {
-			console.log(values);
 			setIsSubmitting(false);
 			form.reset();
 			alert('Thank you for subscribing to our newsletter!');

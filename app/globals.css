@@ -219,6 +219,47 @@
 	.copyright {
 		@apply mt-8 text-center text-xs sm:text-sm leading-5 text-muted-foreground;
 	}
+
+	/* Add this to your globals.css file to ensure the About section styling is consistent */
+	.about-section {
+		@apply py-16 md:py-20 bg-background relative overflow-hidden;
+	}
+
+	.about-grid {
+		@apply grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12;
+	}
+
+	.skill-item {
+		@apply flex items-start gap-3;
+	}
+
+	.skill-icon {
+		@apply h-6 w-6 text-primary mt-0.5;
+	}
+
+	.skill-content h4 {
+		@apply font-semibold;
+	}
+
+	.skill-content p {
+		@apply text-sm text-muted-foreground;
+	}
+
+	.stats-container {
+		@apply mt-12 pt-8 border-t border-border;
+	}
+
+	.stats-grid {
+		@apply grid grid-cols-2 sm:grid-cols-4 gap-6 text-center;
+	}
+
+	.stat-number {
+		@apply text-3xl sm:text-4xl font-bold text-primary;
+	}
+
+	.stat-label {
+		@apply text-sm sm:text-base text-muted-foreground;
+	}
 }
 
 /* Custom animations */
@@ -250,4 +291,101 @@
 /* Section title */
 .section-title {
 	@apply text-3xl font-bold mb-8 text-center text-foreground sm:text-4xl md:text-5xl md:mb-12;
+}
+
+/* Enhanced animations */
+@keyframes pulse {
+	0%,
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	50% {
+		opacity: 0.8;
+		transform: scale(1.05);
+	}
+}
+
+@keyframes bounce {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes slideUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.animate-pulse {
+	animation: pulse 3s ease-in-out infinite;
+}
+
+.animate-bounce {
+	animation: bounce 2s ease-in-out infinite;
+}
+
+.animate-fade-in {
+	animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-slide-up {
+	animation: slideUp 0.8s ease-out forwards;
+}
+
+/* Hover animations */
+.hover-lift {
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+		0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.hover-scale {
+	transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+	transform: scale(1.05);
+}
+
+.link-underline {
+	position: relative;
+}
+
+.link-underline:after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 2px;
+	bottom: -2px;
+	left: 0;
+	background-color: hsl(var(--primary));
+	transition: width 0.3s ease;
+}
+
+.link-underline:hover:after {
+	width: 100%;
 }
