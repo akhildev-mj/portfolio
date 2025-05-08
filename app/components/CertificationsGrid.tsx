@@ -313,7 +313,7 @@ export default function CertificationsGrid({
 									src={selectedCertification.imageUrl || '/placeholder.svg'}
 									alt={selectedCertification.title}
 									fill
-									style={{ objectFit: 'cover', objectPosition: 'top' }}
+									style={{ objectFit: 'contain' }}
 									className='rounded-lg'
 								/>
 							</div>

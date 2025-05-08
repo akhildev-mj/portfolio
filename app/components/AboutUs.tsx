@@ -162,8 +162,7 @@ export default function AboutUs() {
 									{
 										icon: <LineChart className='h-6 w-6 text-primary mt-0.5' />,
 										title: 'Data Visualization',
-										description:
-											'Tableau, D3.js, Python visualization libraries'
+										description: 'Tableau, Python visualization libraries'
 									},
 									{
 										icon: <Cpu className='h-6 w-6 text-primary mt-0.5' />,
