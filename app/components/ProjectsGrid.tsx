@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useRef } from 'react';
-import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
@@ -9,6 +9,9 @@ import { Button } from '@/components/ui/button';
 import { ExternalLink, Github, ChevronRight } from 'lucide-react';
 import { categories, projects } from '../data/projects';
 import { USE_IN_VIEW_AMOUNT } from '../shared/constants';
+
+// Add this utility class for hiding scrollbars while allowing scrolling
+const scrollbarHideClass = 'scrollbar-hide';
 
 export default function ProjectsGrid({
 	isHomePage = true,
@@ -25,10 +28,32 @@ export default function ProjectsGrid({
 	>(null);
 	const [isDialogOpen, setIsDialogOpen] = useState(false);
 	const sectionRef = useRef(null);
+	const [isInView, setIsInView] = useState(false);
 
-	const isInView = isHomePage
-		? useInView(sectionRef, { once: false, amount: USE_IN_VIEW_AMOUNT })
-		: useInView(sectionRef, { once: true });
+	useEffect(() => {
+		if (sectionRef.current) {
+			const observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							setIsInView(true);
+						} else {
+							if (isHomePage) {
+								setIsInView(false);
+							}
+						}
+					});
+				},
+				{
+					threshold: isHomePage ? USE_IN_VIEW_AMOUNT : 0
+				}
+			);
+
+			observer.observe(sectionRef.current);
+
+			return () => observer.disconnect();
+		}
+	}, [isHomePage]);
 
 	const filteredProjects =
 		filter === 'All'
@@ -120,22 +145,27 @@ export default function ProjectsGrid({
 					)}
 
 					<motion.div
-						className='flex justify-start sm:justify-center space-x-2 sm:space-x-4 mb-6 sm:mb-8 overflow-x-auto pb-4'
+						className='w-full relative mb-6 sm:mb-8'
 						variants={filterVariants}>
-						{categories.map((category) => (
-							<motion.button
-								key={category}
-								onClick={() => setFilter(category)}
-								className={`px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
-									filter === category
-										? 'bg-primary text-primary-foreground'
-										: 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
-								}`}
-								whileHover={{ scale: 1.05 }}
-								whileTap={{ scale: 0.95 }}>
-								{category}
-							</motion.button>
-						))}
+						<div className='flex overflow-x-auto pb-4 scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0 sm:justify-center'>
+							<div className='flex space-x-2 sm:space-x-4 min-w-max'>
+								{categories.map((category) => (
+									<motion.button
+										key={category}
+										onClick={() => setFilter(category)}
+										className={`px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
+											filter === category
+												? 'bg-primary text-primary-foreground'
+												: 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
+										}`}
+										whileHover={{ scale: 1.05 }}
+										whileTap={{ scale: 0.95 }}>
+										{category}
+									</motion.button>
+								))}
+							</div>
+						</div>
+						<div className='absolute left-0 right-0 bottom-0 h-4 pointer-events-none bg-gradient-to-t from-background to-transparent sm:hidden'></div>
 					</motion.div>
 
 					<motion.div
@@ -363,6 +393,18 @@ export default function ProjectsGrid({
 					)}
 				</DialogContent>
 			</Dialog>
+			<style jsx>{styles}</style>
 		</section>
 	);
 }
+
+// Add this style to the component
+const styles = `
+    .scrollbar-hide {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;  /* Chrome, Safari and Opera */
+    }
+  `;

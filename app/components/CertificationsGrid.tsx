@@ -1,14 +1,17 @@
 'use client';
 
-import { useState, useRef } from 'react';
-import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { categories, certifications } from '../data/certifications';
 import { ChevronRight } from 'lucide-react';
+import { certifications } from '../data/certifications';
 import { USE_IN_VIEW_AMOUNT } from '../shared/constants';
+
+// Add this utility class for hiding scrollbars while allowing scrolling
+const scrollbarHideClass = 'scrollbar-hide';
 
 export default function CertificationsGrid({
 	isHomePage = true,
@@ -20,27 +23,53 @@ export default function CertificationsGrid({
 	isHomePage?: boolean;
 }) {
 	const [filter, setFilter] = useState('All');
-	const [selectedCertificate, setSelectedCertificate] = useState<
+	const [selectedCertification, setSelectedCertification] = useState<
 		(typeof certifications)[0] | null
 	>(null);
 	const [isDialogOpen, setIsDialogOpen] = useState(false);
 	const sectionRef = useRef(null);
+	const [isInView, setIsInView] = useState(false);
 
-	const isInView = isHomePage
-		? useInView(sectionRef, { once: false, amount: USE_IN_VIEW_AMOUNT })
-		: useInView(sectionRef, { once: true });
+	useEffect(() => {
+		if (sectionRef.current) {
+			const observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							setIsInView(true);
+						} else {
+							if (isHomePage) {
+								setIsInView(false);
+							}
+						}
+					});
+				},
+				{
+					threshold: isHomePage ? USE_IN_VIEW_AMOUNT : 0
+				}
+			);
+
+			observer.observe(sectionRef.current);
+
+			return () => observer.disconnect();
+		}
+	}, [isHomePage]);
 
 	const filteredCertifications =
 		filter === 'All'
 			? certifications
-			: certifications.filter((cert) => cert.category === filter);
+			: certifications.filter(
+					(certification) => certification.category === filter
+			  );
 
 	const displayedCertifications = limit
 		? filteredCertifications.slice(0, limit)
 		: filteredCertifications;
 
-	const handleCertificateClick = (certificate: (typeof certifications)[0]) => {
-		setSelectedCertificate(certificate);
+	const handleCertificationClick = (
+		certification: (typeof certifications)[0]
+	) => {
+		setSelectedCertification(certification);
 		setIsDialogOpen(true);
 	};
 
@@ -96,6 +125,22 @@ export default function CertificationsGrid({
 		}
 	};
 
+	const categories = [
+		'All',
+		...new Set(
+			Object.entries(
+				certifications.reduce((acc, cert) => {
+					const category = cert.category;
+					if (acc[category]) acc[category]++;
+					else acc[category] = 1;
+					return acc;
+				}, {} as Record<string, number>)
+			)
+				.sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+				.map(([category]) => category)
+		)
+	];
+
 	return (
 		<section
 			id='certifications'
@@ -114,82 +159,93 @@ export default function CertificationsGrid({
 								My Certifications
 							</h2>
 							<p className='mt-4 text-sm sm:text-lg text-muted-foreground'>
-								Professional certifications and achievements in data science and
-								development
+								A showcase of my professional certifications and achievements
 							</p>
 						</motion.div>
 					)}
 
 					<motion.div
-						className='flex justify-start sm:justify-center space-x-2 sm:space-x-4 mb-6 sm:mb-8 overflow-x-auto pb-4'
+						className='w-full relative mb-6 sm:mb-8'
 						variants={filterVariants}>
-						{categories.map((category) => (
-							<motion.button
-								key={category}
-								onClick={() => setFilter(category)}
-								className={`px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
-									filter === category
-										? 'bg-primary text-primary-foreground'
-										: 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
-								}`}
-								whileHover={{ scale: 1.05 }}
-								whileTap={{ scale: 0.95 }}>
-								{category}
-							</motion.button>
-						))}
+						<div className='flex overflow-x-auto pb-4 scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0 sm:justify-center'>
+							<div className='flex space-x-2 sm:space-x-4 min-w-max'>
+								{categories.map((category) => (
+									<motion.button
+										key={category}
+										onClick={() => setFilter(category)}
+										className={`px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
+											filter === category
+												? 'bg-primary text-primary-foreground'
+												: 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
+										}`}
+										whileHover={{ scale: 1.05 }}
+										whileTap={{ scale: 0.95 }}>
+										{category}
+									</motion.button>
+								))}
+							</div>
+						</div>
+						<div className='absolute left-0 right-0 bottom-0 h-4 pointer-events-none bg-gradient-to-t from-background to-transparent sm:hidden'></div>
 					</motion.div>
 
 					<motion.div
 						layout
 						className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8'>
 						<AnimatePresence>
-							{displayedCertifications.map((certificate, index) => (
+							{displayedCertifications.map((certification, index) => (
 								<motion.div
-									key={certificate.id}
+									key={certification.id}
 									layout
 									variants={itemVariants}
 									custom={index}
 									className='bg-background rounded-2xl sm:rounded-3xl shadow-lg overflow-hidden hover-lift transition-all duration-300 ease-in-out border-2 border-transparent hover:border-primary/10'>
 									<div
 										className='relative h-48 sm:h-64 overflow-hidden cursor-pointer'
-										onClick={() => handleCertificateClick(certificate)}>
+										onClick={() => handleCertificationClick(certification)}>
 										<Image
-											src={certificate.imageUrl || '/placeholder.svg'}
-											alt={certificate.title}
+											src={certification.imageUrl || '/placeholder.svg'}
+											alt={certification.title}
 											fill
 											style={{ objectFit: 'cover', objectPosition: 'top' }}
-											className='transition-transform duration-300 ease-in-out group-hover:scale-105'
+											className='transition-transform duration-300 ease-in-out hover:scale-105'
 										/>
 										<motion.div
 											className='absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300'
 											whileHover={{ opacity: 1 }}>
 											<p className='text-white text-center px-4 text-sm sm:text-base'>
-												Click to view certificate
+												Click to view details
 											</p>
 										</motion.div>
 									</div>
 									<div className='p-4 sm:p-6'>
 										<div className='text-xs sm:text-sm font-medium text-primary mb-1'>
-											{certificate.category}
+											{certification.category}
 										</div>
 										<h3 className='text-base sm:text-xl font-semibold text-foreground mb-2'>
-											{certificate.title}
+											{certification.title}
 										</h3>
-										<p className='text-xs sm:text-sm text-muted-foreground mb-4'>
-											{certificate.issuer} • {certificate.date}
+										<p className='text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4'>
+											{certification.description}
 										</p>
-										<motion.button
-											onClick={() => handleCertificateClick(certificate)}
-											className='text-primary hover:underline inline-flex items-center text-sm group'
-											whileHover={{ x: 5 }}
-											transition={{
-												type: 'spring',
-												stiffness: 400,
-												damping: 10
-											}}>
-											View Certificate
-											<ChevronRight className='w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2 transform group-hover:translate-x-1 transition-transform' />
-										</motion.button>
+										<div className='flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4'>
+											<span className='text-[10px] sm:text-xs bg-secondary text-secondary-foreground px-2 py-1 rounded-full'>
+												{certification.issuer}
+											</span>
+										</div>
+										<div className='flex justify-between'>
+											<motion.button
+												onClick={() => handleCertificationClick(certification)}
+												className='text-primary hover:underline inline-flex items-center text-sm group'
+												whileHover={{ x: 5 }}
+												transition={{
+													type: 'spring',
+													stiffness: 400,
+													damping: 10
+												}}>
+												View Details
+												<ChevronRight className='w-3 h-3 sm:w-4 sm:h-4 ml-1 transform group-hover:translate-x-1 transition-transform' />
+											</motion.button>
+										</div>
 									</div>
 								</motion.div>
 							))}
@@ -217,25 +273,25 @@ export default function CertificationsGrid({
 
 			{/* Animated background elements */}
 			<motion.div
-				className='absolute -top-16 -left-16 w-32 h-32 rounded-full bg-primary/5 z-0 hidden md:block'
+				className='absolute top-40 right-10 w-40 h-40 rounded-full bg-primary/5 z-0 hidden md:block'
 				animate={{
 					scale: [1, 1.2, 1],
-					rotate: [0, 45, 0]
+					rotate: [0, -30, 0]
 				}}
 				transition={{
-					duration: 12,
+					duration: 18,
 					repeat: Number.POSITIVE_INFINITY,
 					repeatType: 'reverse'
 				}}
 			/>
 			<motion.div
-				className='absolute bottom-20 right-10 w-24 h-24 rounded-full bg-primary/5 z-0 hidden md:block'
+				className='absolute -bottom-20 -left-20 w-60 h-60 rounded-full bg-primary/5 z-0 hidden md:block'
 				animate={{
-					scale: [1, 1.3, 1],
-					rotate: [0, -30, 0]
+					scale: [1, 1.1, 1],
+					rotate: [0, 20, 0]
 				}}
 				transition={{
-					duration: 15,
+					duration: 20,
 					repeat: Number.POSITIVE_INFINITY,
 					repeatType: 'reverse'
 				}}
@@ -243,35 +299,56 @@ export default function CertificationsGrid({
 
 			<Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
 				<DialogContent className='max-w-4xl w-[95vw] sm:w-[90vw] max-h-[90vh] overflow-auto'>
-					{selectedCertificate && (
+					{selectedCertification && (
 						<motion.div
-							className='flex flex-col items-center'
+							className='flex flex-col'
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.4 }}>
-							<h3 className='text-lg sm:text-xl font-bold mb-4'>
-								{selectedCertificate.title}
+							<h3 className='text-lg sm:text-2xl font-bold mb-4'>
+								{selectedCertification.title}
 							</h3>
-							<div className='relative w-full h-[40vh] sm:h-[60vh]'>
+							<div className='relative w-full h-[30vh] sm:h-[40vh]'>
 								<Image
-									src={selectedCertificate.imageUrl || '/placeholder.svg'}
-									alt={selectedCertificate.title}
+									src={selectedCertification.imageUrl || '/placeholder.svg'}
+									alt={selectedCertification.title}
 									fill
-									style={{ objectFit: 'contain' }}
+									style={{ objectFit: 'cover', objectPosition: 'top' }}
+									className='rounded-lg'
 								/>
 							</div>
-							<div className='mt-4 text-center'>
-								<p className='text-sm text-muted-foreground'>
-									{selectedCertificate.issuer} • {selectedCertificate.date}
+							<div className='mt-4 sm:mt-6'>
+								<p className='text-sm sm:text-base text-muted-foreground mb-4'>
+									{selectedCertification.description}
 								</p>
-								<p className='mt-2 text-sm sm:text-base'>
-									{selectedCertificate.description}
-								</p>
+
+								<h4 className='font-semibold mb-2 text-sm sm:text-base'>
+									Issuer:
+								</h4>
+								<div className='flex flex-wrap gap-1 sm:gap-2 mb-4 sm:mb-6'>
+									<span className='text-xs sm:text-sm bg-secondary text-secondary-foreground px-2 sm:px-3 py-1 rounded-full'>
+										{selectedCertification.issuer}
+									</span>
+								</div>
+
+								<div className='flex flex-col sm:flex-row gap-3 sm:gap-4 mt-4'></div>
 							</div>
 						</motion.div>
 					)}
 				</DialogContent>
 			</Dialog>
+			<style jsx>{styles}</style>
 		</section>
 	);
 }
+
+// Add this style to the component
+const styles = `
+    .scrollbar-hide {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;  /* Chrome, Safari and Opera */
+    }
+  `;
