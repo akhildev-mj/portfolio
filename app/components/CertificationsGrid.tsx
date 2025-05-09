@@ -203,7 +203,12 @@ export default function CertificationsGrid({
 										className='relative h-48 sm:h-64 overflow-hidden cursor-pointer'
 										onClick={() => handleCertificationClick(certification)}>
 										<Image
-											src={certification.imageUrl || '/placeholder.svg'}
+											src={certification.imageUrl
+												.replace('.jpeg', '_t.jpeg')
+												.replace(
+													'/certifications/',
+													'/certifications/thumbnails/'
+												)}
 											alt={certification.title}
 											fill
 											style={{ objectFit: 'cover', objectPosition: 'top' }}
