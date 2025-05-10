@@ -12,7 +12,7 @@
 	--popover-foreground: 222.2 84% 4.9%;
 	--primary: 270 76% 53%;
 	--primary-foreground: 0 0% 100%;
-	--secondary: 270 76% 53%;
+	--secondary: 270 20% 16%;
 	--secondary-foreground: 0 0% 100%;
 	--muted: 270 20% 96%;
 	--muted-foreground: 270 10% 40%;
@@ -84,7 +84,7 @@
 	}
 
 	.hero-img {
-		@apply w-full max-w-md mx-auto rounded-lg shadow-lg;
+		@apply w-full max-w-md mx-auto rounded-lg;
 	}
 
 	/* Skills section */
@@ -168,11 +168,11 @@
 	}
 
 	.mobile-nav-overlay {
-		@apply bg-black/60 absolute inset-0;
+		@apply absolute inset-0;
 	}
 
 	.mobile-nav {
-		@apply relative w-64 bg-background shadow-lg h-full;
+		@apply relative w-auto min-w-[200px] max-w-[250px] bg-accent shadow-lg h-full;
 	}
 
 	.mobile-nav-header {
@@ -184,7 +184,7 @@
 	}
 
 	.nav-links {
-		@apply flex flex-col bg-background  px-6 py-4 gap-6;
+		@apply flex flex-col bg-accent px-6 py-2 gap-6;
 	}
 
 	/* Footer */
@@ -259,6 +259,45 @@
 
 	.stat-label {
 		@apply text-sm sm:text-base text-muted-foreground;
+	}
+
+	/* Add styles for theme toggle */
+	.theme-toggle {
+		@apply p-2 rounded-full transition-colors duration-200;
+		@apply hover:bg-accent hover:text-accent-foreground;
+		@apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
+	}
+
+	/* Improve category selection scrolling */
+	.category-scroll {
+		@apply flex overflow-x-auto pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 sm:justify-center;
+		scroll-behavior: smooth;
+		-webkit-overflow-scrolling: touch;
+		/* Hide scrollbar for Chrome, Safari and Opera */
+		&::-webkit-scrollbar {
+			display: none;
+		}
+		/* Hide scrollbar for IE, Edge and Firefox */
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+	}
+
+	.category-scroll-inner {
+		@apply flex space-x-2 sm:space-x-4 min-w-max;
+		padding-bottom: 4px; /* Prevent scrollbar from showing */
+	}
+
+	.category-button {
+		@apply px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-colors whitespace-nowrap;
+		@apply hover:scale-105 active:scale-95 transition-transform duration-200;
+	}
+
+	.category-button-active {
+		@apply bg-primary text-primary-foreground;
+	}
+
+	.category-button-inactive {
+		@apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
 	}
 }
 
@@ -388,4 +427,93 @@
 
 .link-underline:hover:after {
 	width: 100%;
+}
+
+/* Improved animations */
+@keyframes fadeInFast {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes slideUpFast {
+	from {
+		opacity: 0;
+		transform: translateY(15px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes slideInLeftFast {
+	from {
+		opacity: 0;
+		transform: translateX(-15px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideInRightFast {
+	from {
+		opacity: 0;
+		transform: translateX(15px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.animate-fade-in-fast {
+	animation: fadeInFast 0.4s ease-out forwards;
+}
+
+.animate-slide-up-fast {
+	animation: slideUpFast 0.4s ease-out forwards;
+}
+
+.animate-slide-in-left-fast {
+	animation: slideInLeftFast 0.4s ease-out forwards;
+}
+
+.animate-slide-in-right-fast {
+	animation: slideInRightFast 0.4s ease-out forwards;
+}
+
+/* Smoother transitions */
+.transition-fast {
+	transition-duration: 0.2s;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-medium {
+	transition-duration: 0.3s;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Improved hover effects */
+.hover-lift-fast {
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift-fast:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.1),
+		0 6px 8px -5px rgba(0, 0, 0, 0.1);
+}
+
+.hover-scale-fast {
+	transition: transform 0.2s ease;
+}
+
+.hover-scale-fast:hover {
+	transform: scale(1.03);
 }

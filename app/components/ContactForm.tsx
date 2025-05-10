@@ -101,8 +101,8 @@ export default function ContactForm() {
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
 					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: true, amount: 0.1 }}
-					transition={{ duration: 0.8 }}
+					viewport={{ once: false, amount: 0.3 }}
+					transition={{ duration: 0.6 }}
 					className='text-center mb-8 sm:mb-12'>
 					<h2 className='text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4'>
 						Get in Touch
@@ -117,7 +117,7 @@ export default function ContactForm() {
 					variants={containerVariants}
 					initial='hidden'
 					whileInView='visible'
-					viewport={{ once: true, amount: 0.1 }}
+					viewport={{ once: false, amount: 0.3 }}
 					className='bg-background border border-border rounded-xl p-4 sm:p-6 shadow-sm'>
 					{isSubmitted ? (
 						<motion.div

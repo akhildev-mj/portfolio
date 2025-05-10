@@ -27,7 +27,7 @@ export default function CertificationsGrid({
 		(typeof certifications)[0] | null
 	>(null);
 	const [isDialogOpen, setIsDialogOpen] = useState(false);
-	const sectionRef = useRef(null);
+	const [sectionRef] = useState(useRef(null));
 	const [isInView, setIsInView] = useState(false);
 
 	useEffect(() => {
@@ -167,16 +167,16 @@ export default function CertificationsGrid({
 					<motion.div
 						className='w-full relative mb-6 sm:mb-8'
 						variants={filterVariants}>
-						<div className='flex overflow-x-auto pb-4 scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0 sm:justify-center'>
-							<div className='flex space-x-2 sm:space-x-4 min-w-max'>
+						<div className='category-scroll'>
+							<div className='category-scroll-inner'>
 								{categories.map((category) => (
 									<motion.button
 										key={category}
 										onClick={() => setFilter(category)}
-										className={`px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
+										className={`category-button ${
 											filter === category
-												? 'bg-primary text-primary-foreground'
-												: 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
+												? 'category-button-active'
+												: 'category-button-inactive'
 										}`}
 										whileHover={{ scale: 1.05 }}
 										whileTap={{ scale: 0.95 }}>
@@ -203,12 +203,14 @@ export default function CertificationsGrid({
 										className='relative h-48 sm:h-64 overflow-hidden cursor-pointer'
 										onClick={() => handleCertificationClick(certification)}>
 										<Image
-											src={certification.imageUrl
-												.replace('.jpeg', '_t.jpeg')
-												.replace(
-													'/certifications/',
-													'/certifications/thumbnails/'
-												)}
+											src={
+												certification.imageUrl
+													.replace('.jpeg', '_t.jpeg')
+													.replace(
+														'/certifications/',
+														'/certifications/thumbnails/'
+													) || '/placeholder.svg'
+											}
 											alt={certification.title}
 											fill
 											style={{ objectFit: 'cover', objectPosition: 'top' }}
@@ -356,4 +358,48 @@ const styles = `
     .scrollbar-hide::-webkit-scrollbar {
       display: none;  /* Chrome, Safari and Opera */
     }
+
+    .category-scroll {
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Hide scrollbar for Firefox */
+      -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+    }
+
+    .category-scroll::-webkit-scrollbar {
+      display: none; /* Hide scrollbar for Chrome, Safari and Opera */
+    }
+
+    .category-scroll-inner {
+      display: flex;
+      padding-bottom: 10px; /* Add some space for the shadow */
+    }
+
+    .category-button {
+      scroll-snap-align: start;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: all 0.2s ease-in-out;
+      margin: 0 4px;
+      cursor: pointer;
+      border: none;
+      outline: none;
+
+			
+    }
+
+    .category-button-active {
+		  background-color: hsl(var(--primary));
+      color:hsl(var(--primary-foreground));
+    }
+
+		.category-button-inactive {
+			background-color: hsl(var(--secondary));
+			color: hsl(var(--secondary-foreground));
+		}
   `;

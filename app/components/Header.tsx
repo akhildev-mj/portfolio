@@ -3,11 +3,13 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
+import { useTheme } from 'next-themes';
 
 export default function Header() {
 	const [mounted, setMounted] = useState(false);
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const { resolvedTheme, setTheme } = useTheme();
 
 	useEffect(() => setMounted(true), []);
 
@@ -19,6 +21,10 @@ export default function Header() {
 		{ name: 'Contact', href: '/#contact' }
 	];
 
+	const toggleTheme = () => {
+		setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
+	};
+
 	const menuVariants = {
 		closed: {
 			opacity: 0,
@@ -26,9 +32,9 @@ export default function Header() {
 			transition: {
 				type: 'spring',
 				stiffness: 400,
-				damping: 40,
+				damping: 20,
 				when: 'afterChildren',
-				staggerChildren: 0.05,
+				staggerChildren: 0.015,
 				staggerDirection: -1
 			}
 		},
@@ -38,10 +44,10 @@ export default function Header() {
 			transition: {
 				type: 'spring',
 				stiffness: 400,
-				damping: 40,
+				damping: 20,
 				when: 'beforeChildren',
-				staggerChildren: 0.1,
-				delayChildren: 0.2
+				staggerChildren: 0.02,
+				delayChildren: 0.01
 			}
 		}
 	};
@@ -49,39 +55,17 @@ export default function Header() {
 	const menuItemVariants = {
 		closed: {
 			opacity: 0,
-			x: 20,
-			transition: {
-				type: 'spring',
-				stiffness: 400,
-				damping: 40
-			}
+			x: 20
 		},
 		open: {
 			opacity: 1,
-			x: 0,
-			transition: {
-				type: 'spring',
-				stiffness: 400,
-				damping: 40
-			}
+			x: 0
 		}
 	};
 
 	const overlayVariants = {
-		closed: {
-			opacity: 0,
-			transition: {
-				duration: 0.3,
-				ease: 'easeInOut'
-			}
-		},
-		open: {
-			opacity: 1,
-			transition: {
-				duration: 0.3,
-				ease: 'easeInOut'
-			}
-		}
+		closed: { opacity: 0, transition: { duration: 0.1, ease: 'easeInOut' } },
+		open: { opacity: 1, transition: { duration: 0.1, ease: 'easeInOut' } }
 	};
 
 	return (
@@ -89,7 +73,7 @@ export default function Header() {
 			className='header'
 			initial={{ y: -100 }}
 			animate={{ y: 0 }}
-			transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>
+			transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}>
 			<div className='container'>
 				<nav className='header-inner' aria-label='Global'>
 					<div className='logo-container'>
@@ -98,7 +82,7 @@ export default function Header() {
 							<motion.span
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
-								transition={{ duration: 0.6, delay: 0.2 }}>
+								transition={{ duration: 0.3, delay: 0.1 }}>
 								Akhildev MJ
 							</motion.span>
 						</Link>
@@ -111,12 +95,26 @@ export default function Header() {
 								key={item.name}
 								initial={{ opacity: 0, y: -10 }}
 								animate={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.4, delay: 0.1 + index * 0.1 }}>
+								transition={{ duration: 0.2, delay: 0.05 + index * 0.05 }}>
 								<Link href={item.href} className='nav-link'>
 									{item.name}
 								</Link>
 							</motion.div>
 						))}
+
+						{/* Theme Toggle */}
+						{mounted && (
+							<button
+								onClick={toggleTheme}
+								className='theme-toggle'
+								aria-label='Toggle theme'>
+								{resolvedTheme === 'dark' ? (
+									<Sun className='h-5 w-5' />
+								) : (
+									<Moon className='h-5 w-5' />
+								)}
+							</button>
+						)}
 					</div>
 
 					{/* Mobile Navigation */}
@@ -130,7 +128,6 @@ export default function Header() {
 							<span className='sr-only'>Open menu</span>
 						</motion.button>
 
-						{/* Mobile Menu Overlay */}
 						<AnimatePresence>
 							{isMenuOpen && (
 								<div className='mobile-nav-wrapper'>
@@ -140,7 +137,9 @@ export default function Header() {
 										variants={overlayVariants}
 										initial='closed'
 										animate='open'
-										exit='closed'></motion.div>
+										exit='closed'
+									/>
+
 									<motion.div
 										className='mobile-nav'
 										variants={menuVariants}
@@ -157,17 +156,13 @@ export default function Header() {
 												<span className='sr-only'>Close menu</span>
 											</motion.button>
 										</div>
+
 										<div className='nav-links'>
 											{navItems.map((item) => (
 												<motion.div
 													key={item.name}
 													variants={menuItemVariants}
-													whileHover={{ x: 5 }}
-													transition={{
-														type: 'spring',
-														stiffness: 400,
-														damping: 10
-													}}>
+													whileHover={{ x: 5 }}>
 													<Link
 														href={item.href}
 														className='nav-link'
@@ -176,6 +171,23 @@ export default function Header() {
 													</Link>
 												</motion.div>
 											))}
+
+											{mounted && (
+												<motion.div
+													variants={menuItemVariants}
+													className='flex items-center'>
+													<button
+														onClick={toggleTheme}
+														className='nav-link flex items-center'
+														aria-label='Toggle theme'>
+														{resolvedTheme === 'dark' ? (
+															<Sun className='h-5 w-5' />
+														) : (
+															<Moon className='h-5 w-5' />
+														)}
+													</button>
+												</motion.div>
+											)}
 										</div>
 									</motion.div>
 								</div>

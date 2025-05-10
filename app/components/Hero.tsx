@@ -111,7 +111,7 @@ export default function Hero() {
 						<img
 							src='/hero.webp'
 							alt='Data visualization'
-							className='hero-img shadow-xl'
+							className='hero-img'
 						/>
 					</motion.div>
 				</motion.div>

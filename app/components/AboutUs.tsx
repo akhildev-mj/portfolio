@@ -40,19 +40,19 @@ export default function AboutUs() {
 	};
 
 	const leftColumnVariants = {
-		hidden: { opacity: 0, x: -50 },
+		hidden: { opacity: 0, y: 50 },
 		visible: {
 			opacity: 1,
-			x: 0,
+			y: 0,
 			transition: { duration: 0.8, ease: 'easeOut' }
 		}
 	};
 
 	const rightColumnVariants = {
-		hidden: { opacity: 0, x: 50 },
+		hidden: { opacity: 0, y: 50 },
 		visible: {
 			opacity: 1,
-			x: 0,
+			y: 0,
 			transition: { duration: 0.8, ease: 'easeOut', delay: 0.2 }
 		}
 	};

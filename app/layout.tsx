@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import type React from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Suspense } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -26,10 +27,12 @@ export default function RootLayout({
 			<body
 				suppressHydrationWarning
 				className={`${inter.className} min-h-screen bg-background text-foreground`}>
-				<ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-					<Header />
-					<main>{children}</main>
-					<Footer />
+				<ThemeProvider attribute='class' defaultTheme='dark' enableSystem>
+					<Suspense>
+						<Header />
+						<main>{children}</main>
+						<Footer />
+					</Suspense>
 				</ThemeProvider>
 				<Analytics />
 				<SpeedInsights />

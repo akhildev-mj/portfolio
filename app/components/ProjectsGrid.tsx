@@ -144,19 +144,20 @@ export default function ProjectsGrid({
 						</motion.div>
 					)}
 
+					{/* Improve category selection responsiveness */}
 					<motion.div
 						className='w-full relative mb-6 sm:mb-8'
 						variants={filterVariants}>
-						<div className='flex overflow-x-auto pb-4 scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0 sm:justify-center'>
-							<div className='flex space-x-2 sm:space-x-4 min-w-max'>
+						<div className='category-scroll'>
+							<div className='category-scroll-inner'>
 								{categories.map((category) => (
 									<motion.button
 										key={category}
 										onClick={() => setFilter(category)}
-										className={`px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
+										className={`category-button ${
 											filter === category
-												? 'bg-primary text-primary-foreground'
-												: 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
+												? 'category-button-active'
+												: 'category-button-inactive'
 										}`}
 										whileHover={{ scale: 1.05 }}
 										whileTap={{ scale: 0.95 }}>

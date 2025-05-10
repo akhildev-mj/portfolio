@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	reactStrictMode: true,
+	swcMinify: true,
 	eslint: {
 		ignoreDuringBuilds: true
 	},
@@ -8,12 +9,7 @@ const nextConfig = {
 		ignoreBuildErrors: true
 	},
 	images: {
-		domains: ['placeholder.com'],
 		unoptimized: true
-	},
-	sassOptions: {
-		includePaths: ['./styles'],
-		prependData: `@import "variables"; @import "mixins";`
 	}
 };
 

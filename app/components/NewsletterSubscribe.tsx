@@ -73,15 +73,6 @@ export default function NewsletterSubscribe() {
 		}
 	};
 
-	const pulseAnimation = {
-		scale: [1, 1.05, 1],
-		transition: {
-			duration: 2,
-			repeat: Number.POSITIVE_INFINITY,
-			repeatType: 'reverse' as const
-		}
-	};
-
 	return (
 		<section className='bg-background py-12 sm:py-16'>
 			<div className='max-w-3xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -89,8 +80,7 @@ export default function NewsletterSubscribe() {
 					variants={containerVariants}
 					initial='hidden'
 					whileInView='visible'
-					viewport={{ once: true, amount: 0.1 }}
-					animate={isSubscribed ? {} : pulseAnimation}
+					viewport={{ once: false, amount: 0.3 }}
 					className='bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl sm:rounded-3xl p-6 sm:p-8 shadow-lg'>
 					{isSubscribed ? (
 						<motion.div
