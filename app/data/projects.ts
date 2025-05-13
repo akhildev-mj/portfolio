@@ -37,6 +37,53 @@ export const projects = [
 	},
 	{
 		id: 4,
+		title: 'Crack Detection using ResNet50 and VGG16',
+		description:
+			'Detecting concrete cracks with high accuracy using transfer learning with ResNet50 and VGG16.',
+		imageUrl: '/projects/crack-detection.jpg',
+		category: 'Computer Vision',
+		technologies: ['ResNet50', 'VGG16', 'PyTorch', 'TensorFlow', 'Keras'],
+		liveUrl: '',
+		githubUrl:
+			'https://github.com/akhildev-mj/Crack-Detection-using-ResNet50-and-VGG16'
+	},
+	{
+		id: 5,
+		title: 'Fashion-MNIST Classification',
+		description:
+			'A CNN model built with PyTorch to classify Fashion-MNIST images with over 85% accuracy.',
+		imageUrl: '/projects/fashion-mnist.jpg',
+		category: 'Deep Learning',
+		technologies: ['PyTorch', 'CNN', 'Fashion-MNIST'],
+		liveUrl: '',
+		githubUrl: 'https://github.com/akhildev-mj/Fashion-MNIST-Classification'
+	},
+	{
+		id: 6,
+		title: 'League of Legends Match Predictor',
+		description:
+			'A logistic regression model in PyTorch to predict match outcomes based on in-game stats.',
+		imageUrl: '/projects/league-predictor.jpg',
+		category: 'Sports Analytics',
+		technologies: ['PyTorch', 'Logistic Regression', 'Neural Networks'],
+		liveUrl: '',
+		githubUrl:
+			'https://github.com/akhildev-mj/League-of-Legends-Match-Predictor'
+	},
+	{
+		id: 7,
+		title: 'Classify Waste Products Using Transfer Learning',
+		description:
+			'Image classifier for waste sorting using VGG16 and transfer learning techniques.',
+		imageUrl: '/projects/waste-classification.jpg',
+		category: 'Computer Vision',
+		technologies: ['VGG16', 'Transfer Learning', 'TensorFlow', 'Keras'],
+		liveUrl: '',
+		githubUrl:
+			'https://github.com/akhildev-mj/Classify-Waste-Products-Using-Transfer-Learning'
+	},
+	{
+		id: 8,
 		title: 'Polynomial Regression',
 		description:
 			'A project exploring polynomial regression techniques in predictive modeling.',
@@ -47,7 +94,7 @@ export const projects = [
 		githubUrl: 'https://github.com/akhildev-mj/Polynomial-Regression'
 	},
 	{
-		id: 5,
+		id: 9,
 		title: 'Linear Regression',
 		description:
 			'Basic implementation and visualization of linear regression models.',
@@ -58,13 +105,13 @@ export const projects = [
 		githubUrl: 'https://github.com/akhildev-mj/Linear-Regression'
 	},
 	{
-		id: 6,
+		id: 10,
 		title: 'Portfolio Website',
 		description: 'My personal portfolio built with Next.js and TypeScript.',
 		imageUrl: '/projects/portfolio.webp',
 		category: 'Web Development',
 		technologies: ['Next.js', 'TypeScript', 'Tailwind CSS'],
-		liveUrl: '',
+		liveUrl: 'akhildev.vercel.app',
 		githubUrl: 'https://github.com/akhildev-mj/portfolio'
 	}
 ];

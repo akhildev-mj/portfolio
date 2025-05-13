@@ -226,9 +226,9 @@ export default function AboutUs() {
 						variants={statsVariants}>
 						<div className='grid grid-cols-2 sm:grid-cols-4 gap-6 text-center'>
 							{[
-								{ number: '35+', label: 'Certifications' },
-								{ number: '10+', label: 'Projects' },
-								{ number: '8+', label: 'Technologies' },
+								{ number: '50+', label: 'Certifications' },
+								{ number: '25+', label: 'Projects' },
+								{ number: '25+', label: 'Technologies' },
 								{ number: '5+', label: 'Years Experience' }
 							].map((stat, i) => (
 								<motion.div
