@@ -109,7 +109,7 @@ export default function Hero() {
 						variants={imageVariants}
 						animate={floatingAnimation}>
 						<img
-							src='/hero.webp'
+							src='/hero.png'
 							alt='Data visualization'
 							className='hero-img'
 						/>
