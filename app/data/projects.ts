@@ -17,7 +17,7 @@ export const projects = [
 		description:
 			'Projects and coursework for the Google Advanced Data Analytics Certification.',
 		imageUrl: '/projects/google-da.webp',
-		category: 'Data Science',
+		category: 'Data Analytics',
 		technologies: ['Python', 'SQL', 'Tableau', 'BigQuery'],
 		liveUrl: '',
 		githubUrl:
@@ -29,7 +29,7 @@ export const projects = [
 		description:
 			'Flask-based backend services integrated with AI capabilities on IBM Cloud.',
 		imageUrl: '/projects/ai-python.webp',
-		category: 'AI Development',
+		category: 'Artificial Intelligence',
 		technologies: ['Flask', 'IBM Watson', 'Python'],
 		liveUrl: '',
 		githubUrl:
@@ -41,7 +41,7 @@ export const projects = [
 		description:
 			'Detecting concrete cracks with high accuracy using transfer learning with ResNet50 and VGG16.',
 		imageUrl: '/projects/crack-detection.jpg',
-		category: 'Computer Vision',
+		category: 'Deep Learning',
 		technologies: ['ResNet50', 'VGG16', 'PyTorch', 'TensorFlow', 'Keras'],
 		liveUrl: '',
 		githubUrl:
@@ -64,7 +64,7 @@ export const projects = [
 		description:
 			'A logistic regression model in PyTorch to predict match outcomes based on in-game stats.',
 		imageUrl: '/projects/league-predictor.jpg',
-		category: 'Sports Analytics',
+		category: 'Deep Learning',
 		technologies: ['PyTorch', 'Logistic Regression', 'Neural Networks'],
 		liveUrl: '',
 		githubUrl:
@@ -76,7 +76,7 @@ export const projects = [
 		description:
 			'Image classifier for waste sorting using VGG16 and transfer learning techniques.',
 		imageUrl: '/projects/waste-classification.jpg',
-		category: 'Computer Vision',
+		category: 'Deep Learning',
 		technologies: ['VGG16', 'Transfer Learning', 'TensorFlow', 'Keras'],
 		liveUrl: '',
 		githubUrl:
