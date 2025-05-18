@@ -103,7 +103,7 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="min-h-screen w-screen overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 dark:from-zinc-950 dark:to-slate-900 p-4 md:p-6 flex items-center justify-center relative">
+    <div className="min-h-screen w-screen overflow-hidden bg-gradient-to-br from-mainBackground1 to-mainBackground2 p-4 md:p-6 pt-6 lg:pt-4 flex items-center justify-center relative">
       <Particles
         className="absolute inset-0"
         quantity={120}
@@ -116,7 +116,7 @@ export default function Portfolio() {
         {/* Left Section */}
         <section className="w-full lg:w-1/4 glass rounded-2xl shadow-lg p-4 md:p-6 overflow-y-auto scrollbar-custom responsive-height mobile-full">
           <div className="flex flex-col items-center text-center mb-6 md:mb-8">
-            <div className="relative w-24 h-24 md:w-32 md:h-32 mb-4 md:mb-6 rounded-full overflow-hidden border-4 border-purple-500 shadow-lg animate-profile-pulse">
+            <div className="relative w-24 h-24 md:w-32 md:h-32 mb-4 md:mb-6 mt-4 lg:mt-0 rounded-full overflow-hidden border-4 border-purple-500 shadow-lg animate-profile-pulse">
               <Image
                 src="/akhildev.webp?height=300&width=300"
                 alt="Profile"

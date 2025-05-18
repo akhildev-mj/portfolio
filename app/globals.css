@@ -6,6 +6,8 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
+    --main-background1: 0 0% 100%;
+    --main-background2: 0 0% 100%;
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
@@ -29,6 +31,8 @@
   .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
+    --main-background1: 0, 100%, 0%;
+    --main-background2: 275, 100%, 5%;
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
     --popover: 240 10% 3.9%;
@@ -228,10 +232,10 @@ body {
 }
 
 .dark .glass {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(138, 92, 246, 0.15);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -255,7 +259,7 @@ body {
 /* Improved section preview styling */
 .section-preview {
   position: relative;
-  padding: 1.5rem;
+  padding: 1rem;
   margin-bottom: 1.5rem;
   overflow: hidden;
   border-radius: 1rem;
