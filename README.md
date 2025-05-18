@@ -17,32 +17,8 @@ A modern, responsive portfolio website built with **Next.js**, **Tailwind CSS**,
 - **Radix UI**
 - **Framer Motion**
 - **Lucide React Icons**
-- **Recharts (for charts)**
-- **React Hook Form + Zod (forms & validation)**
 - **ShadCN-style component design**
 - **Vercel Analytics & Speed Insights**
-
----
-
-## 📁 Project Structure
-
-```
-app/
-├── certifications/     # Certifications display
-├── components/         # UI components (e.g., cards, layouts)
-├── data/               # JSON/static content
-├── projects/           # Project cards/details
-├── skills/             # Skills display & charts
-├── globals.css         # Tailwind & global styles
-├── layout.tsx          # App layout
-├── page.tsx            # Landing page
-
-components/             # Shared reusable components
-hooks/                  # Custom React hooks
-lib/                    # Utility functions/helpers
-public/                 # Static assets
-styles/                 # Tailwind and custom CSS
-```
 
 ---
 
@@ -87,7 +63,6 @@ Open `http://localhost:3000` in your browser.
 - 🎨 Beautiful UI powered by **Tailwind + Radix**
 - 📊 Skill section visualized with **Recharts**
 - 📁 Dynamic project and certification rendering
-- 🌙 Dark/light theme toggle with `next-themes`
 - 📱 Fully responsive design
 - ⚡ Analytics via Vercel (optional)
 
