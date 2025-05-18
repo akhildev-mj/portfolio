@@ -112,7 +112,7 @@ export default function Portfolio() {
         refresh={false}
       />
 
-      <div className="w-full max-w-[1400px] h-[90vh] md:h-[90vh] flex flex-col lg:flex-row gap-4 md:gap-6 overflow-hidden relative z-10 mobile-stack">
+      <div className="w-full max-w-[1400px] lg:h-[90vh] md:h-[90vh] flex flex-col lg:flex-row gap-4 md:gap-6 overflow-hidden relative z-10 mobile-stack">
         {/* Left Section */}
         <section className="w-full lg:w-1/4 glass rounded-2xl shadow-lg p-4 md:p-6 overflow-y-auto scrollbar-custom responsive-height mobile-full">
           <div className="flex flex-col items-center text-center mb-6 md:mb-8">
