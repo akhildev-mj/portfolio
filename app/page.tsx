@@ -285,50 +285,17 @@ export default function Portfolio() {
                         </Button>
                       </div>
                       <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-custom">
-                        {projects.slice(0, 3).map((project, index) => (
-                          <div
-                            key={index}
-                            className="min-w-[220px] cursor-pointer"
-                            onClick={() => handleCardClick(project)}
-                          >
+                        {projects.slice(0, 4).map((project, index) => (
+                          <div key={index} className="min-w-[220px]">
                             <Card className="h-full overflow-hidden glass border-0">
                               <div className="relative h-40 w-full overflow-hidden">
                                 <Image
                                   src={project.imageUrl || "/placeholder.svg"}
                                   alt={project.title}
                                   fill
-                                  className="object-cover transition-transform duration-700 hover:scale-105"
+                                  className="object-cover"
                                 />
                               </div>
-                              <CardContent className="p-4">
-                                <h4 className="font-semibold text-base mb-1">
-                                  {project.title}
-                                </h4>
-                                <p className="text-xs text-zinc-600 dark:text-zinc-400 line-clamp-2 mb-2">
-                                  {project.description}
-                                </p>
-                                <div className="flex flex-wrap gap-1">
-                                  {project.technologies
-                                    .slice(0, 2)
-                                    .map((tech, i) => (
-                                      <Badge
-                                        key={i}
-                                        variant="outline"
-                                        className="bg-purple-50/50 dark:bg-zinc-800/50 text-xs"
-                                      >
-                                        {tech}
-                                      </Badge>
-                                    ))}
-                                  {project.technologies.length > 2 && (
-                                    <Badge
-                                      variant="outline"
-                                      className="bg-purple-50/50 dark:bg-zinc-800/50 text-xs"
-                                    >
-                                      +{project.technologies.length - 2}
-                                    </Badge>
-                                  )}
-                                </div>
-                              </CardContent>
                             </Card>
                           </div>
                         ))}
@@ -352,11 +319,7 @@ export default function Portfolio() {
                       </div>
                       <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-custom">
                         {certifications.slice(0, 4).map((cert, index) => (
-                          <div
-                            key={index}
-                            className="min-w-[220px] cursor-pointer"
-                            onClick={() => handleCardClick(cert)}
-                          >
+                          <div key={index} className="min-w-[220px]">
                             <Card className="h-full overflow-hidden glass border-0">
                               <div className="relative h-40 w-full overflow-hidden">
                                 <Image
@@ -370,20 +333,9 @@ export default function Portfolio() {
                                   }
                                   alt={cert.title}
                                   fill
-                                  className="object-cover object-top transition-transform duration-700 hover:scale-105"
+                                  className="object-cover object-top"
                                 />
                               </div>
-                              <CardContent className="p-4">
-                                <h4 className="font-semibold text-base mb-1">
-                                  {cert.title}
-                                </h4>
-                                <p className="text-xs text-zinc-600 dark:text-zinc-400 mb-2">
-                                  {cert.issuer}
-                                </p>
-                                <p className="text-xs text-zinc-500 dark:text-zinc-500">
-                                  {cert.date}
-                                </p>
-                              </CardContent>
                             </Card>
                           </div>
                         ))}
