@@ -269,39 +269,6 @@ export default function Portfolio() {
                       </p>
                     </div>
 
-                    {/* Projects Preview Section */}
-                    <div className="section-preview projects mb-8 rounded-xl">
-                      <div className="flex justify-between items-center mb-4">
-                        <h3 className="text-xl font-bold text-white">
-                          Featured Projects
-                        </h3>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          className="text-white hover:bg-white/20 rounded-full aspect-square p-0 w-10 h-10"
-                          onClick={() => setActiveTab("projects")}
-                        >
-                          <ChevronRight className="h-5 w-5" />
-                        </Button>
-                      </div>
-                      <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-custom">
-                        {projects.slice(0, 4).map((project, index) => (
-                          <div key={index} className="min-w-[220px]">
-                            <Card className="h-full overflow-hidden glass border-0">
-                              <div className="relative h-40 w-full overflow-hidden">
-                                <Image
-                                  src={project.imageUrl || "/placeholder.svg"}
-                                  alt={project.title}
-                                  fill
-                                  className="object-cover"
-                                />
-                              </div>
-                            </Card>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
                     {/* Certifications Preview Section */}
                     <div className="section-preview certifications rounded-xl">
                       <div className="flex justify-between items-center mb-4">
@@ -334,6 +301,39 @@ export default function Portfolio() {
                                   alt={cert.title}
                                   fill
                                   className="object-cover object-top"
+                                />
+                              </div>
+                            </Card>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Projects Preview Section */}
+                    <div className="section-preview projects mb-8 rounded-xl">
+                      <div className="flex justify-between items-center mb-4">
+                        <h3 className="text-xl font-bold text-white">
+                          Featured Projects
+                        </h3>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="text-white hover:bg-white/20 rounded-full aspect-square p-0 w-10 h-10"
+                          onClick={() => setActiveTab("projects")}
+                        >
+                          <ChevronRight className="h-5 w-5" />
+                        </Button>
+                      </div>
+                      <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-custom">
+                        {projects.slice(0, 4).map((project, index) => (
+                          <div key={index} className="min-w-[220px]">
+                            <Card className="h-full overflow-hidden glass border-0">
+                              <div className="relative h-40 w-full overflow-hidden">
+                                <Image
+                                  src={project.imageUrl || "/placeholder.svg"}
+                                  alt={project.title}
+                                  fill
+                                  className="object-cover"
                                 />
                               </div>
                             </Card>
