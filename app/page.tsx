@@ -121,7 +121,7 @@ export default function Portfolio() {
                 src="/akhildev.webp?height=300&width=300"
                 alt="Profile"
                 fill
-                className="object-cover"
+                className="object-cover contrast-[1.15]"
               />
             </div>
             <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient">
