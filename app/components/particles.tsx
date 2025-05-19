@@ -35,7 +35,6 @@ export function Particles({
     }
   };
 
-  // Update the initCanvas function to create more dynamic particles
   const initCanvas = () => {
     if (canvasRef.current && context.current) {
       const isDarkMode = theme === "dark";
@@ -43,7 +42,7 @@ export function Particles({
       for (let i = 0; i < quantity; i++) {
         const x = Math.floor(Math.random() * canvasRef.current.width);
         const y = Math.floor(Math.random() * canvasRef.current.height);
-        const radius = Math.random() * 2 + 0.5;
+        const radius = Math.random() * 2.5 + 0.5;
         const speed = Math.random() * 0.5 + 0.2;
 
         // Generate colors based on theme with more variety
@@ -56,7 +55,7 @@ export function Particles({
         const lightness = isDarkMode
           ? Math.floor(Math.random() * 20) + 70
           : Math.floor(Math.random() * 20) + 60;
-        const a = Math.random() * 0.5 + 0.1;
+        const a = Math.random() * 0.5 + 0.1; // Slightly increased opacity
 
         circles.current.push({
           x,

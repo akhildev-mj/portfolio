@@ -359,6 +359,13 @@ body {
     width: 4px;
     height: 4px;
   }
+
+  .mobile-profile-centered {
+    padding-top: 4vh !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 @media (max-width: 768px) {
