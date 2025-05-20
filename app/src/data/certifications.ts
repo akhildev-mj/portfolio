@@ -20,8 +20,7 @@ const certifications: Certification[] = [
     date: "March 2025",
   },
   {
-    title:
-      "Microsoft Technical Assistant Introduction to Programming using Python-Certified",
+    title: "Microsoft Technical Assistant - Python",
     description: "Introduction to programming concepts with Python",
     imageUrl: "/certifications/ms-python-intro.jpeg",
     category: "Programming",

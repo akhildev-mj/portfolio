@@ -225,7 +225,7 @@ export default function Portfolio() {
                 className="overflow-x-auto pb-2 scrollbar-custom"
                 ref={mainTabsRef}
               >
-                <TabsList className="w-full justify-start bg-zinc-50/30 dark:bg-zinc-800/30 p-1 rounded-lg mb-4 glass">
+                <TabsList className="w-full justify-start bg-zinc-50/30 dark:bg-zinc-800/30 py-1 px-2 rounded-lg mb-4 glass">
                   <TabsTrigger
                     value="home"
                     className="data-[state=active]:tab-active transition-all duration-300"
@@ -415,23 +415,15 @@ export default function Portfolio() {
                                   />
                                 </div>
                                 <CardContent className="p-4">
-                                  <h3 className="font-semibold text-lg mb-1 transition-colors">
+                                  <h3 className="font-semibold text-base mb-2 transition-colors">
                                     {project.title}
                                   </h3>
-                                  <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-3 line-clamp-2">
+                                  <p className="font-bold text-sm bg-gradient-to-r from-fuchsia-400 to-purple-900 bg-clip-text text-transparent mb-2 line-clamp-2">
+                                    {project.category}
+                                  </p>
+                                  <p className="text-xs text-zinc-600 dark:text-zinc-400 mb-3 line-clamp-2">
                                     {project.description}
                                   </p>
-                                  <div className="flex flex-wrap gap-1">
-                                    {project.technologies.map((tech, i) => (
-                                      <Badge
-                                        key={i}
-                                        variant="outline"
-                                        className="bg-purple-50/50 dark:bg-zinc-800/50 text-xs"
-                                      >
-                                        {tech}
-                                      </Badge>
-                                    ))}
-                                  </div>
                                 </CardContent>
                               </Card>
                             </div>
@@ -523,13 +515,13 @@ export default function Portfolio() {
                                     />
                                   </div>
                                   <CardContent className="p-4">
-                                    <h3 className="font-semibold text-lg mb-1 transition-colors">
+                                    <h3 className="font-semibold text-base mb-1 transition-colors">
                                       {certification.title}
                                     </h3>
-                                    <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-3 line-clamp-2">
+                                    <p className="font-bold text-sm bg-gradient-to-r from-fuchsia-400 to-purple-900 bg-clip-text text-transparent mb-2 line-clamp-2">
                                       {certification.issuer}
                                     </p>
-                                    <p className="text-xs text-zinc-500 dark:text-zinc-500">
+                                    <p className="text-xs text-zinc-400 dark:text-zinc-400">
                                       {certification.date}
                                     </p>
                                   </CardContent>
