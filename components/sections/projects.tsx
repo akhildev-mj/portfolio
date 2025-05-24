@@ -61,7 +61,7 @@ export default function Projects() {
               size="lg"
               className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0 px-6 md:px-8 py-3 group"
             >
-              <span>View All Projects</span>
+              <span>View All</span>
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>

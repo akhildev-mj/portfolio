@@ -36,7 +36,7 @@ export default function CursorFollower() {
   }, []);
 
   return (
-    <>
+    <div className="hidden lg:block">
       {/* Main cursor */}
       <motion.div
         className="fixed top-0 left-0 w-4 h-4 bg-cyan-400 rounded-full pointer-events-none z-50 mix-blend-difference"
@@ -66,6 +66,6 @@ export default function CursorFollower() {
           damping: 15,
         }}
       />
-    </>
+    </div>
   );
 }

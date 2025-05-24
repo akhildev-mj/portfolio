@@ -5,9 +5,10 @@ import CertificationCard from "@/components/ui/certification-card";
 import { CERTIFICATIONS, CREDLY_PROFILE_URL } from "@/constants/data";
 import { buttonHover, fadeInUp, staggerContainer } from "@/utils/animations";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight, Award, ExternalLink } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useRef } from "react";
+import { SiCredly } from "react-icons/si";
 
 export default function Certifications() {
   const ref = useRef(null);
@@ -66,8 +67,7 @@ export default function Certifications() {
                 size="lg"
                 className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0 px-6 md:px-8 py-3 group"
               >
-                <Award className="w-5 h-5 mr-2" />
-                <span>View All Certifications</span>
+                <span>View All</span>
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </motion.div>
@@ -85,8 +85,7 @@ export default function Certifications() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <ExternalLink className="w-5 h-5 mr-2" />
-                <span>View Credly Badges</span>
+                <SiCredly style={{ width: "1.8rem", height: "auto" }} />
               </a>
             </Button>
           </motion.div>

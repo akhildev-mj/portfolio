@@ -197,7 +197,7 @@ export default function Hero() {
               {[
                 { icon: Github, href: "#", label: "GitHub" },
                 { icon: Linkedin, href: "#", label: "LinkedIn" },
-                { icon: Mail, href: "#contact", label: "Email" },
+                { icon: Mail, href: "#", label: "Email" },
               ].map((social, index) => (
                 <motion.a
                   key={social.label}

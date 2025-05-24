@@ -92,7 +92,7 @@ export default function Hero() {
         ))}
       </div>
 
-      <div className="max-w-7xl mx-auto w-full relative z-10">
+      <div className="max-w-7xl mx-auto w-full relative z-10 pt-8 lg:pt-0">
         {/* Mobile Layout */}
         <div className="lg:hidden">
           {/* Mobile - Main Content */}

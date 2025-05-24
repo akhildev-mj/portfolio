@@ -67,6 +67,7 @@ export default function ProjectCard({
               <Button
                 size="sm"
                 className="bg-white/20 backdrop-blur-sm border border-white/30 text-white"
+                onClick={() => window.open(project.github, "_blank")}
               >
                 <FaGithub className="w-4 h-4 mr-2" />
                 Code
@@ -81,6 +82,7 @@ export default function ProjectCard({
                 <Button
                   size="sm"
                   className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white border-0"
+                  onClick={() => window.open(project.live, "_blank")}
                 >
                   <HiExternalLink className="w-4 h-4 mr-2" />
                   Demo
@@ -147,6 +149,7 @@ export default function ProjectCard({
                 variant="outline"
                 size="sm"
                 className="w-full bg-transparent border-white/20 text-gray-300 hover:bg-white/10 text-xs"
+                onClick={() => window.open(project.github, "_blank")}
               >
                 <FaGithub className="w-3 h-3 mr-1" />
                 Source
@@ -162,6 +165,7 @@ export default function ProjectCard({
                 <Button
                   size="sm"
                   className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 text-white border-0 text-xs"
+                  onClick={() => window.open(project.live, "_blank")}
                 >
                   <HiPlay className="w-3 h-3 mr-1" />
                   Demo

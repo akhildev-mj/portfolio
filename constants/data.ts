@@ -15,7 +15,6 @@ import {
   FaCode,
   FaCog,
   FaDatabase,
-  FaDiscord,
   FaGithub,
   FaGlobe,
   FaLinkedin,
@@ -23,7 +22,7 @@ import {
   FaPhone,
   FaRobot,
   FaTerminal,
-  FaTwitter,
+  FaWhatsapp,
 } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
@@ -64,8 +63,11 @@ export const SOCIAL_LINKS: SocialLink[] = [
     href: "https://linkedin.com/in/akhildevmj",
     label: "LinkedIn",
   },
-  { icon: FaTwitter, href: "https://twitter.com/akhildevmj", label: "Twitter" },
-  { icon: FaDiscord, href: "#", label: "Discord" },
+  {
+    icon: FaWhatsapp,
+    href: "https://wa.me/919074123050",
+    label: "Twitter",
+  },
 ];
 
 export const NAV_ITEMS: NavItem[] = [
@@ -496,7 +498,7 @@ export const ABOUT_SNIPPETS = [
   "practical solutions that drive business value.",
 ];
 
-export const CREDLY_PROFILE_URL = "https://www.credly.com/users/akhildev-mj";
+export const CREDLY_PROFILE_URL = "https://www.credly.com/users/akhildevmj";
 export const GITHUB_PROFILE_URL = "https://github.com/akhildev-mj";
 export const LINKEDIN_PROFILE_URL = "https://linkedin.com/in/akhildevmj";
 export const PORTFOLIO_URL = "https://akhildev.vercel.app";

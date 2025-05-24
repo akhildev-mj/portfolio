@@ -129,6 +129,12 @@ export default function CertificationCard({
               size="sm"
               variant="ghost"
               className="text-cyan-400 hover:text-cyan-300 hover:bg-cyan-400/10 p-2"
+              onClick={() =>
+                window.open(
+                  certification.credlyUrl || certification.url || "#",
+                  "_blank"
+                )
+              }
             >
               <HiExternalLink className="w-4 h-4" />
             </Button>
