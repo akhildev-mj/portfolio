@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { FaCalendarAlt } from "react-icons/fa";
-import { HiCheckCircle, HiExternalLink, HiStar } from "react-icons/hi";
+import { HiCheckCircle, HiExternalLink } from "react-icons/hi";
 import { IoArrowBack } from "react-icons/io5";
 
 export default function CertificationsPage() {
@@ -121,15 +121,6 @@ export default function CertificationsPage() {
                   transformStyle: "preserve-3d",
                 }}
               >
-                {/* Featured Badge - Positioned at top right corner edge */}
-                {cert.featured && (
-                  <div className="absolute -top-2 -right-2 z-10">
-                    <div className="bg-gradient-to-r from-yellow-400 to-orange-400 text-black p-1.5 rounded-full shadow-lg">
-                      <HiStar className="w-3 h-3 fill-current" />
-                    </div>
-                  </div>
-                )}
-
                 {/* Certificate Header */}
                 <div className="flex items-start mb-4">
                   <div className="relative w-16 h-16 mr-4">

@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import { FaCalendarAlt } from "react-icons/fa";
-import { HiExternalLink, HiStar } from "react-icons/hi";
+import { HiExternalLink } from "react-icons/hi";
 
 interface CertificationCardProps {
   certification: Certification;
@@ -34,20 +34,6 @@ export default function CertificationCard({
         compact ? "w-80" : ""
       } hover:bg-white/15 hover:border-white/30 hover:shadow-lg hover:shadow-purple-500/10`}
     >
-      {/* Featured Badge - Positioned at top right corner edge */}
-      {certification.featured && (
-        <motion.div
-          initial={{ scale: 0, rotate: -180 }}
-          animate={{ scale: 1, rotate: 0 }}
-          transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
-          className="absolute -top-1 -right-1 z-20"
-        >
-          <div className="bg-gradient-to-r from-yellow-400 to-orange-400 text-black p-1.5 rounded-full shadow-lg">
-            <HiStar className="w-3 h-3 fill-current" />
-          </div>
-        </motion.div>
-      )}
-
       {/* Certificate Header with padding for star badge */}
       <div
         className={`flex items-start mb-3 relative z-10 ${

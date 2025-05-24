@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { FaGithub } from "react-icons/fa";
-import { HiExternalLink, HiPlay, HiStar } from "react-icons/hi";
+import { HiExternalLink, HiPlay } from "react-icons/hi";
 import { IoArrowBack } from "react-icons/io5";
 
 export default function ProjectsPage() {
@@ -148,15 +148,6 @@ export default function ProjectsPage() {
                     )}
                   </div>
                 </motion.div>
-
-                {/* Featured Badge - Positioned with proper spacing */}
-                {project.featured && (
-                  <div className="absolute top-2 right-2 z-20">
-                    <div className="bg-gradient-to-r from-yellow-400 to-orange-400 text-black p-1.5 rounded-full shadow-lg">
-                      <HiStar className="w-3 h-3 fill-current" />
-                    </div>
-                  </div>
-                )}
 
                 {/* Category Badge */}
                 <div className="absolute top-4 left-4">

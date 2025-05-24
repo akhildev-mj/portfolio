@@ -134,7 +134,6 @@ export const FEATURED_PROJECTS: Project[] = [
     github:
       "https://github.com/akhildev-mj/IBM-Generative-AI-Applications-with-RAG-and-LangChain",
     live: "",
-    featured: true,
   },
   {
     id: 2,
@@ -148,7 +147,6 @@ export const FEATURED_PROJECTS: Project[] = [
     github:
       "https://github.com/akhildev-mj/Google-Advanced-Data-Analytics-Certification",
     live: "",
-    featured: true,
   },
   {
     id: 10,
@@ -160,7 +158,6 @@ export const FEATURED_PROJECTS: Project[] = [
     icon: FaGlobe,
     github: "https://github.com/akhildev-mj/portfolio",
     live: "https://akhildev.vercel.app",
-    featured: true,
   },
 ];
 
@@ -177,7 +174,6 @@ export const ALL_PROJECTS: Project[] = [
     github:
       "https://github.com/akhildev-mj/IBM-Generative-AI-Applications-with-RAG-and-LangChain",
     live: "",
-    featured: true,
   },
   {
     id: 2,
@@ -191,7 +187,6 @@ export const ALL_PROJECTS: Project[] = [
     github:
       "https://github.com/akhildev-mj/Google-Advanced-Data-Analytics-Certification",
     live: "",
-    featured: true,
   },
   {
     id: 3,
@@ -205,7 +200,6 @@ export const ALL_PROJECTS: Project[] = [
     github:
       "https://github.com/akhildev-mj/IBM-Developing-AI-Applications-with-Python-and-Flask",
     live: "",
-    featured: true,
   },
   {
     id: 4,
@@ -219,7 +213,6 @@ export const ALL_PROJECTS: Project[] = [
     github:
       "https://github.com/akhildev-mj/Crack-Detection-using-ResNet50-and-VGG16",
     live: "",
-    featured: false,
   },
   {
     id: 5,
@@ -232,7 +225,6 @@ export const ALL_PROJECTS: Project[] = [
     icon: FaBrain,
     github: "https://github.com/akhildev-mj/Fashion-MNIST-Classification",
     live: "",
-    featured: false,
   },
   {
     id: 6,
@@ -245,7 +237,6 @@ export const ALL_PROJECTS: Project[] = [
     icon: FaBrain,
     github: "https://github.com/akhildev-mj/League-of-Legends-Match-Predictor",
     live: "",
-    featured: false,
   },
   {
     id: 7,
@@ -259,7 +250,6 @@ export const ALL_PROJECTS: Project[] = [
     github:
       "https://github.com/akhildev-mj/Classify-Waste-Products-Using-Transfer-Learning",
     live: "",
-    featured: false,
   },
   {
     id: 8,
@@ -272,7 +262,6 @@ export const ALL_PROJECTS: Project[] = [
     icon: FaChartLine,
     github: "https://github.com/akhildev-mj/Polynomial-Regression",
     live: "",
-    featured: false,
   },
   {
     id: 9,
@@ -285,7 +274,6 @@ export const ALL_PROJECTS: Project[] = [
     icon: FaChartLine,
     github: "https://github.com/akhildev-mj/Linear-Regression",
     live: "",
-    featured: false,
   },
   {
     id: 10,
@@ -297,7 +285,6 @@ export const ALL_PROJECTS: Project[] = [
     icon: FaGlobe,
     github: "https://github.com/akhildev-mj/portfolio",
     live: "https://akhildev.vercel.app",
-    featured: true,
   },
 ];
 
@@ -318,7 +305,6 @@ export const FEATURED_CERTIFICATIONS: Certification[] = [
       "Statistical Analysis",
     ],
     category: "Data Analytics",
-    featured: true,
     verifyUrl:
       "https://www.coursera.org/account/accomplishments/professional-cert/google-data-analytics",
   },
@@ -333,7 +319,6 @@ export const FEATURED_CERTIFICATIONS: Certification[] = [
       "Professional-level certification in generative AI engineering concepts and techniques",
     skills: ["Generative AI", "LLMs", "Prompt Engineering", "AI Ethics"],
     category: "AI/ML",
-    featured: true,
     verifyUrl: "https://www.credly.com/badges/ibm-generative-ai-engineering",
   },
   {
@@ -346,7 +331,6 @@ export const FEATURED_CERTIFICATIONS: Certification[] = [
     description: "Building machine learning models with TensorFlow",
     skills: ["TensorFlow", "Keras", "Computer Vision", "NLP"],
     category: "AI/ML",
-    featured: true,
     verifyUrl: "https://www.tensorflow.org/certificate",
   },
 ];
@@ -368,7 +352,6 @@ export const ALL_CERTIFICATIONS: Certification[] = [
       "Statistical Analysis",
     ],
     category: "Data Analytics",
-    featured: true,
     verifyUrl:
       "https://www.coursera.org/account/accomplishments/professional-cert/google-data-analytics",
   },
@@ -383,7 +366,6 @@ export const ALL_CERTIFICATIONS: Certification[] = [
       "Techniques for working with and understanding human language data",
     skills: ["NLP", "BERT", "Transformers", "Text Processing"],
     category: "AI/ML",
-    featured: true,
     verifyUrl:
       "https://www.coursera.org/account/accomplishments/specialization/nlp-deeplearning",
   },
@@ -402,7 +384,6 @@ export const ALL_CERTIFICATIONS: Certification[] = [
       "Algorithms",
     ],
     category: "Programming",
-    featured: false,
     verifyUrl: "https://docs.microsoft.com/en-us/learn/certifications/",
   },
   {
@@ -416,7 +397,6 @@ export const ALL_CERTIFICATIONS: Certification[] = [
       "Professional-level certification in generative AI engineering concepts and techniques",
     skills: ["Generative AI", "LLMs", "Prompt Engineering", "AI Ethics"],
     category: "AI/ML",
-    featured: true,
     verifyUrl: "https://www.credly.com/badges/ibm-generative-ai-engineering",
   },
   {
@@ -430,7 +410,6 @@ export const ALL_CERTIFICATIONS: Certification[] = [
       "Professional-level certification in data science concepts and techniques",
     skills: ["Python", "Machine Learning", "Data Visualization", "SQL"],
     category: "Data Science",
-    featured: true,
     verifyUrl: "https://www.credly.com/badges/ibm-data-science-professional",
   },
   {
@@ -443,7 +422,6 @@ export const ALL_CERTIFICATIONS: Certification[] = [
     description: "Mastering neural networks and deep learning frameworks",
     skills: ["Neural Networks", "TensorFlow", "CNN", "RNN"],
     category: "AI/ML",
-    featured: true,
     verifyUrl:
       "https://www.coursera.org/account/accomplishments/specialization/deep-learning",
   },
@@ -457,7 +435,6 @@ export const ALL_CERTIFICATIONS: Certification[] = [
     description: "Building machine learning models with TensorFlow",
     skills: ["TensorFlow", "Keras", "Computer Vision", "NLP"],
     category: "AI/ML",
-    featured: true,
     verifyUrl: "https://www.tensorflow.org/certificate",
   },
   {
@@ -470,7 +447,6 @@ export const ALL_CERTIFICATIONS: Certification[] = [
     description: "Professional-level certification in AI development",
     skills: ["AI Development", "Watson AI", "Python", "Machine Learning"],
     category: "AI/ML",
-    featured: false,
     verifyUrl: "https://www.credly.com/badges/ibm-ai-developer",
   },
   {
@@ -484,7 +460,6 @@ export const ALL_CERTIFICATIONS: Certification[] = [
       "Professional-level certification in AI engineering concepts and techniques",
     skills: ["AI Engineering", "Deep Learning", "Computer Vision", "NLP"],
     category: "AI/ML",
-    featured: false,
     verifyUrl: "https://www.credly.com/badges/ibm-ai-engineering",
   },
   {
@@ -498,7 +473,6 @@ export const ALL_CERTIFICATIONS: Certification[] = [
       "Advanced AI engineering skills including deploying models and systems",
     skills: ["AI Deployment", "Model Optimization", "MLOps", "Production AI"],
     category: "AI/ML",
-    featured: false,
     verifyUrl: "",
   },
   {
@@ -512,7 +486,6 @@ export const ALL_CERTIFICATIONS: Certification[] = [
       "Skills in data modeling and extract, transform, load (ETL) processes, data visualizations and dashboards",
     skills: ["Business Intelligence", "ETL", "Data Modeling", "Dashboards"],
     category: "Data Analytics",
-    featured: false,
     verifyUrl:
       "https://www.coursera.org/account/accomplishments/professional-cert/google-bi",
   },
@@ -527,7 +500,6 @@ export const ALL_CERTIFICATIONS: Certification[] = [
       "Skills in data analysis using popular tools like SQL and Python",
     skills: ["SQL", "Python", "Data Analysis", "Statistics"],
     category: "Data Analytics",
-    featured: false,
     verifyUrl:
       "https://www.coursera.org/account/accomplishments/professional-cert/meta-data-analyst",
   },
@@ -542,7 +514,6 @@ export const ALL_CERTIFICATIONS: Certification[] = [
       "Building scalable back-end services using modern technologies",
     skills: ["Django", "APIs", "Databases", "Cloud Deployment"],
     category: "Development",
-    featured: false,
     verifyUrl:
       "https://www.coursera.org/account/accomplishments/professional-cert/meta-backend",
   },
@@ -556,7 +527,6 @@ export const ALL_CERTIFICATIONS: Certification[] = [
     description: "Developing modern, responsive front-end web applications",
     skills: ["React", "JavaScript", "HTML/CSS", "UI/UX"],
     category: "Development",
-    featured: false,
     verifyUrl:
       "https://www.coursera.org/account/accomplishments/professional-cert/meta-frontend",
   },
@@ -570,7 +540,6 @@ export const ALL_CERTIFICATIONS: Certification[] = [
     description: "Skills for developing native mobile apps for iOS platforms",
     skills: ["Swift", "iOS Development", "Xcode", "Mobile UI"],
     category: "Development",
-    featured: false,
     verifyUrl:
       "https://www.coursera.org/account/accomplishments/professional-cert/meta-ios",
   },

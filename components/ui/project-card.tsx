@@ -1,22 +1,27 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { useState } from "react"
-import { FaGithub } from "react-icons/fa"
-import { HiExternalLink, HiPlay, HiStar } from "react-icons/hi"
-import { Button } from "@/components/ui/button"
-import Image from "next/image"
-import type { Project } from "@/types"
+import { Button } from "@/components/ui/button";
+import type { Project } from "@/types";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { useState } from "react";
+import { FaGithub } from "react-icons/fa";
+import { HiExternalLink, HiPlay } from "react-icons/hi";
 
 interface ProjectCardProps {
-  project: Project
-  index: number
-  isInView: boolean
-  compact?: boolean
+  project: Project;
+  index: number;
+  isInView: boolean;
+  compact?: boolean;
 }
 
-export default function ProjectCard({ project, index, isInView, compact = false }: ProjectCardProps) {
-  const [isHovered, setIsHovered] = useState(false)
+export default function ProjectCard({
+  project,
+  index,
+  isInView,
+  compact = false,
+}: ProjectCardProps) {
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <motion.div
@@ -38,7 +43,12 @@ export default function ProjectCard({ project, index, isInView, compact = false 
           transition={{ duration: 0.3 }}
           className="h-full relative"
         >
-          <Image src={project.image || "/placeholder.svg"} alt={project.title} fill className="object-cover" />
+          <Image
+            src={project.image || "/placeholder.svg"}
+            alt={project.title}
+            fill
+            className="object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
         </motion.div>
 
@@ -54,15 +64,24 @@ export default function ProjectCard({ project, index, isInView, compact = false 
         >
           <div className="flex space-x-3">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button size="sm" className="bg-white/20 backdrop-blur-sm border border-white/30 text-white">
+              <Button
+                size="sm"
+                className="bg-white/20 backdrop-blur-sm border border-white/30 text-white"
+              >
                 <FaGithub className="w-4 h-4 mr-2" />
                 Code
               </Button>
             </motion.div>
 
             {project.live && (
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button size="sm" className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white border-0">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button
+                  size="sm"
+                  className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white border-0"
+                >
                   <HiExternalLink className="w-4 h-4 mr-2" />
                   Demo
                 </Button>
@@ -70,20 +89,6 @@ export default function ProjectCard({ project, index, isInView, compact = false 
             )}
           </div>
         </motion.div>
-
-        {/* Featured Badge - Positioned with proper spacing */}
-        {project.featured && (
-          <motion.div
-            initial={{ scale: 0, rotate: -180 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
-            className="absolute top-2 right-2 z-20"
-          >
-            <div className="bg-gradient-to-r from-yellow-400 to-orange-400 text-black p-1.5 rounded-full shadow-lg">
-              <HiStar className="w-3 h-3 fill-current" />
-            </div>
-          </motion.div>
-        )}
 
         {/* Category Badge */}
         <div className="absolute top-2 left-2">
@@ -104,7 +109,11 @@ export default function ProjectCard({ project, index, isInView, compact = false 
           {project.title}
         </h3>
 
-        <p className={`text-gray-300 mb-3 leading-relaxed line-clamp-2 ${compact ? "text-sm" : "text-sm"}`}>
+        <p
+          className={`text-gray-300 mb-3 leading-relaxed line-clamp-2 ${
+            compact ? "text-sm" : "text-sm"
+          }`}
+        >
           {project.description}
         </p>
 
@@ -129,7 +138,11 @@ export default function ProjectCard({ project, index, isInView, compact = false 
         {/* Action Buttons - Always at bottom */}
         {!compact && (
           <div className="flex space-x-2 mt-auto">
-            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="flex-1">
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="flex-1"
+            >
               <Button
                 variant="outline"
                 size="sm"
@@ -141,7 +154,11 @@ export default function ProjectCard({ project, index, isInView, compact = false 
             </motion.div>
 
             {project.live && (
-              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="flex-1">
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="flex-1"
+              >
                 <Button
                   size="sm"
                   className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 text-white border-0 text-xs"
@@ -155,5 +172,5 @@ export default function ProjectCard({ project, index, isInView, compact = false 
         )}
       </div>
     </motion.div>
-  )
+  );
 }

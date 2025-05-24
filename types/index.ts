@@ -8,7 +8,6 @@ export interface Project {
   icon: any;
   github: string;
   live: string;
-  featured: boolean;
 }
 
 export interface Certification {
@@ -21,7 +20,6 @@ export interface Certification {
   description: string;
   skills: string[];
   category: string;
-  featured: boolean;
   verifyUrl: string;
 }
 
