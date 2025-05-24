@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import CertificationCard from "@/components/ui/certification-card";
-import { CREDLY_PROFILE_URL, FEATURED_CERTIFICATIONS } from "@/constants/data";
+import { CERTIFICATIONS, CREDLY_PROFILE_URL } from "@/constants/data";
 import { buttonHover, fadeInUp, staggerContainer } from "@/utils/animations";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight, Award, ExternalLink } from "lucide-react";
@@ -43,7 +43,7 @@ export default function Certifications() {
           animate={isInView ? "animate" : "initial"}
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12"
         >
-          {FEATURED_CERTIFICATIONS.map((cert, index) => (
+          {CERTIFICATIONS.slice(0, 3).map((cert, index) => (
             <CertificationCard
               key={cert.id}
               certification={cert}

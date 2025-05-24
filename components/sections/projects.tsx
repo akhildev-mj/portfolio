@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import ProjectCard from "@/components/ui/project-card";
-import { FEATURED_PROJECTS } from "@/constants/data";
+import { PROJECTS } from "@/constants/data";
 import { fadeInUp, staggerContainer } from "@/utils/animations";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -39,7 +39,7 @@ export default function Projects() {
           animate={isInView ? "animate" : "initial"}
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12"
         >
-          {FEATURED_PROJECTS.map((project, index) => (
+          {PROJECTS.slice(0, 3).map((project, index) => (
             <ProjectCard
               key={project.id}
               project={project}

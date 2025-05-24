@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ALL_PROJECTS, PROJECT_CATEGORIES } from "@/constants/data";
+import { PROJECTS, PROJECT_CATEGORIES } from "@/constants/data";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,8 +16,8 @@ export default function ProjectsPage() {
 
   const filteredProjects =
     activeCategory === "All"
-      ? ALL_PROJECTS
-      : ALL_PROJECTS.filter((project) => project.category === activeCategory);
+      ? PROJECTS
+      : PROJECTS.filter((project) => project.category === activeCategory);
 
   return (
     <div className="min-h-screen bg-black text-white pt-20">
@@ -240,13 +240,13 @@ export default function ProjectsPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div>
                 <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-                  {ALL_PROJECTS.length}
+                  {PROJECTS.length}
                 </div>
                 <div className="text-gray-400">Total Projects</div>
               </div>
               <div>
                 <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-                  {ALL_PROJECTS.filter((p) => p.featured).length}
+                  {PROJECTS.length}
                 </div>
                 <div className="text-gray-400">Featured</div>
               </div>

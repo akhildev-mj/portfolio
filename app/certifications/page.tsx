@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ALL_CERTIFICATIONS, CERTIFICATION_CATEGORIES } from "@/constants/data";
+import { CERTIFICATIONS, CERTIFICATION_CATEGORIES } from "@/constants/data";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,8 +16,8 @@ export default function CertificationsPage() {
 
   const filteredCertifications =
     activeCategory === "All"
-      ? ALL_CERTIFICATIONS
-      : ALL_CERTIFICATIONS.filter((cert) => cert.category === activeCategory);
+      ? CERTIFICATIONS
+      : CERTIFICATIONS.filter((cert) => cert.category === activeCategory);
 
   return (
     <div className="min-h-screen bg-black text-white pt-20">
@@ -228,13 +228,13 @@ export default function CertificationsPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div>
                 <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-                  {ALL_CERTIFICATIONS.length}
+                  {CERTIFICATIONS.length}
                 </div>
                 <div className="text-gray-400">Total Certifications</div>
               </div>
               <div>
                 <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-                  {ALL_CERTIFICATIONS.filter((c) => c.featured).length}
+                  {CERTIFICATIONS.length}
                 </div>
                 <div className="text-gray-400">Featured</div>
               </div>

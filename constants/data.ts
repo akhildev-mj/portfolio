@@ -115,53 +115,13 @@ export const CODE_TEMPLATES: CodeTemplate[] = [
   {
     language: "SQL",
     code: `SELECT innovation, creativity
-FROM data_science 
+FROM data_science
 WHERE passion = 'unlimited'
 ORDER BY impact DESC;`,
   },
 ];
 
-export const FEATURED_PROJECTS: Project[] = [
-  {
-    id: 1,
-    title: "IBM Generative AI Applications with RAG and LangChain",
-    description:
-      "Build and deploy RAG-based AI applications using LangChain and IBM tools.",
-    image: "/projects/generative-ai.webp",
-    technologies: ["LangChain", "IBM Cloud", "Python", "Vector DB"],
-    category: "Generative AI",
-    icon: FaRobot,
-    github:
-      "https://github.com/akhildev-mj/IBM-Generative-AI-Applications-with-RAG-and-LangChain",
-    live: "",
-  },
-  {
-    id: 2,
-    title: "Google Advanced Data Analytics Final Project",
-    description:
-      "Projects and coursework for the Google Advanced Data Analytics Certification.",
-    image: "/projects/google-da.webp",
-    technologies: ["Python", "SQL", "Tableau", "BigQuery"],
-    category: "Data Analytics",
-    icon: FaChartBar,
-    github:
-      "https://github.com/akhildev-mj/Google-Advanced-Data-Analytics-Certification",
-    live: "",
-  },
-  {
-    id: 10,
-    title: "Portfolio Website",
-    description: "My personal portfolio built with Next.js and TypeScript.",
-    image: "/projects/portfolio.webp",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
-    category: "Web Development",
-    icon: FaGlobe,
-    github: "https://github.com/akhildev-mj/portfolio",
-    live: "https://akhildev.vercel.app",
-  },
-];
-
-export const ALL_PROJECTS: Project[] = [
+export const PROJECTS: Project[] = [
   {
     id: 1,
     title: "IBM Generative AI Applications with RAG and LangChain",
@@ -288,54 +248,7 @@ export const ALL_PROJECTS: Project[] = [
   },
 ];
 
-export const FEATURED_CERTIFICATIONS: Certification[] = [
-  {
-    id: 1,
-    title: "Google Advanced Data Analytics Professional Certificate",
-    issuer: "Google",
-    date: "May 2025",
-    credentialId: "GADA-2025-001",
-    image: "/certifications/google-advanced-data-analytics.jpeg",
-    description:
-      "In-depth data analytics techniques using Google tools and techniques",
-    skills: [
-      "Google Analytics",
-      "BigQuery",
-      "Data Visualization",
-      "Statistical Analysis",
-    ],
-    category: "Data Analytics",
-    verifyUrl:
-      "https://www.coursera.org/account/accomplishments/professional-cert/google-data-analytics",
-  },
-  {
-    id: 4,
-    title: "IBM Generative AI Engineering Professional Certificate",
-    issuer: "IBM",
-    date: "March 2025",
-    credentialId: "IBM-GAI-2025-004",
-    image: "/certifications/ibm-gen-ai.jpeg",
-    description:
-      "Professional-level certification in generative AI engineering concepts and techniques",
-    skills: ["Generative AI", "LLMs", "Prompt Engineering", "AI Ethics"],
-    category: "AI/ML",
-    verifyUrl: "https://www.credly.com/badges/ibm-generative-ai-engineering",
-  },
-  {
-    id: 7,
-    title: "TensorFlow Developer Professional Certificate",
-    issuer: "DeepLearning.AI",
-    date: "December 2024",
-    credentialId: "TF-DEV-2024-007",
-    image: "/certifications/tensorflow-developer.jpeg",
-    description: "Building machine learning models with TensorFlow",
-    skills: ["TensorFlow", "Keras", "Computer Vision", "NLP"],
-    category: "AI/ML",
-    verifyUrl: "https://www.tensorflow.org/certificate",
-  },
-];
-
-export const ALL_CERTIFICATIONS: Certification[] = [
+export const CERTIFICATIONS: Certification[] = [
   {
     id: 1,
     title: "Google Advanced Data Analytics Professional Certificate",
