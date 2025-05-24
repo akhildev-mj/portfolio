@@ -69,7 +69,7 @@ export default function Footer() {
             >
               <Coffee className="w-4 h-4 text-amber-400" />
             </motion.div>
-            <span>by a passionate data scientist</span>
+            <span>by one and only Akku</span>
           </motion.div>
 
           {/* Copyright */}
