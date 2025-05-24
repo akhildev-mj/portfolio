@@ -3,6 +3,7 @@
 import { Input } from "@/components/ui/input";
 import { NAV_ITEMS } from "@/constants/data";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { IoClose, IoSearch } from "react-icons/io5";
 import { MdKeyboardCommandKey } from "react-icons/md";
@@ -95,7 +96,9 @@ export default function Navbar() {
                     ease: "linear",
                   }}
                   className="absolute inset-1 border border-purple-400 rounded"
-                />
+                >
+                  <Image src="/favicon.ico" alt="A" fill />
+                </motion.div>
               </div>
               <div>
                 <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
