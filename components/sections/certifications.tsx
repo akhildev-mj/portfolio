@@ -2,7 +2,8 @@
 
 import { Button } from "@/components/ui/button";
 import CertificationCard from "@/components/ui/certification-card";
-import { CERTIFICATIONS, CREDLY_PROFILE_URL } from "@/constants/data";
+import { CERTIFICATIONS } from "@/constants/certifications";
+import { CREDLY_PROFILE_URL } from "@/constants/data";
 import { buttonHover, fadeInUp, staggerContainer } from "@/utils/animations";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";

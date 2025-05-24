@@ -3,10 +3,10 @@
 import { Button } from "@/components/ui/button";
 import CertificationCard from "@/components/ui/certification-card";
 import {
-  CERTIFICATIONS,
   CERTIFICATION_CATEGORIES,
-  CREDLY_PROFILE_URL,
-} from "@/constants/data";
+  CERTIFICATIONS,
+} from "@/constants/certifications";
+import { CREDLY_PROFILE_URL } from "@/constants/data";
 import { fadeInUp, staggerContainer } from "@/utils/animations";
 import { motion } from "framer-motion";
 import Link from "next/link";

@@ -1,5 +1,5 @@
 export interface Project {
-  id: number;
+  id?: number;
   title: string;
   description: string;
   image: string;
@@ -11,11 +11,10 @@ export interface Project {
 }
 
 export interface Certification {
-  id: number;
+  id?: number;
   title: string;
   issuer: string;
   date: string;
-  credentialId: string;
   image: string;
   description: string;
   skills: string[];

@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import ProjectCard from "@/components/ui/project-card";
-import { PROJECTS, PROJECT_CATEGORIES } from "@/constants/data";
+import { PROJECT_CATEGORIES, PROJECTS } from "@/constants/projects";
 import { fadeInUp, staggerContainer } from "@/utils/animations";
 import { motion } from "framer-motion";
 import Link from "next/link";

@@ -35,22 +35,13 @@ export default function CertificationCard({
       } hover:bg-white/15 hover:border-white/30 hover:shadow-lg hover:shadow-purple-500/10`}
     >
       {/* Certificate Header with padding for star badge */}
-      <div
-        className={`flex items-start mb-3 relative z-10 ${
-          certification.featured ? "pt-2" : ""
-        }`}
-      >
+      <div className={"flex items-start mb-3 relative z-10"}>
         <div
           className={`relative mr-3 flex-shrink-0 ${
             compact ? "w-12 h-12" : "w-16 h-16"
           }`}
         >
-          <motion.div
-            animate={{
-              scale: isHovered ? 1.05 : 1,
-            }}
-            transition={{ duration: 0.3 }}
-          >
+          <motion.div>
             <Image
               src={certification.image || "/placeholder.svg"}
               alt={certification.issuer}
@@ -118,7 +109,9 @@ export default function CertificationCard({
         <div className="flex items-center justify-between">
           <div className="flex items-center text-sm text-gray-400">
             <FaCalendarAlt className="w-4 h-4 mr-1" />
-            {certification.date}
+            {certification.date.split(" ")[0].slice(0, 3) +
+              " " +
+              certification.date.split(" ")[1]}
           </div>
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -130,10 +123,7 @@ export default function CertificationCard({
               variant="ghost"
               className="text-cyan-400 hover:text-cyan-300 hover:bg-cyan-400/10 p-2"
               onClick={() =>
-                window.open(
-                  certification.credlyUrl || certification.url || "#",
-                  "_blank"
-                )
+                window.open(certification.verifyUrl || "#", "_blank")
               }
             >
               <HiExternalLink className="w-4 h-4" />

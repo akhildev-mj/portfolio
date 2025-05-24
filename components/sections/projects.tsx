@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import ProjectCard from "@/components/ui/project-card";
-import { PROJECTS } from "@/constants/data";
+import { PROJECTS } from "@/constants/projects";
 import { fadeInUp, staggerContainer } from "@/utils/animations";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";

@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import {
+  CODE_RAIN_DROPS,
   CODE_TEMPLATES,
   GITHUB_PROFILE_URL,
   LINKEDIN_PROFILE_URL,
@@ -87,7 +88,11 @@ export default function Hero() {
             }}
             style={{ left: `${Math.random() * 100}%` }}
           >
-            {["AI", "ML", "Data", "Code", "{}"][Math.floor(Math.random() * 5)]}
+            {
+              CODE_RAIN_DROPS[
+                Math.floor(Math.random() * CODE_RAIN_DROPS.length)
+              ]
+            }
           </motion.div>
         ))}
       </div>
