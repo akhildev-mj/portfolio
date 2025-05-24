@@ -56,17 +56,27 @@ export const CONTACT_INFO: ContactInfo[] = [
   },
 ];
 
+export const CREDLY_PROFILE_URL = "https://www.credly.com/users/akhildevmj";
+export const GITHUB_PROFILE_URL = "https://github.com/akhildev-mj";
+export const LINKEDIN_PROFILE_URL = "https://linkedin.com/in/akhildevmj";
+export const WHATSAPP_PROFILE_URL = "https://wa.me/919074123050";
+export const PORTFOLIO_URL = "https://akhildev.vercel.app";
+
 export const SOCIAL_LINKS: SocialLink[] = [
-  { icon: FaGithub, href: "https://github.com/akhildev-mj", label: "GitHub" },
+  {
+    icon: FaGithub,
+    href: GITHUB_PROFILE_URL,
+    label: "GitHub",
+  },
   {
     icon: FaLinkedin,
-    href: "https://linkedin.com/in/akhildevmj",
+    href: LINKEDIN_PROFILE_URL,
     label: "LinkedIn",
   },
   {
     icon: FaWhatsapp,
-    href: "https://wa.me/919074123050",
-    label: "Twitter",
+    href: WHATSAPP_PROFILE_URL,
+    label: "WhatsApp",
   },
 ];
 
@@ -497,8 +507,3 @@ export const ABOUT_SNIPPETS = [
   "Bridging the gap between complex data and",
   "practical solutions that drive business value.",
 ];
-
-export const CREDLY_PROFILE_URL = "https://www.credly.com/users/akhildevmj";
-export const GITHUB_PROFILE_URL = "https://github.com/akhildev-mj";
-export const LINKEDIN_PROFILE_URL = "https://linkedin.com/in/akhildevmj";
-export const PORTFOLIO_URL = "https://akhildev.vercel.app";
