@@ -31,25 +31,30 @@ export default function ProjectCard({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={`group relative bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden transition-all duration-300 flex flex-col max-w-sm mx-auto ${
-        compact ? "w-80 h-96" : "h-[480px]"
+        compact ? "w-80" : "w-full"
       } hover:bg-white/10 hover:border-white/20 hover:shadow-lg hover:shadow-cyan-500/10`}
     >
       {/* Project Image */}
-      <div className={`relative overflow-hidden ${compact ? "h-32" : "h-48"}`}>
+      <div
+        className={`relative overflow-hidden flex-none ${
+          compact ? "h-32" : "h-auto"
+        }`}
+      >
         <motion.div
           animate={{
             scale: isHovered ? 1.05 : 1,
           }}
           transition={{ duration: 0.3 }}
-          className="h-full relative"
+          className="w-full overflow-hidden"
         >
           <Image
             src={project.image || "/placeholder.svg"}
             alt={project.title}
-            fill
-            className="object-cover"
+            width={360}
+            height={192}
+            className="object-cover w-full rounded-t-2xl"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
         </motion.div>
 
         {/* Overlay Actions */}
@@ -66,11 +71,13 @@ export default function ProjectCard({
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 size="sm"
-                className="bg-white/20 backdrop-blur-sm border border-white/30 text-white"
+                className="bg-slate-800 hover:bg-slate-900 backdrop-blur-sm border border-white/30 text-cyan-400 hover:text-purple-400 transition-colors duration-200"
                 onClick={() => window.open(project.github, "_blank")}
               >
                 <FaGithub className="w-4 h-4 mr-2" />
-                Code
+                <span className="bg-clip-text text-transparent border-white/20 text-xs bg-gradient-to-r from-cyan-400 to-purple-400">
+                  GitHub
+                </span>
               </Button>
             </motion.div>
 
@@ -101,58 +108,61 @@ export default function ProjectCard({
         </div>
       </div>
 
-      {/* Project Content - Flex Layout */}
-      <div className="p-4 flex-1 flex flex-col">
-        <h3
-          className={`font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors duration-300 line-clamp-2 ${
-            compact ? "text-lg" : "text-xl"
-          }`}
-        >
-          {project.title}
-        </h3>
+      {/* Project Content */}
+      <div className="p-4 flex flex-col justify-between flex-1">
+        <div className="flex flex-col gap-y-4">
+          <h3
+            className={`font-bold text-white group-hover:text-cyan-400 transition-colors duration-300 line-clamp-2 ${
+              compact ? "text-lg" : "text-xl"
+            }`}
+          >
+            {project.title}
+          </h3>
 
-        <p
-          className={`text-gray-300 mb-3 leading-relaxed line-clamp-2 ${
-            compact ? "text-sm" : "text-sm"
-          }`}
-        >
-          {project.description}
-        </p>
+          <p
+            className={`text-gray-300 leading-relaxed line-clamp-2 ${
+              compact ? "text-sm" : "text-sm"
+            }`}
+          >
+            {project.description}
+          </p>
 
-        {/* Technologies */}
-        <div className="flex flex-wrap gap-1 mb-4">
-          {project.technologies.slice(0, compact ? 3 : 4).map((tech) => (
-            <motion.span
-              key={tech}
-              whileHover={{ scale: 1.02 }}
-              className="px-2 py-1 text-xs bg-white/10 text-gray-300 rounded-full border border-white/20 hover:bg-white/15 transition-colors duration-200"
-            >
-              {tech}
-            </motion.span>
-          ))}
-          {project.technologies.length > (compact ? 3 : 4) && (
-            <span className="px-2 py-1 text-xs bg-white/10 text-gray-300 rounded-full border border-white/20">
-              +{project.technologies.length - (compact ? 3 : 4)}
-            </span>
-          )}
+          {/* Technologies */}
+          <div className="flex flex-wrap gap-1">
+            {project.technologies.slice(0, compact ? 3 : 4).map((tech) => (
+              <motion.span
+                key={tech}
+                whileHover={{ scale: 1.02 }}
+                className="px-2 py-1 text-xs bg-cyan-500/20 text-cyan-300 rounded-full border border-cyan-500/30 hover:bg-cyan-500/25 transition-colors duration-200"
+              >
+                {tech}
+              </motion.span>
+            ))}
+            {project.technologies.length > (compact ? 3 : 4) && (
+              <span className="px-2 py-1 text-xs bg-white/10 text-gray-300 rounded-full border border-white/20">
+                +{project.technologies.length - (compact ? 3 : 4)}
+              </span>
+            )}
+          </div>
         </div>
 
-        {/* Action Buttons - Always at bottom */}
         {!compact && (
-          <div className="flex space-x-2 mt-auto">
+          <div className="flex gap-2 mt-4">
             <motion.div
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="flex-1"
+              className="flex-1 flex items-center justify-start"
             >
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full bg-transparent border-white/20 text-gray-300 hover:bg-white/10 text-xs"
+                className="text-cyan-400 hover:text-purple-400 transition-colors duration-200"
                 onClick={() => window.open(project.github, "_blank")}
               >
                 <FaGithub className="w-3 h-3 mr-1" />
-                Source
+                <span className="bg-clip-text text-transparent border-white/20 text-xs bg-gradient-to-r from-cyan-400 to-purple-400">
+                  GitHub
+                </span>
               </Button>
             </motion.div>
 

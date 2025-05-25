@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import { FaCalendarAlt } from "react-icons/fa";
-import { HiExternalLink } from "react-icons/hi";
+import { MdVerified } from "react-icons/md";
 
 interface CertificationCardProps {
   certification: Certification;
@@ -36,34 +36,30 @@ export default function CertificationCard({
     >
       {/* Certificate Header with padding for star badge */}
       <div className={"flex items-start mb-3 relative z-10"}>
-        <div
-          className={`relative mr-3 flex-shrink-0 ${
-            compact ? "w-16 h-16" : "w-28 h-28"
-          }`}
-        >
+        <div className={`mr-3 flex-shrink-0`}>
           <motion.div>
             <Image
               src={certification.image || "/placeholder.svg"}
               alt={certification.issuer}
-              fill
+              width={110}
+              height={110}
               className="object-contain rounded-lg"
             />
           </motion.div>
         </div>
-        <div className="flex flex-col flex-1 min-w-0 space-y-2">
+
+        <div className="flex flex-col flex-1 min-w-0 justify-center gap-y-2">
           <h4
-            className={`font-semibold text-white mb-1 group-hover:text-cyan-400 transition-colors duration-300 line-clamp-2 ${
+            className={`font-semibold text-white group-hover:text-cyan-400 transition-colors duration-300 line-clamp-2 ${
               compact ? "text-base" : "text-md"
             }`}
           >
             {certification.title}
           </h4>
-          <p
-            className={`text-gray-200 font-black ${
-              compact ? "text-sm" : "text-sm"
-            }`}
-          >
-            {certification.issuer}
+          <p className="font-bold">
+            <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              {certification.issuer}
+            </span>
           </p>
           <motion.span
             whileHover={{ scale: 1.02 }}
@@ -74,11 +70,9 @@ export default function CertificationCard({
         </div>
       </div>
 
-      {/* Category Badge */}
-
       {/* Description */}
       <p
-        className={`text-gray-300 mb-3 line-clamp-2 ${
+        className={`text-gray-300 line-clamp-2 ${
           compact ? "text-sm" : "text-sm"
         }`}
       >
@@ -86,7 +80,7 @@ export default function CertificationCard({
       </p>
 
       {/* Skills - Just below description */}
-      <div className="flex flex-wrap gap-1 mb-4">
+      <div className="flex flex-wrap gap-1 mb-3">
         {certification.skills.slice(0, compact ? 2 : 3).map((skill) => (
           <motion.span
             key={skill}
@@ -123,12 +117,15 @@ export default function CertificationCard({
             <Button
               size="sm"
               variant="ghost"
-              className="text-cyan-400 hover:text-cyan-300 hover:bg-cyan-400/10 p-2"
+              className="p-2 text-lime-400 hover:text-green-600 transition-colors duration-200"
               onClick={() =>
                 window.open(certification.verifyUrl || "#", "_blank")
               }
             >
-              <HiExternalLink className="w-4 h-4" />
+              <MdVerified className="w-4 h-4" />
+              <span className="bg-gradient-to-r from-lime-400 to-green-600 hover:from-green-600 hover:to-lime-400 bg-clip-text text-transparent transition-colors duration-200">
+                Verify
+              </span>
             </Button>
           </motion.div>
         </div>
