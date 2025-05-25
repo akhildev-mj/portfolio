@@ -112,9 +112,7 @@ export default function Hero() {
                 transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
                 className="w-2 h-2 bg-green-400 rounded-full"
               />
-              <span className="text-sm text-gray-300">
-                Available for opportunities
-              </span>
+              <span className="text-sm text-gray-300">Available 4 collab</span>
               <HiSparkles className="w-4 h-4 text-cyan-400" />
             </motion.div>
 
@@ -315,9 +313,7 @@ export default function Hero() {
                 transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
                 className="w-2 h-2 bg-green-400 rounded-full"
               />
-              <span className="text-sm text-gray-300">
-                Available for opportunities
-              </span>
+              <span className="text-sm text-gray-300">Available 4 collab</span>
               <HiSparkles className="w-4 h-4 text-cyan-400" />
             </motion.div>
 
