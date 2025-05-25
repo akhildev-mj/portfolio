@@ -103,7 +103,7 @@ export default function CertificationCard({
       {/* Footer - Always at bottom */}
       <div className="border-t border-white/10 pt-3">
         <div className="flex items-center justify-between">
-          <div className="flex items-center text-sm text-gray-400">
+          <div className="flex items-center text-sm text-purple-300 font-normal">
             <FaCalendarAlt className="w-4 h-4 mr-1" />
             {certification.date.split(" ")[0].slice(0, 3) +
               " " +

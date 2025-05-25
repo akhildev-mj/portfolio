@@ -7,6 +7,7 @@ import { CREDLY_PROFILE_URL } from "@/constants/data";
 import { buttonHover, fadeInUp, staggerContainer } from "@/utils/animations";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 import { SiCredly } from "react-icons/si";
@@ -55,6 +56,39 @@ export default function Certifications() {
           ))}
         </motion.div>
 
+        {/* Infinite Scrolling Carousel (no duplication) */}
+        <div className="relative mb-12 overflow-hidden">
+          {/* Left Blur */}
+          <div className="pointer-events-none absolute left-0 top-0 h-full w-12 bg-gradient-to-r from-black to-transparent z-10" />
+
+          {/* Right Blur */}
+          <div className="pointer-events-none absolute right-0 top-0 h-full w-12 bg-gradient-to-l from-black to-transparent z-10" />
+
+          {/* Scrolling Content */}
+          <motion.div
+            animate={{ x: ["0%", "-100%"] }}
+            transition={{
+              repeat: Infinity,
+              repeatType: "loop",
+              duration: CERTIFICATIONS.length * 10,
+              ease: "linear",
+            }}
+            className="flex gap-4 w-max"
+          >
+            {CERTIFICATIONS.map((cert) => (
+              <div key={cert.id}>
+                <Image
+                  width={80}
+                  height={80}
+                  src={cert.image}
+                  alt={cert.title}
+                  className="rounded-xl object-contain"
+                />
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
         {/* Action Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -79,7 +113,7 @@ export default function Certifications() {
               asChild
               variant="outline"
               size="lg"
-              className="bg-white/5 border-white/20 text-gray-300 hover:bg-white/10 px-6 md:px-8 py-3"
+              className="bg-slate-900 hover:bg-slate-700 text-purple-600 hover:text-slate-100 px-6 md:px-8 py-3"
             >
               <a
                 href={CREDLY_PROFILE_URL}
