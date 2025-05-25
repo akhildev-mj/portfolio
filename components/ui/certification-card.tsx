@@ -38,7 +38,7 @@ export default function CertificationCard({
       <div className={"flex items-start mb-3 relative z-10"}>
         <div
           className={`relative mr-3 flex-shrink-0 ${
-            compact ? "w-12 h-12" : "w-16 h-16"
+            compact ? "w-16 h-16" : "w-28 h-28"
           }`}
         >
           <motion.div>
@@ -50,29 +50,31 @@ export default function CertificationCard({
             />
           </motion.div>
         </div>
-        <div className="flex-1 min-w-0">
+        <div className="flex flex-col flex-1 min-w-0 space-y-2">
           <h4
             className={`font-semibold text-white mb-1 group-hover:text-cyan-400 transition-colors duration-300 line-clamp-2 ${
-              compact ? "text-base" : "text-lg"
+              compact ? "text-base" : "text-md"
             }`}
           >
             {certification.title}
           </h4>
-          <p className={`text-gray-400 ${compact ? "text-sm" : "text-sm"}`}>
+          <p
+            className={`text-gray-200 font-black ${
+              compact ? "text-sm" : "text-sm"
+            }`}
+          >
             {certification.issuer}
           </p>
+          <motion.span
+            whileHover={{ scale: 1.02 }}
+            className="w-fit px-2 py-1 text-xs bg-purple-500/20 text-purple-300 rounded-full border border-purple-500/30 hover:bg-purple-500/25 transition-colors duration-200"
+          >
+            {certification.category}
+          </motion.span>
         </div>
       </div>
 
       {/* Category Badge */}
-      <div className="mb-3">
-        <motion.span
-          whileHover={{ scale: 1.02 }}
-          className="px-2 py-1 text-xs bg-purple-500/20 text-purple-300 rounded-full border border-purple-500/30 hover:bg-purple-500/25 transition-colors duration-200"
-        >
-          {certification.category}
-        </motion.span>
-      </div>
 
       {/* Description */}
       <p
