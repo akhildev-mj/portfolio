@@ -43,7 +43,7 @@ export default function CertificationCard({
               alt={certification.issuer}
               width={110}
               height={110}
-              className="object-contain rounded-lg"
+              className="object-cover rounded-lg"
             />
           </motion.div>
         </div>

@@ -75,6 +75,7 @@
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  position: relative;
 }
 
 /* Hide cursor on touch devices */
