@@ -57,6 +57,7 @@ export default function Navbar() {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+      history.pushState(null, "", href);
     }
   };
 
@@ -101,12 +102,14 @@ export default function Navbar() {
                 </motion.div>
               </div>
               <div>
-                <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-                  Akhildev MJ
-                </span>
-                <div className="text-xs text-gray-400">
-                  Data Scientist & AI Engineer
-                </div>
+                <a href="#home">
+                  <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                    Akhildev MJ
+                  </span>
+                  <div className="text-xs text-gray-400">
+                    Data Scientist & AI Engineer
+                  </div>
+                </a>
               </div>
             </motion.div>
 
