@@ -12,7 +12,7 @@ const PROJECT_DATA: Project[] = [
     title: "IBM Generative AI Applications with RAG and LangChain",
     description:
       "Build and deploy RAG-based AI applications using LangChain and IBM tools.",
-    image: "/projects/generative-ai.webp",
+    image: "/projects/generative-ai.jpeg",
     category: "Generative AI",
     technologies: ["LangChain", "IBM Cloud", "Python", "Vector DB"],
     icon: FaRobot,
@@ -24,7 +24,7 @@ const PROJECT_DATA: Project[] = [
     title: "Google Advanced Data Analytics Final Project",
     description:
       "Projects and coursework for the Google Advanced Data Analytics Certification.",
-    image: "/projects/google-da.webp",
+    image: "/projects/google-da.jpeg",
     category: "Data Analytics",
     technologies: ["Python", "SQL", "Tableau", "BigQuery"],
     icon: FaChartBar,
@@ -33,10 +33,10 @@ const PROJECT_DATA: Project[] = [
     live: "",
   },
   {
-    title: "IBM Developing AI Applications with Python and Flask",
+    title: "IBM Developing AI Applications with Python and Flask Project",
     description:
       "Flask-based backend services integrated with AI capabilities on IBM Cloud.",
-    image: "/projects/ai-python.webp",
+    image: "/projects/ai-python.jpeg",
     category: "Artificial Intelligence",
     technologies: ["Flask", "IBM Watson", "Python"],
     icon: FaBrain,
@@ -48,7 +48,7 @@ const PROJECT_DATA: Project[] = [
     title: "Crack Detection using ResNet50 and VGG16",
     description:
       "Detecting concrete cracks with high accuracy using transfer learning with ResNet50 and VGG16.",
-    image: "/projects/crack-detection.jpg",
+    image: "/projects/crack-detection.jpeg",
     category: "Deep Learning",
     technologies: ["ResNet50", "VGG16", "PyTorch", "TensorFlow", "Keras"],
     icon: FaBrain,
@@ -60,7 +60,7 @@ const PROJECT_DATA: Project[] = [
     title: "Fashion-MNIST Classification",
     description:
       "A CNN model built with PyTorch to classify Fashion-MNIST images with over 85% accuracy.",
-    image: "/projects/fashion-mnist.jpg",
+    image: "/projects/fashion-mnist.jpeg",
     category: "Deep Learning",
     technologies: ["PyTorch", "CNN", "Fashion-MNIST"],
     icon: FaBrain,
@@ -71,7 +71,7 @@ const PROJECT_DATA: Project[] = [
     title: "League of Legends Match Predictor",
     description:
       "A logistic regression model in PyTorch to predict match outcomes based on in-game stats.",
-    image: "/projects/league-predictor.jpg",
+    image: "/projects/league-predictor.jpeg",
     category: "Deep Learning",
     technologies: ["PyTorch", "Logistic Regression", "Neural Networks"],
     icon: FaBrain,
@@ -82,7 +82,7 @@ const PROJECT_DATA: Project[] = [
     title: "Classify Waste Products Using Transfer Learning",
     description:
       "Image classifier for waste sorting using VGG16 and transfer learning techniques.",
-    image: "/projects/waste-classification.jpg",
+    image: "/projects/waste-classification.jpeg",
     category: "Deep Learning",
     technologies: ["VGG16", "Transfer Learning", "TensorFlow", "Keras"],
     icon: FaBrain,
@@ -94,7 +94,7 @@ const PROJECT_DATA: Project[] = [
     title: "Polynomial Regression",
     description:
       "A project exploring polynomial regression techniques in predictive modeling.",
-    image: "/projects/polynomial.webp",
+    image: "/projects/polynomial.jpeg",
     category: "Machine Learning",
     technologies: ["Python", "scikit-learn", "Matplotlib"],
     icon: FaChartLine,
@@ -105,7 +105,7 @@ const PROJECT_DATA: Project[] = [
     title: "Linear Regression",
     description:
       "Basic implementation and visualization of linear regression models.",
-    image: "/projects/linear.webp",
+    image: "/projects/linear.jpeg",
     category: "Machine Learning",
     technologies: ["Python", "NumPy", "Pandas", "Matplotlib"],
     icon: FaChartLine,
@@ -115,7 +115,7 @@ const PROJECT_DATA: Project[] = [
   {
     title: "Portfolio Website",
     description: "My personal portfolio built with Next.js and TypeScript.",
-    image: "/projects/portfolio.webp",
+    image: "/projects/portfolio.jpeg",
     category: "Web Development",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
     icon: FaGlobe,
