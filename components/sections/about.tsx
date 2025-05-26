@@ -79,14 +79,16 @@ export default function About() {
                 <div className="lg:hidden">
                   {ABOUT_SNIPPETS.map((line, index) => (
                     <div key={index} className="text-gray-300">
-                      {line.startsWith("#") ? (
-                        <span className="text-cyan-400 font-bold">{line}</span>
+                      {line.startsWith("#") && !line.startsWith("##") ? (
+                        <h3 className="text-cyan-400 font-bold text-base">
+                          {line}
+                        </h3>
+                      ) : line.startsWith("##") ? (
+                        <h4 className="text-purple-400 font-semibold text-sm">
+                          {line}
+                        </h4>
                       ) : line.startsWith("-") ? (
                         <span className="text-emerald-400">{line}</span>
-                      ) : line.startsWith("##") ? (
-                        <span className="text-purple-400 font-semibold">
-                          {line}
-                        </span>
                       ) : (
                         <span>{line}</span>
                       )}
@@ -98,14 +100,16 @@ export default function About() {
                 <div className="hidden lg:block">
                   {ABOUT_SNIPPETS.slice(0, currentLine).map((line, index) => (
                     <div key={index} className="text-gray-300">
-                      {line.startsWith("#") ? (
-                        <span className="text-cyan-400 font-bold">{line}</span>
+                      {line.startsWith("#") && !line.startsWith("##") ? (
+                        <h3 className="text-cyan-400 font-bold text-base">
+                          {line}
+                        </h3>
+                      ) : line.startsWith("##") ? (
+                        <h4 className="text-purple-400 font-semibold text-sm">
+                          {line}
+                        </h4>
                       ) : line.startsWith("-") ? (
                         <span className="text-emerald-400">{line}</span>
-                      ) : line.startsWith("##") ? (
-                        <span className="text-purple-400 font-semibold">
-                          {line}
-                        </span>
                       ) : (
                         <span>{line}</span>
                       )}
@@ -114,16 +118,17 @@ export default function About() {
 
                   {currentLine < ABOUT_SNIPPETS.length && (
                     <div className="text-gray-300">
-                      {ABOUT_SNIPPETS[currentLine].startsWith("#") ? (
-                        <span className="text-cyan-400 font-bold">
+                      {ABOUT_SNIPPETS[currentLine].startsWith("#") &&
+                      !ABOUT_SNIPPETS[currentLine].startsWith("##") ? (
+                        <h3 className="text-cyan-400 font-bold text-base">
                           {displayText}
-                        </span>
+                        </h3>
+                      ) : ABOUT_SNIPPETS[currentLine].startsWith("##") ? (
+                        <h4 className="text-purple-400 font-semibold text-sm">
+                          {displayText}
+                        </h4>
                       ) : ABOUT_SNIPPETS[currentLine].startsWith("-") ? (
                         <span className="text-emerald-400">{displayText}</span>
-                      ) : ABOUT_SNIPPETS[currentLine].startsWith("##") ? (
-                        <span className="text-purple-400 font-semibold">
-                          {displayText}
-                        </span>
                       ) : (
                         <span>{displayText}</span>
                       )}
@@ -164,7 +169,10 @@ export default function About() {
 
                 <div className="relative z-10 text-center">
                   <div className="inline-flex p-3 rounded-lg bg-gradient-to-br from-cyan-500/20 to-purple-500/20 mb-3 group-hover:from-cyan-500/30 group-hover:to-purple-500/30 transition-colors">
-                    <stat.icon className="w-6 h-6 text-cyan-400" />
+                    <stat.icon
+                      className="w-6 h-6 text-cyan-400"
+                      aria-hidden="true"
+                    />
                   </div>
                   <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-2">
                     {stat.value}

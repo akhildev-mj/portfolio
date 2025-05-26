@@ -1,30 +1,25 @@
-"use client";
+"use client"
 
-import { Button } from "@/components/ui/button";
-import type { Project } from "@/types";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import { useState } from "react";
-import { FaGithub } from "react-icons/fa";
-import { HiExternalLink, HiPlay } from "react-icons/hi";
+import { Button } from "@/components/ui/button"
+import type { Project } from "@/types"
+import { motion } from "framer-motion"
+import Image from "next/image"
+import { useState } from "react"
+import { FaGithub } from "react-icons/fa"
+import { HiExternalLink, HiPlay } from "react-icons/hi"
 
 interface ProjectCardProps {
-  project: Project;
-  index: number;
-  isInView: boolean;
-  compact?: boolean;
+  project: Project
+  index: number
+  isInView: boolean
+  compact?: boolean
 }
 
-export default function ProjectCard({
-  project,
-  index,
-  isInView,
-  compact = false,
-}: ProjectCardProps) {
-  const [isHovered, setIsHovered] = useState(false);
+export default function ProjectCard({ project, index, isInView, compact = false }: ProjectCardProps) {
+  const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <motion.div
+    <motion.article
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
@@ -35,24 +30,23 @@ export default function ProjectCard({
       } hover:bg-white/10 hover:border-white/20 hover:shadow-lg hover:shadow-cyan-500/10`}
     >
       {/* Project Image */}
-      <div
-        className={`relative overflow-hidden flex-none ${
-          compact ? "h-32" : "h-auto"
-        }`}
-      >
+      <div className={`relative overflow-hidden flex-none ${compact ? "h-32" : "h-auto"}`}>
         <motion.div
           animate={{
             scale: isHovered ? 1.05 : 1,
           }}
           transition={{ duration: 0.3 }}
           className="w-full overflow-hidden"
+          style={{ willChange: "transform" }}
         >
           <Image
-            src={project.image || "/placeholder.svg"}
-            alt={project.title}
+            src={project.image || "/placeholder.svg?height=192&width=360"}
+            alt={`${project.title} project screenshot`}
             width={360}
             height={192}
             className="object-cover w-full rounded-t-2xl"
+            loading={index < 3 ? "eager" : "lazy"}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
         </motion.div>
@@ -73,8 +67,9 @@ export default function ProjectCard({
                 size="sm"
                 className="bg-slate-800 hover:bg-slate-900 backdrop-blur-sm border border-white/30 text-cyan-400 hover:text-purple-400 transition-colors duration-200"
                 onClick={() => window.open(project.github, "_blank")}
+                aria-label={`View ${project.title} source code on GitHub`}
               >
-                <FaGithub className="w-4 h-4 mr-2" />
+                <FaGithub className="w-4 h-4 mr-2" aria-hidden="true" />
                 <span className="bg-clip-text text-transparent border-white/20 text-xs bg-gradient-to-r from-cyan-400 to-purple-400">
                   GitHub
                 </span>
@@ -82,16 +77,14 @@ export default function ProjectCard({
             </motion.div>
 
             {project.live && (
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button
                   size="sm"
                   className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white border-0"
                   onClick={() => window.open(project.live, "_blank")}
+                  aria-label={`View ${project.title} live demo`}
                 >
-                  <HiExternalLink className="w-4 h-4 mr-2" />
+                  <HiExternalLink className="w-4 h-4 mr-2" aria-hidden="true" />
                   Demo
                 </Button>
               </motion.div>
@@ -102,7 +95,7 @@ export default function ProjectCard({
         {/* Category Badge */}
         <div className="absolute top-2 left-2">
           <div className="flex items-center space-x-2 bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full border border-white/20">
-            <project.icon className="w-4 h-4 text-cyan-400" />
+            <project.icon className="w-4 h-4 text-cyan-400" aria-hidden="true" />
             <span className="text-sm text-white">{project.category}</span>
           </div>
         </div>
@@ -119,11 +112,7 @@ export default function ProjectCard({
             {project.title}
           </h3>
 
-          <p
-            className={`text-gray-300 leading-relaxed line-clamp-2 ${
-              compact ? "text-sm" : "text-sm"
-            }`}
-          >
+          <p className={`text-gray-300 leading-relaxed line-clamp-2 ${compact ? "text-sm" : "text-sm"}`}>
             {project.description}
           </p>
 
@@ -158,8 +147,9 @@ export default function ProjectCard({
                 size="sm"
                 className="text-cyan-400 hover:text-purple-400 transition-colors duration-200"
                 onClick={() => window.open(project.github, "_blank")}
+                aria-label={`View ${project.title} source code on GitHub`}
               >
-                <FaGithub className="w-3 h-3 mr-1" />
+                <FaGithub className="w-3 h-3 mr-1" aria-hidden="true" />
                 <span className="bg-clip-text text-transparent border-white/20 text-xs bg-gradient-to-r from-cyan-400 to-purple-400">
                   GitHub
                 </span>
@@ -167,17 +157,14 @@ export default function ProjectCard({
             </motion.div>
 
             {project.live && (
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="flex-1"
-              >
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="flex-1">
                 <Button
                   size="sm"
                   className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 text-white border-0 text-xs"
                   onClick={() => window.open(project.live, "_blank")}
+                  aria-label={`View ${project.title} live demo`}
                 >
-                  <HiPlay className="w-3 h-3 mr-1" />
+                  <HiPlay className="w-3 h-3 mr-1" aria-hidden="true" />
                   Demo
                 </Button>
               </motion.div>
@@ -185,6 +172,6 @@ export default function ProjectCard({
           </div>
         )}
       </div>
-    </motion.div>
-  );
+    </motion.article>
+  )
 }

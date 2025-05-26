@@ -87,9 +87,13 @@ export default function Contact() {
                   transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                   whileHover={{ x: 5 }}
                   className="flex items-center space-x-4 p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300 group"
+                  aria-label={`Contact via ${item.label}: ${item.value}`}
                 >
                   <div className="p-3 bg-gradient-to-br from-cyan-500 to-purple-500 rounded-lg">
-                    <item.icon className="w-5 h-5 text-white" />
+                    <item.icon
+                      className="w-5 h-5 text-white"
+                      aria-hidden="true"
+                    />
                   </div>
                   <div>
                     <p className="text-sm text-gray-400">{item.label}</p>
@@ -122,9 +126,14 @@ export default function Contact() {
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     whileTap={{ scale: 0.95 }}
                     className="p-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-all duration-300"
-                    aria-label={social.label}
+                    aria-label={`Follow me on ${social.label}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <social.icon className="w-5 h-5 text-gray-300 hover:text-white transition-colors" />
+                    <social.icon
+                      className="w-5 h-5 text-gray-300 hover:text-white transition-colors"
+                      aria-hidden="true"
+                    />
                   </motion.a>
                 ))}
               </div>
@@ -142,7 +151,7 @@ export default function Contact() {
               Send a Message
             </h3>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6" noValidate>
               <div className="grid md:grid-cols-2 gap-4">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -153,7 +162,7 @@ export default function Contact() {
                     htmlFor="name"
                     className="block text-sm font-medium text-gray-300 mb-2"
                   >
-                    Name
+                    Name *
                   </label>
                   <Input
                     id="name"
@@ -164,6 +173,7 @@ export default function Contact() {
                     onChange={handleChange}
                     className="bg-white/10 border-white/20 text-white placeholder-gray-400 focus:border-cyan-400 focus:ring-cyan-400"
                     placeholder="Your name"
+                    aria-describedby="name-error"
                   />
                 </motion.div>
 
@@ -176,7 +186,7 @@ export default function Contact() {
                     htmlFor="email"
                     className="block text-sm font-medium text-gray-300 mb-2"
                   >
-                    Email
+                    Email *
                   </label>
                   <Input
                     id="email"
@@ -187,6 +197,7 @@ export default function Contact() {
                     onChange={handleChange}
                     className="bg-white/10 border-white/20 text-white placeholder-gray-400 focus:border-cyan-400 focus:ring-cyan-400"
                     placeholder="your@email.com"
+                    aria-describedby="email-error"
                   />
                 </motion.div>
               </div>
@@ -200,7 +211,7 @@ export default function Contact() {
                   htmlFor="subject"
                   className="block text-sm font-medium text-gray-300 mb-2"
                 >
-                  Subject
+                  Subject *
                 </label>
                 <Input
                   id="subject"
@@ -211,6 +222,7 @@ export default function Contact() {
                   onChange={handleChange}
                   className="bg-white/10 border-white/20 text-white placeholder-gray-400 focus:border-cyan-400 focus:ring-cyan-400"
                   placeholder="What's this about?"
+                  aria-describedby="subject-error"
                 />
               </motion.div>
 
@@ -223,7 +235,7 @@ export default function Contact() {
                   htmlFor="message"
                   className="block text-sm font-medium text-gray-300 mb-2"
                 >
-                  Message
+                  Message *
                 </label>
                 <Textarea
                   id="message"
@@ -234,6 +246,7 @@ export default function Contact() {
                   onChange={handleChange}
                   className="bg-white/10 border-white/20 text-white placeholder-gray-400 focus:border-cyan-400 focus:ring-cyan-400 resize-none"
                   placeholder="Tell me about your project or idea..."
+                  aria-describedby="message-error"
                 />
               </motion.div>
 
@@ -246,10 +259,14 @@ export default function Contact() {
                   type="submit"
                   size="lg"
                   className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0 py-3 text-lg font-semibold transition-all duration-300 transform hover:scale-105"
+                  aria-describedby="submit-help"
                 >
-                  <MdSend className="w-5 h-5 mr-2" />
+                  <MdSend className="w-5 h-5 mr-2" aria-hidden="true" />
                   Send Message
                 </Button>
+                <p id="submit-help" className="sr-only">
+                  Submit the contact form to send your message
+                </p>
               </motion.div>
             </form>
           </motion.div>

@@ -50,7 +50,7 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center px-4 lg:px-20 xl:px-32 pt-16"
     >
-      {/* Dynamic Background */}
+      {/* Dynamic Background - Optimized for performance */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           animate={{
@@ -66,10 +66,11 @@ export default function Hero() {
             ease: "linear",
           }}
           className="absolute inset-0"
+          style={{ willChange: "background" }}
         />
 
-        {/* Code Rain Effect */}
-        {[...Array(15)].map((_, i) => (
+        {/* Reduced Code Rain Effect for performance */}
+        {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute text-cyan-400/20 font-mono text-sm"
@@ -86,7 +87,10 @@ export default function Hero() {
               delay: Math.random() * 5,
               ease: "linear",
             }}
-            style={{ left: `${Math.random() * 100}%` }}
+            style={{
+              left: `${Math.random() * 100}%`,
+              willChange: "transform, opacity",
+            }}
           >
             {
               CODE_RAIN_DROPS[
@@ -111,9 +115,15 @@ export default function Hero() {
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
                 className="w-2 h-2 bg-green-400 rounded-full"
+                style={{ willChange: "transform" }}
               />
-              <span className="text-sm text-gray-300">Available 4 collab</span>
-              <HiSparkles className="w-4 h-4 text-cyan-400" />
+              <span className="text-sm text-gray-300">
+                Available for collaboration
+              </span>
+              <HiSparkles
+                className="w-4 h-4 text-cyan-400"
+                aria-hidden="true"
+              />
             </motion.div>
 
             {/* Main Heading */}
@@ -165,21 +175,30 @@ export default function Hero() {
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0 px-6 py-3 text-sm font-semibold rounded-full transition-all duration-300"
+                  aria-label="Download my resume"
                 >
-                  <HiDownload className="w-4 h-4 mr-2" />
+                  <HiDownload className="w-4 h-4 mr-2" aria-hidden="true" />
                   Download Resume
                 </Button>
               </motion.div>
 
               <div className="flex items-center space-x-3">
                 {[
-                  { icon: FaGithub, href: GITHUB_PROFILE_URL, label: "GitHub" },
+                  {
+                    icon: FaGithub,
+                    href: GITHUB_PROFILE_URL,
+                    label: "GitHub Profile",
+                  },
                   {
                     icon: FaLinkedin,
                     href: LINKEDIN_PROFILE_URL,
-                    label: "LinkedIn",
+                    label: "LinkedIn Profile",
                   },
-                  { icon: MdEmail, href: "#contact", label: "Email" },
+                  {
+                    icon: MdEmail,
+                    href: "#contact",
+                    label: "Contact me via email",
+                  },
                 ].map((social, index) => (
                   <motion.a
                     key={social.label}
@@ -196,7 +215,7 @@ export default function Hero() {
                     className="p-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-all duration-300"
                     aria-label={social.label}
                   >
-                    <social.icon className="w-5 h-5" />
+                    <social.icon className="w-5 h-5" aria-hidden="true" />
                   </motion.a>
                 ))}
               </div>
@@ -222,6 +241,7 @@ export default function Hero() {
                     disabled={isGenerating}
                     size="sm"
                     className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0 text-xs px-3 py-1"
+                    aria-label="Generate new code example"
                   >
                     {isGenerating ? (
                       <motion.div
@@ -231,12 +251,13 @@ export default function Hero() {
                           repeat: Number.POSITIVE_INFINITY,
                           ease: "linear",
                         }}
+                        style={{ willChange: "transform" }}
                       >
                         <HiLightningBolt className="w-3 h-3" />
                       </motion.div>
                     ) : (
                       <>
-                        <HiPlay className="w-3 h-3 mr-1" />
+                        <HiPlay className="w-3 h-3 mr-1" aria-hidden="true" />
                         Generate
                       </>
                     )}
@@ -273,6 +294,7 @@ export default function Hero() {
                         repeat: Number.POSITIVE_INFINITY,
                       }}
                       className="w-2 h-2 bg-cyan-400 rounded-full"
+                      style={{ willChange: "transform" }}
                     />
                     <span className="text-xs">
                       Generating intelligent code...
@@ -312,9 +334,15 @@ export default function Hero() {
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
                 className="w-2 h-2 bg-green-400 rounded-full"
+                style={{ willChange: "transform" }}
               />
-              <span className="text-sm text-gray-300">Available 4 collab</span>
-              <HiSparkles className="w-4 h-4 text-cyan-400" />
+              <span className="text-sm text-gray-300">
+                Available for collaboration
+              </span>
+              <HiSparkles
+                className="w-4 h-4 text-cyan-400"
+                aria-hidden="true"
+              />
             </motion.div>
 
             {/* Main Heading */}
@@ -366,21 +394,30 @@ export default function Hero() {
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0 px-8 py-3 text-base font-semibold rounded-full transition-all duration-300"
+                  aria-label="Download my resume"
                 >
-                  <HiDownload className="w-5 h-5 mr-2" />
+                  <HiDownload className="w-5 h-5 mr-2" aria-hidden="true" />
                   Download Resume
                 </Button>
               </motion.div>
 
               <div className="flex items-center space-x-4">
                 {[
-                  { icon: FaGithub, href: GITHUB_PROFILE_URL, label: "GitHub" },
+                  {
+                    icon: FaGithub,
+                    href: GITHUB_PROFILE_URL,
+                    label: "GitHub Profile",
+                  },
                   {
                     icon: FaLinkedin,
                     href: LINKEDIN_PROFILE_URL,
-                    label: "LinkedIn",
+                    label: "LinkedIn Profile",
                   },
-                  { icon: MdEmail, href: "#contact", label: "Email" },
+                  {
+                    icon: MdEmail,
+                    href: "#contact",
+                    label: "Contact me via email",
+                  },
                 ].map((social, index) => (
                   <motion.a
                     key={social.label}
@@ -397,7 +434,7 @@ export default function Hero() {
                     className="p-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-all duration-300"
                     aria-label={social.label}
                   >
-                    <social.icon className="w-5 h-5" />
+                    <social.icon className="w-5 h-5" aria-hidden="true" />
                   </motion.a>
                 ))}
               </div>
@@ -424,6 +461,7 @@ export default function Hero() {
                     disabled={isGenerating}
                     size="sm"
                     className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0 text-xs"
+                    aria-label="Generate new code example"
                   >
                     {isGenerating ? (
                       <motion.div
@@ -433,11 +471,12 @@ export default function Hero() {
                           repeat: Number.POSITIVE_INFINITY,
                           ease: "linear",
                         }}
+                        style={{ willChange: "transform" }}
                       >
                         <HiLightningBolt className="w-3 h-3" />
                       </motion.div>
                     ) : (
-                      <HiPlay className="w-3 h-3 mr-1" />
+                      <HiPlay className="w-3 h-3 mr-1" aria-hidden="true" />
                     )}
                     Generate
                   </Button>
@@ -473,6 +512,7 @@ export default function Hero() {
                         repeat: Number.POSITIVE_INFINITY,
                       }}
                       className="w-2 h-2 bg-cyan-400 rounded-full"
+                      style={{ willChange: "transform" }}
                     />
                     <span className="text-sm">
                       Generating intelligent code...

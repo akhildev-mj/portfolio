@@ -71,6 +71,8 @@ export default function Navbar() {
             ? "bg-black/80 backdrop-blur-md border-b border-white/10"
             : "bg-transparent"
         }`}
+        role="navigation"
+        aria-label="Main navigation"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
@@ -88,6 +90,7 @@ export default function Navbar() {
                     ease: "linear",
                   }}
                   className="w-8 h-8 border-2 border-cyan-400 rounded-lg"
+                  style={{ willChange: "transform" }}
                 />
                 <motion.div
                   animate={{ rotate: -360 }}
@@ -97,12 +100,13 @@ export default function Navbar() {
                     ease: "linear",
                   }}
                   className="absolute inset-1 border border-purple-400 rounded"
+                  style={{ willChange: "transform" }}
                 >
-                  <Image src="/favicon.ico" alt="A" fill />
+                  <Image src="/favicon.ico" alt="Akhildev MJ Logo" fill />
                 </motion.div>
               </div>
               <div>
-                <a href="#home">
+                <a href="#home" aria-label="Go to home section">
                   <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
                     Akhildev MJ
                   </span>
@@ -119,8 +123,10 @@ export default function Navbar() {
               whileTap={{ scale: 0.98 }}
               onClick={() => setIsCommandOpen(true)}
               className="hidden md:flex items-center space-x-3 bg-white/5 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-2 text-gray-300 hover:bg-white/10 transition-all duration-300 min-w-[300px]"
+              aria-label="Open command palette to search or navigate"
+              type="button"
             >
-              <IoSearch className="w-4 h-4" />
+              <IoSearch className="w-4 h-4" aria-hidden="true" />
               <span className="flex-1 text-left">Search or jump to...</span>
               <div className="flex items-center space-x-1">
                 <kbd className="px-2 py-1 text-xs bg-white/10 rounded border border-white/20 flex items-center justify-center min-w-[24px] h-[24px]">
@@ -137,8 +143,10 @@ export default function Navbar() {
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsCommandOpen(true)}
               className="md:hidden p-2 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20"
+              aria-label="Open search"
+              type="button"
             >
-              <IoSearch className="w-5 h-5" />
+              <IoSearch className="w-5 h-5" aria-hidden="true" />
             </motion.button>
           </div>
         </div>
@@ -153,6 +161,9 @@ export default function Navbar() {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm"
             onClick={() => setIsCommandOpen(false)}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="command-palette-title"
           >
             <div className="flex items-start justify-center pt-[10vh] px-4">
               <motion.div
@@ -164,17 +175,23 @@ export default function Navbar() {
               >
                 {/* Header */}
                 <div className="flex items-center space-x-3 p-4 border-b border-white/10">
-                  <IoSearch className="w-5 h-5 text-gray-400" />
+                  <IoSearch
+                    className="w-5 h-5 text-gray-400"
+                    aria-hidden="true"
+                  />
                   <Input
                     ref={inputRef}
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Type to search..."
                     className="flex-1 bg-transparent border-0 text-white placeholder-gray-400 focus:ring-0 text-lg"
+                    aria-label="Search navigation items"
                   />
                   <button
                     onClick={() => setIsCommandOpen(false)}
                     className="p-1 hover:bg-white/10 rounded"
+                    aria-label="Close command palette"
+                    type="button"
                   >
                     <IoClose className="w-4 h-4 text-gray-400" />
                   </button>
@@ -192,9 +209,14 @@ export default function Navbar() {
                           transition={{ delay: index * 0.05 }}
                           onClick={() => handleNavigation(item.href)}
                           className="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-white/10 transition-colors text-left group"
+                          aria-label={`Navigate to ${item.name} - ${item.description}`}
+                          type="button"
                         >
                           <div className="p-2 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-lg group-hover:from-cyan-500/30 group-hover:to-purple-500/30 transition-colors">
-                            <item.icon className="w-4 h-4 text-cyan-400" />
+                            <item.icon
+                              className="w-4 h-4 text-cyan-400"
+                              aria-hidden="true"
+                            />
                           </div>
                           <div className="flex-1">
                             <div className="text-white font-medium">

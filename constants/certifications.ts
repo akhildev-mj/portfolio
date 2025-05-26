@@ -51,7 +51,7 @@ const CERTIFICATIONS_DATA: Certification[] = [
     description:
       "Professional-level certification in generative AI engineering concepts and techniques",
     image: "/certifications/ibm-gen-ai.jpeg",
-    category: "AI",
+    category: "Artificial Intelligence",
     issuer: "IBM",
     date: "May 2025",
     verifyUrl: "https://coursera.org/share/d972909516f72e67c7f80c327ffd7f6e",
@@ -79,10 +79,21 @@ const CERTIFICATIONS_DATA: Certification[] = [
     skills: [],
   },
   {
+    title: "AI Engineering Specialization Certificate",
+    description:
+      "Advanced AI engineering skills including deploying models and systems",
+    image: "/certifications/ai-engineering-scrimba.jpeg",
+    category: "Artificial Intelligence",
+    issuer: "Scrimba",
+    date: "April 2025",
+    verifyUrl: "https://coursera.org/share/a23572603fe2b3caa03a6c62f0a247bc",
+    skills: [],
+  },
+  {
     title: "IBM AI Developer Professional Certificate",
     description: "Professional-level certification in AI development",
     image: "/certifications/ibm-ai-developer.jpeg",
-    category: "AI",
+    category: "Artificial Intelligence",
     issuer: "IBM",
     date: "May 2025",
     verifyUrl: "https://coursera.org/share/5c9cacb041eb74c459c5a5265a9ff909",
@@ -103,21 +114,10 @@ const CERTIFICATIONS_DATA: Certification[] = [
     description:
       "Professional-level certification in AI engineering concepts and techniques",
     image: "/certifications/ibm-ai-engineering.jpeg",
-    category: "AI",
+    category: "Artificial Intelligence",
     issuer: "IBM",
     date: "May 2025",
     verifyUrl: "https://coursera.org/share/cc55df4123df7d2de08b44bacc65e2fc",
-    skills: [],
-  },
-  {
-    title: "AI Engineering Specialization Certificate",
-    description:
-      "Advanced AI engineering skills including deploying models and systems",
-    image: "/certifications/ai-engineering-scrimba.jpeg",
-    category: "AI",
-    issuer: "Scrimba",
-    date: "April 2025",
-    verifyUrl: "https://coursera.org/share/a23572603fe2b3caa03a6c62f0a247bc",
     skills: [],
   },
   {
@@ -222,7 +222,7 @@ const CERTIFICATIONS_DATA: Certification[] = [
     description:
       "Advanced specialization in generative AI engineering with large language models",
     image: "/certifications/ibm-gen-ai-specl.jpeg",
-    category: "AI",
+    category: "Artificial Intelligence",
     issuer: "IBM",
     date: "May 2025",
     verifyUrl: "https://coursera.org/share/cac008f89b81477d4f1753e14f4e77a7",
@@ -233,7 +233,7 @@ const CERTIFICATIONS_DATA: Certification[] = [
     description:
       "Fundamentals of Artificial Intelligence with real-world applications",
     image: "/certifications/ai-foundations-ibm.jpeg",
-    category: "AI",
+    category: "Artificial Intelligence",
     issuer: "IBM",
     date: "May 2025",
     verifyUrl: "https://coursera.org/share/6e53f87216b112ef31002b58b967d1d2",
@@ -318,7 +318,7 @@ const CERTIFICATIONS_DATA: Certification[] = [
     description:
       "Essentials of AI, its applications, and how it's transforming industries",
     image: "/certifications/google-ai-essentials.jpeg",
-    category: "AI",
+    category: "Artificial Intelligence",
     issuer: "Google",
     date: "April 2025",
     verifyUrl: "https://coursera.org/share/6315a13e1afcce760ad35dd5f7f78693",
@@ -328,7 +328,7 @@ const CERTIFICATIONS_DATA: Certification[] = [
     title: "Google Prompting Essentials",
     description: "How to effectively use prompting techniques for AI models",
     image: "/certifications/google-prompting-essentials.jpeg",
-    category: "AI",
+    category: "Artificial Intelligence",
     issuer: "Google",
     date: "April 2025",
     verifyUrl: "https://coursera.org/share/b02287c610f94c5265d5ab58aa3a84ef",

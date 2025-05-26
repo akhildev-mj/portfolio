@@ -1,30 +1,25 @@
-"use client";
+"use client"
 
-import { Button } from "@/components/ui/button";
-import type { Certification } from "@/types";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import { useState } from "react";
-import { FaCalendarAlt } from "react-icons/fa";
-import { MdVerified } from "react-icons/md";
+import { Button } from "@/components/ui/button"
+import type { Certification } from "@/types"
+import { motion } from "framer-motion"
+import Image from "next/image"
+import { useState } from "react"
+import { FaCalendarAlt } from "react-icons/fa"
+import { MdVerified } from "react-icons/md"
 
 interface CertificationCardProps {
-  certification: Certification;
-  index: number;
-  isInView: boolean;
-  compact?: boolean;
+  certification: Certification
+  index: number
+  isInView: boolean
+  compact?: boolean
 }
 
-export default function CertificationCard({
-  certification,
-  index,
-  isInView,
-  compact = false,
-}: CertificationCardProps) {
-  const [isHovered, setIsHovered] = useState(false);
+export default function CertificationCard({ certification, index, isInView, compact = false }: CertificationCardProps) {
+  const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <motion.div
+    <motion.article
       initial={{ opacity: 0, y: 30, scale: 0.9 }}
       animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
       transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
@@ -39,23 +34,25 @@ export default function CertificationCard({
         <div className={`mr-3 flex-shrink-0`}>
           <motion.div>
             <Image
-              src={certification.image || "/placeholder.svg"}
-              alt={certification.issuer}
+              src={certification.image || "/placeholder.svg?height=110&width=110"}
+              alt={`${certification.title} certification badge from ${certification.issuer}`}
               width={110}
               height={110}
               className="object-cover rounded-lg"
+              loading={index < 3 ? "eager" : "lazy"}
+              sizes="110px"
             />
           </motion.div>
         </div>
 
         <div className="flex flex-col flex-1 min-w-0 justify-center gap-y-2">
-          <h4
+          <h3
             className={`font-semibold text-white group-hover:text-cyan-400 transition-colors duration-300 line-clamp-2 ${
               compact ? "text-base" : "text-md"
             }`}
           >
             {certification.title}
-          </h4>
+          </h3>
           <p className="font-bold">
             <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
               {certification.issuer}
@@ -71,13 +68,7 @@ export default function CertificationCard({
       </div>
 
       {/* Description */}
-      <p
-        className={`text-gray-300 line-clamp-2 ${
-          compact ? "text-sm" : "text-sm"
-        }`}
-      >
-        {certification.description}
-      </p>
+      <p className={`text-gray-300 line-clamp-2 ${compact ? "text-sm" : "text-sm"}`}>{certification.description}</p>
 
       {/* Skills - Just below description */}
       <div className="flex flex-wrap gap-1 mb-3">
@@ -104,25 +95,20 @@ export default function CertificationCard({
       <div className="border-t border-white/10 pt-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center text-sm text-purple-300 font-normal">
-            <FaCalendarAlt className="w-4 h-4 mr-1" />
-            {certification.date.split(" ")[0].slice(0, 3) +
-              " " +
-              certification.date.split(" ")[1]}
+            <FaCalendarAlt className="w-4 h-4 mr-1" aria-hidden="true" />
+            <time dateTime={certification.date}>
+              {certification.date.split(" ")[0].slice(0, 3) + " " + certification.date.split(" ")[1]}
+            </time>
           </div>
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-          >
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.2 }}>
             <Button
               size="sm"
               variant="ghost"
               className="p-2 text-lime-400 hover:text-green-600 transition-colors duration-200"
-              onClick={() =>
-                window.open(certification.verifyUrl || "#", "_blank")
-              }
+              onClick={() => window.open(certification.verifyUrl || "#", "_blank")}
+              aria-label={`Verify ${certification.title} certification`}
             >
-              <MdVerified className="w-4 h-4" />
+              <MdVerified className="w-4 h-4" aria-hidden="true" />
               <span className="bg-gradient-to-r from-lime-400 to-green-600 hover:from-green-600 hover:to-lime-400 bg-clip-text text-transparent transition-colors duration-200">
                 Verify
               </span>
@@ -130,6 +116,6 @@ export default function CertificationCard({
           </motion.div>
         </div>
       </div>
-    </motion.div>
-  );
+    </motion.article>
+  )
 }

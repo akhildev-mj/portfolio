@@ -6,7 +6,10 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="relative py-12 px-4 border-t border-white/10">
+    <footer
+      className="relative py-12 px-4 border-t border-white/10"
+      role="contentinfo"
+    >
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -28,6 +31,7 @@ export default function Footer() {
                   ease: "linear",
                 }}
                 className="w-8 h-8 border-2 border-cyan-400 rounded-lg"
+                style={{ willChange: "transform" }}
               />
               <motion.div
                 animate={{ rotate: -360 }}
@@ -37,8 +41,9 @@ export default function Footer() {
                   ease: "linear",
                 }}
                 className="absolute inset-1 border border-purple-400 rounded"
+                style={{ willChange: "transform" }}
               >
-                <Image src="/favicon.ico" alt="A" fill />
+                <Image src="/favicon.ico" alt="Akhildev MJ Logo" fill />
               </motion.div>
             </div>
             <div>
@@ -62,15 +67,20 @@ export default function Footer() {
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
+              style={{ willChange: "transform" }}
             >
-              <Heart className="w-4 h-4 text-red-400 fill-current" />
+              <Heart
+                className="w-4 h-4 text-red-400 fill-current"
+                aria-label="love"
+              />
             </motion.div>
             <span>and</span>
             <motion.div
               animate={{ rotate: [0, 10, -10, 0] }}
               transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+              style={{ willChange: "transform" }}
             >
-              <Coffee className="w-4 h-4 text-amber-400" />
+              <Coffee className="w-4 h-4 text-amber-400" aria-label="coffee" />
             </motion.div>
             <span>by one and only Akku</span>
           </motion.div>
