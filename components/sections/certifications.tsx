@@ -15,6 +15,14 @@ import { SiCredly } from "react-icons/si";
 export default function Certifications() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const certificationsLoop = Array(5)
+    .fill(CERTIFICATIONS)
+    .flat()
+    .map(({ image, title }, index) => ({
+      id: index,
+      image,
+      title,
+    }));
 
   return (
     <section
@@ -70,12 +78,12 @@ export default function Certifications() {
             transition={{
               repeat: Infinity,
               repeatType: "loop",
-              duration: CERTIFICATIONS.length * 10,
+              duration: certificationsLoop.length * 2,
               ease: "linear",
             }}
             className="flex gap-4 w-max"
           >
-            {CERTIFICATIONS.map((cert) => (
+            {certificationsLoop.map((cert) => (
               <div key={cert.id}>
                 <Image
                   width={80}
