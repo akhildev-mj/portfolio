@@ -5,9 +5,9 @@ import ProjectCard from "@/components/ui/project-card";
 import { PROJECTS } from "@/constants/projects";
 import { fadeInUp, staggerContainer } from "@/utils/animations";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useRef } from "react";
+import { FaArrowRight } from "react-icons/fa6";
 
 export default function Projects() {
   const ref = useRef(null);
@@ -61,8 +61,8 @@ export default function Projects() {
               size="lg"
               className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0 px-6 md:px-8 py-3 group"
             >
-              <span>View All</span>
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              <span>View More</span>
+              <FaArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
         </motion.div>

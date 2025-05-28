@@ -6,10 +6,10 @@ import { CERTIFICATIONS } from "@/constants/certifications";
 import { CREDLY_PROFILE_URL } from "@/constants/data";
 import { buttonHover, fadeInUp, staggerContainer } from "@/utils/animations";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
+import { FaArrowRight } from "react-icons/fa6";
 import { SiCredly } from "react-icons/si";
 
 export default function Certifications() {
@@ -67,10 +67,10 @@ export default function Certifications() {
         {/* Infinite Scrolling Carousel (no duplication) */}
         <div className="relative mb-12 overflow-hidden">
           {/* Left Blur */}
-          <div className="pointer-events-none absolute left-0 top-0 h-full w-12 bg-gradient-to-r from-black to-transparent z-10" />
+          <div className="pointer-events-none absolute left-0 top-0 h-full w-12 bg-gradient-to-r from-slate-900 to-transparent z-10" />
 
           {/* Right Blur */}
-          <div className="pointer-events-none absolute right-0 top-0 h-full w-12 bg-gradient-to-l from-black to-transparent z-10" />
+          <div className="pointer-events-none absolute right-0 top-0 h-full w-12 bg-gradient-to-l from-slate-900 to-transparent z-10" />
 
           {/* Scrolling Content */}
           <motion.div
@@ -110,8 +110,8 @@ export default function Certifications() {
                 size="lg"
                 className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0 px-6 md:px-8 py-3 group"
               >
-                <span>View All</span>
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                <span>View More</span>
+                <FaArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </motion.div>
           </Link>

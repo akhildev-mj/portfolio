@@ -5,13 +5,10 @@ import type {
   SocialLink,
   Stat,
 } from "@/types";
+import { AiOutlineProject } from "react-icons/ai";
+import { BsPersonBadge } from "react-icons/bs";
 import {
-  FaAward,
-  FaBrain,
   FaChartLine,
-  FaCode,
-  FaCog,
-  FaDatabase,
   FaGithub,
   FaLinkedin,
   FaMapMarkerAlt,
@@ -19,15 +16,17 @@ import {
   FaTerminal,
   FaWhatsapp,
 } from "react-icons/fa";
+import { FaLaptopCode } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
+import { TbCertificate } from "react-icons/tb";
 
 export const ROLES = ["Data Scientist", "AI Engineer", "Full Stack Developer"];
 
 export const STATS: Stat[] = [
   { label: "Years Experience", value: "5+", icon: FaChartLine },
-  { label: "Projects Completed", value: "25+", icon: FaCode },
-  { label: "Certifications", value: "50+", icon: FaAward },
-  { label: "Technologies", value: "20+", icon: FaCog },
+  { label: "Projects Completed", value: "25+", icon: AiOutlineProject },
+  { label: "Certifications", value: "50+", icon: TbCertificate },
+  { label: "Technologies", value: "20+", icon: FaLaptopCode },
 ];
 
 export const CONTACT_INFO: ContactInfo[] = [
@@ -80,19 +79,19 @@ export const NAV_ITEMS: NavItem[] = [
   {
     name: "About",
     href: "#about",
-    icon: FaCode,
+    icon: BsPersonBadge,
     description: "Learn about me",
   },
   {
     name: "Projects",
     href: "#projects",
-    icon: FaDatabase,
+    icon: AiOutlineProject,
     description: "View my work",
   },
   {
     name: "Certifications",
     href: "#certifications",
-    icon: FaBrain,
+    icon: TbCertificate,
     description: "My credentials",
   },
   {

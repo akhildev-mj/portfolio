@@ -17,12 +17,10 @@ import {
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import {
-  HiDownload,
-  HiLightningBolt,
-  HiPlay,
-  HiSparkles,
-} from "react-icons/hi";
+import { FaDownload } from "react-icons/fa6";
+import { HiDownload, HiLightningBolt, HiSparkles } from "react-icons/hi";
+import { HiOutlineSparkles } from "react-icons/hi2";
+import { IoSparkles } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
 
 export default function Hero() {
@@ -257,7 +255,10 @@ export default function Hero() {
                       </motion.div>
                     ) : (
                       <>
-                        <HiPlay className="w-3 h-3 mr-1" aria-hidden="true" />
+                        <IoSparkles
+                          className="w-3 h-3 mr-1"
+                          aria-hidden="true"
+                        />
                         Generate
                       </>
                     )}
@@ -396,8 +397,8 @@ export default function Hero() {
                   className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0 px-8 py-3 text-base font-semibold rounded-full transition-all duration-300"
                   aria-label="Download my resume"
                 >
-                  <HiDownload className="w-5 h-5 mr-2" aria-hidden="true" />
-                  Download Resume
+                  <FaDownload className="w-5 h-5 mr-2" aria-hidden="true" />
+                  Resume
                 </Button>
               </motion.div>
 
@@ -476,7 +477,10 @@ export default function Hero() {
                         <HiLightningBolt className="w-3 h-3" />
                       </motion.div>
                     ) : (
-                      <HiPlay className="w-3 h-3 mr-1" aria-hidden="true" />
+                      <HiOutlineSparkles
+                        className="w-3 h-3 mr-1"
+                        aria-hidden="true"
+                      />
                     )}
                     Generate
                   </Button>

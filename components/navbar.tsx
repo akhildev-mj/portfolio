@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { IoClose, IoSearch } from "react-icons/io5";
+import { LuSearchCode } from "react-icons/lu";
 import { MdKeyboardCommandKey } from "react-icons/md";
 
 export default function Navbar() {
@@ -126,7 +127,7 @@ export default function Navbar() {
               aria-label="Open command palette to search or navigate"
               type="button"
             >
-              <IoSearch className="w-4 h-4" aria-hidden="true" />
+              <LuSearchCode className="w-4 h-4" aria-hidden="true" />
               <span className="flex-1 text-left">Search or jump to...</span>
               <div className="flex items-center space-x-1">
                 <kbd className="px-2 py-1 text-xs bg-white/10 rounded border border-white/20 flex items-center justify-center min-w-[24px] h-[24px]">
