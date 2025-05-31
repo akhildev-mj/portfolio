@@ -9,6 +9,28 @@ import {
 
 const PROJECT_DATA: Project[] = [
   {
+    title: "Audocare AI Voice Agent",
+    description:
+      "Intelligent, speech-driven assistant that engages users in real-time conversations to detect and assess symptoms of illness",
+    image: "/projects/audocare-ai.jpeg",
+    category: "Generative AI",
+    technologies: ["Python", "NLP", "LiveKit", "OpenAI", "ElevenLabs"],
+    icon: FaRobot,
+    github: "https://github.com/akhildev-mj/Audocare-AI-Agent",
+    live: "",
+  },
+  {
+    title: "Audocare AI Voice Agent Web Application",
+    description:
+      "A companion frontend for the Audocare AI Voice Agent, built using Next.js and LiveKit SDK.",
+    image: "/projects/audocare-ai-web.jpeg",
+    category: "Web Development",
+    technologies: ["Next.js", "LiveKit SDK", "TypeScript", "Tailwind CSS"],
+    icon: FaGlobe,
+    github: "https://github.com/akhildev-mj/Audocare-Web-App",
+    live: "",
+  },
+  {
     title: "IBM Generative AI Applications with RAG and LangChain",
     description:
       "Build and deploy RAG-based AI applications using LangChain and IBM tools.",

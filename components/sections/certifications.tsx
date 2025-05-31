@@ -78,7 +78,7 @@ export default function Certifications() {
             transition={{
               repeat: Infinity,
               repeatType: "loop",
-              duration: certificationsLoop.length * 5,
+              duration: certificationsLoop.length * 10,
               ease: "linear",
             }}
             className="flex gap-4 w-max"

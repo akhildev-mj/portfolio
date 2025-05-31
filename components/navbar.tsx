@@ -5,7 +5,7 @@ import { NAV_ITEMS } from "@/constants/data";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { IoClose, IoSearch } from "react-icons/io5";
+import { IoClose } from "react-icons/io5";
 import { LuSearchCode } from "react-icons/lu";
 import { MdKeyboardCommandKey } from "react-icons/md";
 
@@ -147,7 +147,7 @@ export default function Navbar() {
               aria-label="Open search"
               type="button"
             >
-              <IoSearch className="w-5 h-5" aria-hidden="true" />
+              <LuSearchCode className="w-5 h-5" aria-hidden="true" />
             </motion.button>
           </div>
         </div>
@@ -176,7 +176,7 @@ export default function Navbar() {
               >
                 {/* Header */}
                 <div className="flex items-center space-x-3 p-4 border-b border-white/10">
-                  <IoSearch
+                  <LuSearchCode
                     className="w-5 h-5 text-gray-400"
                     aria-hidden="true"
                   />
@@ -233,7 +233,7 @@ export default function Navbar() {
                     </div>
                   ) : (
                     <div className="p-8 text-center text-gray-400">
-                      <IoSearch className="w-8 h-8 mx-auto mb-2 opacity-50" />
+                      <LuSearchCode className="w-8 h-8 mx-auto mb-2 opacity-50" />
                       <p>No results found</p>
                     </div>
                   )}
