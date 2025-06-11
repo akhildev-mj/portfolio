@@ -43,6 +43,14 @@ export default function Hero() {
     }, 1500);
   };
 
+  const handleResumeClick = () => {
+    window.open(
+      "/resume/Akhildev_MJ_Resume.pdf",
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
+
   return (
     <section
       id="home"
@@ -394,6 +402,7 @@ export default function Hero() {
               <motion.div {...buttonHover}>
                 <Button
                   size="lg"
+                  onClick={handleResumeClick}
                   className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0 px-8 py-3 text-base font-semibold rounded-full transition-all duration-300"
                   aria-label="Download my resume"
                 >
