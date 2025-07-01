@@ -58,6 +58,18 @@ const CERTIFICATIONS_DATA: Certification[] = [
     skills: [],
   },
   {
+    title: "Google Project Management Professional Certificate",
+    description:
+      "Professional-level certification in project management concepts and techniques",
+    image: "/certifications/google-pm.png",
+    category: "Project Management",
+    issuer: "Google",
+    date: "July 2025",
+    verifyUrl:
+      "https://www.coursera.org/account/accomplishments/specialization/3Y2B106C93Y7",
+    skills: [],
+  },
+  {
     title: "IBM Data Science Professional Certificate",
     description:
       "Professional-level certification in data science concepts and techniques",
