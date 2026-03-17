@@ -664,7 +664,7 @@ const About: React.FC = () => {
         <motion.div
           {...fadeInLeft}
           animate={inView ? fadeInLeft.animate : {}}
-          className='metal-surface rounded-3xl p-5 sm:p-6 font-mono group hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,1)] transition-shadow'
+          className='metal-surface rounded-3xl p-5 sm:p-6 font-mono group hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,1)] transition-shadow liquid-border'
         >
           <div className='metal-inset rounded-2xl p-5 sm:p-6'>
             <div className='flex gap-2 mb-5 sm:mb-6 pb-4 border-b border-[#222]'>
