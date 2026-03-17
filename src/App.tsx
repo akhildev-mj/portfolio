@@ -10,6 +10,7 @@ import {
   FileBadge,
   FolderKanban,
   Github,
+  Heart,
   Laptop,
   LineChart,
   Linkedin,
@@ -1176,8 +1177,12 @@ export default function App() {
             </a>
           ))}
         </div>
-        <p className='text-gray-700 text-[10px] uppercase tracking-widest font-bold'>
-          &copy; {new Date().getFullYear()} System Operational.
+        <p className='text-gray-700 text-[10px] tracking-widest font-bold flex justify-center items-center'>
+          &copy; {new Date().getFullYear()} Made with
+          <span>
+            <Heart className='w-4 h-4 m-0 ml-2 mr-2 mb-0.5 text-red-500 fill-red-500/20' />
+          </span>
+          by one and only Akku
         </p>
       </footer>
     </div>
