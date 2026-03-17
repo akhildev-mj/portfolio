@@ -26,6 +26,7 @@ import {
   Zap,
 } from 'lucide-react';
 import React, { useEffect, useRef, useState } from 'react';
+import { codeToHtml } from 'shiki';
 import {
   CERTIFICATION_CATEGORIES,
   CERTIFICATIONS,
@@ -117,6 +118,10 @@ const MetalStyles: React.FC = () => (
     @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
     
     body { background-color: #030303; background-image: radial-gradient(circle at 50% 0%, #161616 0%, #030303 60%); background-attachment: fixed; }
+
+    pre.shiki {
+      background: none !important;
+    }
     
     .liquid-border { position: relative; background: #0a0a0a; z-index: 1; }
     .liquid-border::before {
@@ -210,11 +215,15 @@ const NAV_ITEMS: NavData[] = [
 const CODE_TEMPLATES: CodeTemplate[] = [
   {
     language: 'Python',
-    code: `def predict(data):\n  model = AIModel()\n  return model.analyze(data).preds`,
+    code: 'def get_user():\n  user = {\n    "name": "Akhildev MJ",\n    "job": "AI Engineer",\n    "skills": ["AI"]\n  }\n  return user',
   },
   {
     language: 'JavaScript',
-    code: `const run = async () => {\n  const ai = new AI();\n  return await ai.process();\n};`,
+    code: 'const getUser = () => {\n  const user = {\n    name: "Akhildev MJ",\n    job: "AI Engineer",\n    skills: ["AI"]\n  };\n  return user;\n};',
+  },
+  {
+    language: 'C++',
+    code: '#include <iostream>\n#include <vector>\nusing namespace std;\n\nstruct User {\n  string name = "Akhildev MJ";\n  string job = "AI Engineer";\n  vector<string> skills;\n};',
   },
 ];
 
@@ -235,6 +244,23 @@ const handleResumeClick = () => {
     '_blank',
     'noopener,noreferrer',
   );
+};
+
+export const CodeBlock = ({ code, lang }: any) => {
+  const [html, setHtml] = useState('');
+
+  useEffect(() => {
+    const load = async () => {
+      const out = await codeToHtml(code, {
+        lang,
+        theme: 'dark-plus',
+      });
+      setHtml(out);
+    };
+    load();
+  }, [code, lang]);
+
+  return <div dangerouslySetInnerHTML={{ __html: html }} />;
 };
 
 // --- REUSABLE COMPONENTS ---
@@ -600,8 +626,8 @@ const Hero: React.FC = () => {
         >
           <div className='flex justify-between items-center mb-5 sm:mb-6'>
             <div className='flex gap-2 items-center'>
-              <div className='w-2.5 h-2.5 sm:w-3 sm:h-3 metal-emboss rounded-full' />
-              <div className='w-2.5 h-2.5 sm:w-3 sm:h-3 metal-emboss rounded-full' />
+              <div className='w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500 shadow-[0_0_8px_#c52222]' />
+              <div className='w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full  bg-green-500 shadow-[0_0_8px_#22c55e]' />
               <span className='text-gray-500 text-[10px] sm:text-xs font-mono ml-2 uppercase tracking-widest'>
                 sys.{CODE_TEMPLATES[tplIdx].language.toLowerCase()}
               </span>
@@ -611,7 +637,7 @@ const Hero: React.FC = () => {
               onClick={() => {
                 setGen(true);
                 setTimeout(() => {
-                  setTpl((p) => (p + 1) % 2);
+                  setTpl((p) => (p + 1) % 3);
                   setGen(false);
                 }, 1000);
               }}
@@ -634,7 +660,11 @@ const Hero: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               className='text-gray-300 whitespace-pre-line leading-loose'
             >
-              {CODE_TEMPLATES[tplIdx].code}
+              <CodeBlock
+                key={tplIdx}
+                code={CODE_TEMPLATES[tplIdx].code}
+                lang={CODE_TEMPLATES[tplIdx].language.toLocaleLowerCase()}
+              />
             </motion.div>
             {gen && (
               <div className='absolute bottom-4 left-4 sm:left-5 flex gap-2 items-center'>
@@ -958,16 +988,14 @@ const Navbar: React.FC<{ nav: (route: string) => void }> = ({ nav }) => {
           )}
         >
           <div
-            className='flex items-center gap-2 sm:gap-3 cursor-pointer group'
+            className='flex items-center cursor-pointer group'
             onClick={() => go('#home')}
           >
             <div className='w-8 h-8 sm:w-8 sm:h-8 metal-emboss rounded-full flex justify-center items-center'>
-              <span className='font-bold text-gray-400 text-xs group-hover:text-white transition-colors'>
-                A.
-              </span>
+              <img src='./favicon.svg' className='w-4' />
             </div>
             <span className='hidden md:block text-xs sm:text-sm font-bold text-metal-light tracking-widest'>
-              AKHILDEV
+              KHILDEV
             </span>
           </div>
 
