@@ -578,7 +578,7 @@ const Hero: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.4 }}
-                className='text-lg sm:text-xl md:text-2xl text-gray-400 font-light tracking-wide'
+                className='text-lg sm:text-xl md:text-2xl text-gray-400 font-thin tracking-wide text-metal'
               >
                 {ROLES[roleIdx]}
               </motion.h2>
@@ -711,22 +711,7 @@ const About: React.FC = () => {
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.2 + i * 0.1 }}
                 >
-                  {l.startsWith('# ') ? (
-                    <h3 className='text-gray-200 font-bold text-base sm:text-lg mb-2'>
-                      {l.replace('# ', '')}
-                    </h3>
-                  ) : l.startsWith('##') ? (
-                    <h4 className='text-gray-300 font-semibold mt-4 mb-2'>
-                      {l.replace('##', '')}
-                    </h4>
-                  ) : l.startsWith('-') ? (
-                    <div className='flex gap-2 items-center group-hover:translate-x-1 transition-transform'>
-                      <div className='w-1 h-1 bg-gray-500 rounded-full' />
-                      <span>{l.replace('-', '')}</span>
-                    </div>
-                  ) : (
-                    <span>{l}</span>
-                  )}
+                  <CodeBlock key={i} code={l} lang={'markdown'} />
                 </motion.div>
               ))}
             </div>
@@ -994,7 +979,7 @@ const Navbar: React.FC<{ nav: (route: string) => void }> = ({ nav }) => {
             <div className='w-8 h-8 sm:w-8 sm:h-8 metal-emboss rounded-full flex justify-center items-center'>
               <img src='./favicon.svg' className='w-4' />
             </div>
-            <span className='hidden md:block text-xs sm:text-sm font-bold text-metal-light tracking-widest'>
+            <span className='hidden md:block text-xs sm:text-sm font-bold text-metal tracking-widest'>
               KHILDEV
             </span>
           </div>
