@@ -125,7 +125,7 @@ const MetalStyles: React.FC = () => (
     
     .liquid-border { position: relative; background: #0a0a0a; z-index: 1; }
     .liquid-border::before {
-      content: ""; position: absolute; inset: -1.5px; border-radius: inherit; padding: 1.5px;
+      content: ""; position: absolute; inset: -0.75px; padding: 0.75px; border-radius: inherit;
       background: linear-gradient(115deg, #080808 0%, #080808 20%, #ffdccd 28%, #ffffff 30%, #abf7ff 32%, #080808 40%, #080808 70%, #ffdccd 78%, #ffffff 80%, #abf7ff 82%, #080808 90%, #080808 100%);
       background-size: 200% auto; animation: shimmer 3s linear infinite;
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; z-index: -1;
@@ -137,7 +137,7 @@ const MetalStyles: React.FC = () => (
     
     .text-metal { background: linear-gradient(to bottom, #fff 0%, #b3b3b3 45%, #666 55%, #ccc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.8)); }
     .text-metal-light { background: linear-gradient(to bottom, #fff 0%, #999 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    
+
     ::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track { background: #050505; } ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; } ::-webkit-scrollbar-thumb:hover { background: #555; }
     
     .animate-float { animation: float 4s ease-in-out infinite; }
@@ -181,10 +181,15 @@ const CONTACT_INFO: ContactData[] = [
     icon: Mail,
     label: 'Email',
     value: 'akhildev.adj@gmail.com',
-    href: 'mailto:a@g.com',
+    href: 'mailto:akhildev.adj@gmail.com',
   },
-  { icon: Phone, label: 'Phone', value: '+91 9074123050', href: 'tel:+91' },
-  { icon: MapPin, label: 'Location', value: 'Kerala, India', href: '#' },
+  {
+    icon: Phone,
+    label: 'Phone',
+    value: '+91 9074123050',
+    href: 'tel:+919074123050',
+  },
+  { icon: MapPin, label: 'Location', value: 'Kerala, India', href: '#contact' },
 ];
 const SOCIALS: SocialData[] = [
   { icon: Github, href: 'https://github.com/akhildev-mj', label: 'GitHub' },
@@ -245,6 +250,15 @@ const handleResumeClick = () => {
     'noopener,noreferrer',
   );
 };
+
+const certificationsLoop = Array(5)
+  .fill(CERTIFICATIONS)
+  .flat()
+  .map(({ image, title }, index) => ({
+    id: index,
+    image,
+    title,
+  }));
 
 export const CodeBlock = ({ code, lang }: any) => {
   const [html, setHtml] = useState('');
@@ -518,7 +532,7 @@ const CertCard: React.FC<CardProps<CertData>> = ({
         {c.date}
       </div>
       <button
-        className='text-xs font-bold tracking-wide text-gray-500 hover:text-white flex items-center transition-colors'
+        className='text-xs font-thin tracking-wide flex items-center transition-all duration-300 text-[#d9ff00] hover:drop-shadow-[0_0_6px_#d9ff00]'
         onClick={() => window.open(c.verifyUrl || '#', '_blank')}
       >
         Verify <BadgeCheck className='w-4 h-4 ml-1.5' />
@@ -556,7 +570,7 @@ const Hero: React.FC = () => {
           >
             <div className='w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_8px_#22c55e]' />
             <span className='text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-wider'>
-              Available for work
+              Open to Work
             </span>
           </motion.div>
 
@@ -626,7 +640,7 @@ const Hero: React.FC = () => {
         >
           <div className='flex justify-between items-center mb-5 sm:mb-6'>
             <div className='flex gap-2 items-center'>
-              <div className='w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500 shadow-[0_0_8px_#c52222]' />
+              <div className='w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500 shadow-[0_0_8px_#c53a22]' />
               <div className='w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full  bg-green-500 shadow-[0_0_8px_#22c55e]' />
               <span className='text-gray-500 text-[10px] sm:text-xs font-mono ml-2 uppercase tracking-widest'>
                 sys.{CODE_TEMPLATES[tplIdx].language.toLowerCase()}
@@ -651,9 +665,6 @@ const Hero: React.FC = () => {
             </MetalBtn>
           </div>
           <div className='metal-inset rounded-xl p-4 sm:p-5 min-h-[140px] sm:min-h-[160px] font-mono text-xs sm:text-sm relative overflow-hidden'>
-            <div className='text-gray-600 mb-3'>
-              // AI Generation initialized
-            </div>
             <motion.div
               key={tplIdx}
               initial={{ opacity: 0, x: -10 }}
@@ -667,7 +678,7 @@ const Hero: React.FC = () => {
               />
             </motion.div>
             {gen && (
-              <div className='absolute bottom-4 left-4 sm:left-5 flex gap-2 items-center'>
+              <div className='absolute bottom-1 left-4 sm:left-5 flex gap-2 items-center'>
                 <div className='w-1.5 h-1.5 bg-gray-400 rounded-full animate-ping' />
                 <span className='text-gray-500 text-[10px] sm:text-xs uppercase tracking-widest'>
                   Processing...
@@ -689,7 +700,7 @@ const About: React.FC = () => {
       ref={ref}
       className='py-16 sm:py-20 px-4 sm:px-6 border-t border-[#111] max-w-7xl mx-auto overflow-hidden'
     >
-      <SectionHeader title='About Core' isInView={inView} />
+      <SectionHeader title='About Me' isInView={inView} />
       <div className='grid lg:grid-cols-2 gap-8 sm:gap-10 items-center'>
         <motion.div
           {...fadeInLeft}
@@ -771,6 +782,41 @@ const SectionGrid = <T extends any>({
           <Card key={d.id} item={d} index={i} isInView={inView} />
         ))}
       </motion.div>
+
+      {title === 'Certifications' && (
+        <div className='relative mb-12 overflow-hidden'>
+          {/* Left Blur */}
+          <div className='pointer-events-none absolute left-0 top-0 h-full w-12 bg-gradient-to-r from-black to-transparent z-10' />
+
+          {/* Right Blur */}
+          <div className='pointer-events-none absolute right-0 top-0 h-full w-12 bg-gradient-to-l from-black to-transparent z-10' />
+
+          {/* Scrolling Content */}
+          <motion.div
+            animate={{ x: ['0%', '-100%'] }}
+            transition={{
+              repeat: Infinity,
+              repeatType: 'loop',
+              duration: certificationsLoop.length * 10,
+              ease: 'linear',
+            }}
+            className='flex gap-4 w-max'
+          >
+            {certificationsLoop.map((cert) => (
+              <div key={cert.id}>
+                <img
+                  width={80}
+                  height={80}
+                  src={cert.image}
+                  alt={cert.title}
+                  className='rounded-xl object-contain'
+                />
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      )}
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
@@ -799,8 +845,8 @@ const Contact: React.FC = () => {
       className='py-16 sm:py-24 px-4 sm:px-6 border-t border-[#111] max-w-6xl mx-auto overflow-hidden'
     >
       <SectionHeader
-        title='Initialize Contact'
-        subtitle='Secure communication channel open for project inquiries and collaborations.'
+        title="Let's Connect"
+        subtitle="Ready to collaborate on innovative AI and data science projects? Let's discuss how we can create intelligent solutions together."
         isInView={inView}
       />
       <div className='grid lg:grid-cols-12 gap-8 sm:gap-12'>
@@ -810,7 +856,7 @@ const Contact: React.FC = () => {
           className='lg:col-span-5 metal-surface rounded-3xl p-6 sm:p-8 h-full shadow-lg'
         >
           <h3 className='text-lg sm:text-xl font-semibold text-gray-200 mb-6 sm:mb-8 tracking-wide'>
-            Comms Link
+            Get in Touch
           </h3>
           <div className='space-y-6'>
             {CONTACT_INFO.map((i, idx) => (
@@ -844,18 +890,21 @@ const Contact: React.FC = () => {
           className='lg:col-span-7 metal-surface rounded-3xl p-6 sm:p-8 shadow-lg'
         >
           <h3 className='text-lg sm:text-xl font-semibold text-gray-200 mb-6 sm:mb-8 tracking-wide'>
-            Data Input
+            Send a Message
           </h3>
           <form
             className='space-y-4 sm:space-y-5'
             onSubmit={(e) => e.preventDefault()}
           >
             <div className='grid md:grid-cols-2 gap-4 sm:gap-5'>
-              <MetalField placeholder='Identification' />
-              <MetalField type='email' placeholder='Return Address' />
+              <MetalField placeholder='Your Name' />
+              <MetalField type='email' placeholder='your@email.com' />
             </div>
-            <MetalField placeholder='Subject Header' />
-            <MetalField as='textarea' placeholder='Transmit details...' />
+            <MetalField placeholder="What's this about?" />
+            <MetalField
+              as='textarea'
+              placeholder='Tell me about your project or idea...'
+            />
             <div className='flex justify-end pt-2 sm:pt-4'>
               <motion.div {...btnHover}>
                 <MetalBtn
@@ -863,7 +912,7 @@ const Contact: React.FC = () => {
                   type='submit'
                   className='text-xs sm:text-sm w-full sm:w-auto'
                 >
-                  Submit Data
+                  Send Message
                 </MetalBtn>
               </motion.div>
             </div>
@@ -977,7 +1026,7 @@ const Navbar: React.FC<{ nav: (route: string) => void }> = ({ nav }) => {
             onClick={() => go('#home')}
           >
             <div className='w-8 h-8 sm:w-8 sm:h-8 metal-emboss rounded-full flex justify-center items-center'>
-              <img src='./favicon.svg' className='w-4' />
+              <img src='./logo.png' className='w-4' />
             </div>
             <span className='hidden md:block text-xs sm:text-sm font-bold text-metal tracking-widest'>
               KHILDEV
@@ -1130,7 +1179,7 @@ export default function App() {
             <About />
             <SectionGrid<CertData>
               id='certifications'
-              title='Credentials'
+              title='Certifications'
               data={CERTIFICATIONS}
               Card={CertCard}
               nav={setRoute}
@@ -1139,7 +1188,7 @@ export default function App() {
             />
             <SectionGrid<ProjectData>
               id='projects'
-              title='Featured Works'
+              title='Projects'
               data={PROJECTS}
               Card={ProjCard}
               nav={setRoute}
@@ -1151,7 +1200,7 @@ export default function App() {
         )}
         {route === 'cert' && (
           <ArchivePage<CertData>
-            title='Credential Archive'
+            title='Certification Archive'
             cats={CERTIFICATION_CATEGORIES}
             data={CERTIFICATIONS}
             Card={CertCard}
