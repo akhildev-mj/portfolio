@@ -202,13 +202,13 @@ const SOCIALS: SocialData[] = [
 const NAV_ITEMS: NavData[] = [
   { name: 'Home', href: '#home', icon: Terminal, desc: 'Top' },
   { name: 'About', href: '#about', icon: UserCircle, desc: 'Info' },
-  { name: 'Projects', href: '#projects', icon: FolderKanban, desc: 'Work' },
   {
     name: 'Certifications',
     href: '#certifications',
     icon: FileBadge,
     desc: 'Certs',
   },
+  { name: 'Projects', href: '#projects', icon: FolderKanban, desc: 'Work' },
   { name: 'Contact', href: '#contact', icon: Mail, desc: 'Reach out' },
 ];
 
@@ -985,7 +985,7 @@ const Navbar: React.FC<{ nav: (route: string) => void }> = ({ nav }) => {
           </div>
 
           <div className='flex gap-1 metal-inset px-1.5 sm:px-2 py-1.5 sm:py-1 rounded-full mx-auto md:mx-0'>
-            {NAV_ITEMS.slice(1).map((i) => (
+            {NAV_ITEMS.map((i) => (
               <button
                 key={i.name}
                 onClick={() => go(i.href)}
@@ -1128,15 +1128,6 @@ export default function App() {
           <>
             <Hero />
             <About />
-            <SectionGrid<ProjectData>
-              id='projects'
-              title='Featured Works'
-              data={PROJECTS}
-              Card={ProjCard}
-              nav={setRoute}
-              navRoute='projects'
-              navText='All Projects'
-            />
             <SectionGrid<CertData>
               id='certifications'
               title='Credentials'
@@ -1146,17 +1137,17 @@ export default function App() {
               navRoute='cert'
               navText='All Certs'
             />
+            <SectionGrid<ProjectData>
+              id='projects'
+              title='Featured Works'
+              data={PROJECTS}
+              Card={ProjCard}
+              nav={setRoute}
+              navRoute='projects'
+              navText='All Projects'
+            />
             <Contact />
           </>
-        )}
-        {route === 'projects' && (
-          <ArchivePage<ProjectData>
-            title='Project Archive'
-            cats={PROJECT_CATEGORIES}
-            data={PROJECTS}
-            Card={ProjCard}
-            nav={setRoute}
-          />
         )}
         {route === 'cert' && (
           <ArchivePage<CertData>
@@ -1164,6 +1155,15 @@ export default function App() {
             cats={CERTIFICATION_CATEGORIES}
             data={CERTIFICATIONS}
             Card={CertCard}
+            nav={setRoute}
+          />
+        )}
+        {route === 'projects' && (
+          <ArchivePage<ProjectData>
+            title='Project Archive'
+            cats={PROJECT_CATEGORIES}
+            data={PROJECTS}
+            Card={ProjCard}
             nav={setRoute}
           />
         )}
