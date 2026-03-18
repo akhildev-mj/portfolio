@@ -2,7 +2,9 @@ import { AnimatePresence, motion, useInView } from 'framer-motion';
 import {
   ArrowLeft,
   ArrowUp,
+  Award,
   BadgeCheck,
+  BriefcaseBusiness,
   Calendar,
   ChevronRight,
   Download,
@@ -11,6 +13,7 @@ import {
   FolderKanban,
   Github,
   Heart,
+  House,
   Laptop,
   LineChart,
   Linkedin,
@@ -18,10 +21,11 @@ import {
   MapPin,
   MessageCircle,
   Phone,
+  PhoneCall,
   SearchCode,
   Sparkles,
   Terminal,
-  UserCircle,
+  User,
   X,
   Zap,
 } from 'lucide-react';
@@ -192,7 +196,18 @@ const CONTACT_INFO: ContactData[] = [
     value: '+91 9074123050',
     href: 'tel:+919074123050',
   },
-  { icon: MapPin, label: 'Location', value: 'Kerala, India', href: '#contact' },
+  {
+    icon: MapPin,
+    label: 'Location',
+    value: 'Kerala, India',
+    href: '#contact',
+  },
+  {
+    icon: MessageCircle,
+    label: 'WhatsApp',
+    value: '919074123050',
+    href: 'https://wa.me/919074123050',
+  },
 ];
 const SOCIALS: SocialData[] = [
   { icon: Github, href: 'https://github.com/akhildev-mj', label: 'GitHub' },
@@ -208,16 +223,16 @@ const SOCIALS: SocialData[] = [
   },
 ];
 const NAV_ITEMS: NavData[] = [
-  { name: 'Home', href: '#home', icon: Terminal, desc: 'Top' },
-  { name: 'About', href: '#about', icon: UserCircle, desc: 'Info' },
+  { name: 'Home', href: '#home', icon: House, desc: 'Top' },
+  { name: 'About', href: '#about', icon: User, desc: 'Info' },
   {
     name: 'Credentials',
     href: '#certs',
-    icon: FileBadge,
+    icon: Award,
     desc: 'Credentials',
   },
-  { name: 'Work', href: '#work', icon: FolderKanban, desc: 'Work' },
-  { name: 'Contact', href: '#contact', icon: Mail, desc: 'Reach out' },
+  { name: 'Work', href: '#work', icon: BriefcaseBusiness, desc: 'Work' },
+  { name: 'Contact', href: '#contact', icon: PhoneCall, desc: 'Reach out' },
 ];
 
 const CODE_TEMPLATES: CodeTemplate[] = [
@@ -1026,20 +1041,7 @@ const Navbar: React.FC<{ nav: (route: string) => void }> = ({ nav }) => {
             onClick={() => go('#home')}
           >
             <div className='w-8 h-8 metal-emboss rounded-full flex justify-center items-center'>
-              <svg
-                width='16'
-                height='16'
-                viewBox='0 0 24 24'
-                fill='none'
-                stroke='currentColor'
-                strokeWidth='2'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                className='text-gray-400'
-              >
-                <path d='M4 17L10 11L4 5' />
-                <line x1='12' y1='19' x2='20' y2='19' />
-              </svg>
+              <img src='./logo.png' className='w-4' />
             </div>
             <span className='text-xs sm:text-sm font-bold text-metal tracking-widest ml-2'>
               KHILDEV
