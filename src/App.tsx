@@ -1055,7 +1055,7 @@ const Navbar: React.FC<{ nav: (route: string) => void }> = ({ nav }) => {
                 }}
               />
             </div>
-            <span className='text-xs sm:text-sm font-bold text-metal tracking-widest ml-2'>
+            <span className='text-xs sm:text-sm font-bold text-metal tracking-widest ml-0.5'>
               KHILDEV
             </span>
           </div>
