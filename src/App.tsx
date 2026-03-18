@@ -132,7 +132,7 @@ const MetalStyles: React.FC = () => (
     
     .liquid-border { position: relative; background: #0a0a0a; z-index: 1; }
     .liquid-border::before {
-      content: ""; position: absolute; inset: -0.75px; padding: 0.75px; border-radius: inherit;
+      content: ""; position: absolute; inset: -1.5px; padding: 1.75px; border-radius: inherit;
       background: linear-gradient(115deg, #080808 0%, #080808 20%, #ffdccd 28%, #ffffff 30%, #abf7ff 32%, #080808 40%, #080808 70%, #ffdccd 78%, #ffffff 80%, #abf7ff 82%, #080808 90%, #080808 100%);
       background-size: 200% auto; animation: shimmer 3s linear infinite;
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; z-index: -1;
