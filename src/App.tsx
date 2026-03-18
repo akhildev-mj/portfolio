@@ -119,7 +119,6 @@ const MetalStyles: React.FC = () => (
     
     body { background-color: #030303; background-image: radial-gradient(circle at 50% 0%, #161616 0%, #030303 60%); background-attachment: fixed; }
 
-   
     pre.shiki {
       background: none !important;
       margin: 0;
@@ -176,8 +175,8 @@ const ROLES: string[] = [
 ];
 const STATS: StatData[] = [
   { label: 'Years Experience', value: '5+', icon: LineChart },
-  { label: 'Projects', value: '25+', icon: FolderKanban },
-  { label: 'Certs', value: '50+', icon: FileBadge },
+  { label: 'Builds', value: '25+', icon: FolderKanban },
+  { label: 'Credentials', value: '50+', icon: FileBadge },
   { label: 'Tech', value: '20+', icon: Laptop },
 ];
 const CONTACT_INFO: ContactData[] = [
@@ -212,12 +211,12 @@ const NAV_ITEMS: NavData[] = [
   { name: 'Home', href: '#home', icon: Terminal, desc: 'Top' },
   { name: 'About', href: '#about', icon: UserCircle, desc: 'Info' },
   {
-    name: 'Certifications',
-    href: '#certifications',
+    name: 'Credentials',
+    href: '#certs',
     icon: FileBadge,
-    desc: 'Certs',
+    desc: 'Credentials',
   },
-  { name: 'Projects', href: '#projects', icon: FolderKanban, desc: 'Work' },
+  { name: 'Work', href: '#work', icon: FolderKanban, desc: 'Work' },
   { name: 'Contact', href: '#contact', icon: Mail, desc: 'Reach out' },
 ];
 
@@ -563,7 +562,7 @@ const Hero: React.FC = () => {
   return (
     <section
       id='home'
-      className='min-h-screen flex items-center px-4 sm:px-6 lg:px-20 pt-28 pb-16 max-w-7xl mx-auto'
+      className='min-h-screen flex items-center px-4 sm:px-6 lg:px-20 pt-16 lg:pt-28 pb-16 max-w-7xl mx-auto'
     >
       <div className='grid lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full'>
         <motion.div {...fadeInLeft} className='text-center lg:text-left z-10'>
@@ -717,7 +716,6 @@ const About: React.FC = () => {
                 sys_profile.md
               </span>
             </div>
-            {/* Added overflow-x-auto to prevent Markdown pre blocks from breaking mobile width */}
             <div className='space-y-4 text-xs sm:text-sm text-gray-400 leading-relaxed overflow-x-auto w-full'>
               {ABOUT_MD.map((l, i) => (
                 <motion.div
@@ -787,7 +785,7 @@ const SectionGrid = <T extends any>({
         ))}
       </motion.div>
 
-      {title === 'Certifications' && (
+      {title === 'Credentials' && (
         <div className='relative mb-12 overflow-hidden'>
           <div className='pointer-events-none absolute left-0 top-0 h-full w-12 bg-gradient-to-r from-black to-transparent z-10' />
           <div className='pointer-events-none absolute right-0 top-0 h-full w-12 bg-gradient-to-l from-black to-transparent z-10' />
@@ -904,7 +902,6 @@ const Contact: React.FC = () => {
               as='textarea'
               placeholder='Tell me about your project or idea...'
             />
-            {/* Added justify-center for mobile and lg:justify-end to align center below iPad Air dimensions */}
             <div className='flex justify-center lg:justify-end pt-2 sm:pt-4'>
               <motion.div {...btnHover}>
                 <MetalBtn
@@ -934,7 +931,7 @@ const ArchivePage = <T extends any>({
   const [active, setActive] = useState<string>('All');
   useEffect(() => window.scrollTo(0, 0), []);
   return (
-    <div className='min-h-screen pt-24 sm:pt-28 px-4 sm:px-6 text-center pb-16 sm:pb-20 max-w-7xl mx-auto'>
+    <div className='min-h-screen pt-16 lg:pt-28 px-4 sm:px-6 text-center pb-16 sm:pb-20 max-w-7xl mx-auto'>
       <div className='flex justify-center mb-6 sm:mb-8'>
         <MetalBtn
           variant='outline'
@@ -1012,28 +1009,44 @@ const Navbar: React.FC<{ nav: (route: string) => void }> = ({ nav }) => {
 
   return (
     <>
-      <nav className='fixed top-4 sm:top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none'>
+      <nav className='fixed bottom-6 lg:bottom-auto lg:top-6 left-0 right-0 z-[100] flex justify-center px-4 pointer-events-none'>
         <div
           className={cn(
-            'pointer-events-auto metal-surface rounded-full px-3 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between transition-all duration-500 w-full max-w-4xl',
+            'pointer-events-auto metal-surface rounded-full flex items-center transition-all duration-500 max-w-4xl',
+            'w-auto p-1.5',
+            'lg:w-full lg:px-6 lg:py-3 lg:justify-between',
             scrolled
               ? 'shadow-[0_20px_40px_-10px_rgba(0,0,0,0.8)] border-[#222]'
-              : 'border-transparent bg-transparent shadow-none',
+              : 'border-transparent shadow-none',
+            !scrolled && 'lg:!bg-transparent',
           )}
         >
           <div
-            className='flex items-center cursor-pointer group'
+            className='hidden lg:flex items-center cursor-pointer group'
             onClick={() => go('#home')}
           >
-            <div className='w-8 h-8 sm:w-8 sm:h-8 metal-emboss rounded-full flex justify-center items-center'>
-              <img src='./logo.png' className='w-4' />
+            <div className='w-8 h-8 metal-emboss rounded-full flex justify-center items-center'>
+              <svg
+                width='16'
+                height='16'
+                viewBox='0 0 24 24'
+                fill='none'
+                stroke='currentColor'
+                strokeWidth='2'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                className='text-gray-400'
+              >
+                <path d='M4 17L10 11L4 5' />
+                <line x1='12' y1='19' x2='20' y2='19' />
+              </svg>
             </div>
-            <span className='hidden md:block text-xs sm:text-sm font-bold text-metal tracking-widest ml-2'>
+            <span className='text-xs sm:text-sm font-bold text-metal tracking-widest ml-2'>
               KHILDEV
             </span>
           </div>
 
-          <div className='flex gap-1 metal-inset px-1.5 sm:px-2 py-1.5 sm:py-1 rounded-full mx-auto md:mx-0'>
+          <div className='flex gap-1 metal-inset px-1.5 sm:px-2 py-1.5 sm:py-1 rounded-full'>
             {NAV_ITEMS.map((i) => (
               <button
                 key={i.name}
@@ -1067,7 +1080,7 @@ const Navbar: React.FC<{ nav: (route: string) => void }> = ({ nav }) => {
             ))}
           </div>
 
-          {/* Search container hidden from iPad Air and below (lg: breakpoint used ~1024px) */}
+          {/* Search container hidden from tablet and below */}
           <div
             className='hidden lg:block liquid-border rounded-full p-[1px] cursor-pointer ml-auto md:ml-0'
             onClick={() => setCmd(true)}
@@ -1084,7 +1097,7 @@ const Navbar: React.FC<{ nav: (route: string) => void }> = ({ nav }) => {
 
       {cmd && (
         <div
-          className='fixed inset-0 z-[100] bg-black/90 backdrop-blur-md flex justify-center pt-[10vh] sm:pt-[15vh] px-4'
+          className='fixed inset-0 z-[110] bg-black/90 backdrop-blur-md flex justify-center pt-[10vh] sm:pt-[15vh] px-4'
           onClick={() => setCmd(false)}
         >
           <div
@@ -1179,38 +1192,38 @@ export default function App() {
             <Hero />
             <About />
             <SectionGrid<CertData>
-              id='certifications'
-              title='Certifications'
+              id='certs'
+              title='Credentials'
               data={CERTIFICATIONS}
               Card={CertCard}
               nav={setRoute}
-              navRoute='cert'
-              navText='All Certs'
+              navRoute='Credentials'
+              navText='All Credentials'
             />
             <SectionGrid<ProjectData>
-              id='projects'
-              title='Projects'
+              id='work'
+              title='Work'
               data={PROJECTS}
               Card={ProjCard}
               nav={setRoute}
-              navRoute='projects'
-              navText='All Projects'
+              navRoute='work'
+              navText='All Work'
             />
             <Contact />
           </>
         )}
-        {route === 'cert' && (
+        {route === 'Credentials' && (
           <ArchivePage<CertData>
-            title='Certification Archive'
+            title='Credentials Archive'
             cats={CERTIFICATION_CATEGORIES}
             data={CERTIFICATIONS}
             Card={CertCard}
             nav={setRoute}
           />
         )}
-        {route === 'projects' && (
+        {route === 'work' && (
           <ArchivePage<ProjectData>
-            title='Project Archive'
+            title='Work Archive'
             cats={PROJECT_CATEGORIES}
             data={PROJECTS}
             Card={ProjCard}
@@ -1218,7 +1231,7 @@ export default function App() {
           />
         )}
       </main>
-      <footer className='py-12 sm:py-16 px-4 border-t border-[#111] text-center relative mt-auto'>
+      <footer className='py-12 sm:py-16 pb-24 lg:pb-12 px-4 border-t border-[#111] text-center relative mt-auto'>
         <div className='absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2'>
           <MetalBtn
             variant='liquid-icon'
