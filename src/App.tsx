@@ -119,8 +119,12 @@ const MetalStyles: React.FC = () => (
     
     body { background-color: #030303; background-image: radial-gradient(circle at 50% 0%, #161616 0%, #030303 60%); background-attachment: fixed; }
 
+   
     pre.shiki {
       background: none !important;
+      margin: 0;
+      overflow-x: hidden;
+      max-width: 100%;
     }
     
     .liquid-border { position: relative; background: #0a0a0a; z-index: 1; }
@@ -417,7 +421,6 @@ const ProjCard: React.FC<CardProps<ProjectData>> = ({
     whileHover={{ y: -8 }}
     className='group relative metal-surface rounded-3xl overflow-hidden flex flex-col w-full shadow-lg hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,1)] transition-all duration-500 border border-[#222] hover:border-[#333]'
   >
-    {/* Glare overlay effect */}
     <div className='absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-10' />
 
     <div className='relative h-56 overflow-hidden border-b border-[#111]'>
@@ -705,16 +708,17 @@ const About: React.FC = () => {
         <motion.div
           {...fadeInLeft}
           animate={inView ? fadeInLeft.animate : {}}
-          className='metal-surface rounded-3xl p-5 sm:p-6 font-mono group hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,1)] transition-shadow liquid-border'
+          className='metal-surface rounded-3xl p-5 sm:p-6 font-mono group hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,1)] transition-shadow liquid-border w-full min-w-0'
         >
-          <div className='metal-inset rounded-2xl p-5 sm:p-6'>
+          <div className='metal-inset rounded-2xl p-5 sm:p-6 overflow-hidden'>
             <div className='flex gap-2 mb-5 sm:mb-6 pb-4 border-b border-[#222]'>
               <Terminal className='w-4 h-4 text-gray-500' />
               <span className='text-gray-500 text-[10px] sm:text-xs uppercase tracking-widest'>
                 sys_profile.md
               </span>
             </div>
-            <div className='space-y-4 text-xs sm:text-sm text-gray-400 leading-relaxed'>
+            {/* Added overflow-x-auto to prevent Markdown pre blocks from breaking mobile width */}
+            <div className='space-y-4 text-xs sm:text-sm text-gray-400 leading-relaxed overflow-x-auto w-full'>
               {ABOUT_MD.map((l, i) => (
                 <motion.div
                   key={i}
@@ -729,7 +733,7 @@ const About: React.FC = () => {
           </div>
         </motion.div>
 
-        <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 w-full'>
           {STATS.map((s, i) => (
             <motion.div
               key={s.label}
@@ -785,13 +789,8 @@ const SectionGrid = <T extends any>({
 
       {title === 'Certifications' && (
         <div className='relative mb-12 overflow-hidden'>
-          {/* Left Blur */}
           <div className='pointer-events-none absolute left-0 top-0 h-full w-12 bg-gradient-to-r from-black to-transparent z-10' />
-
-          {/* Right Blur */}
           <div className='pointer-events-none absolute right-0 top-0 h-full w-12 bg-gradient-to-l from-black to-transparent z-10' />
-
-          {/* Scrolling Content */}
           <motion.div
             animate={{ x: ['0%', '-100%'] }}
             transition={{
@@ -905,7 +904,8 @@ const Contact: React.FC = () => {
               as='textarea'
               placeholder='Tell me about your project or idea...'
             />
-            <div className='flex justify-end pt-2 sm:pt-4'>
+            {/* Added justify-center for mobile and lg:justify-end to align center below iPad Air dimensions */}
+            <div className='flex justify-center lg:justify-end pt-2 sm:pt-4'>
               <motion.div {...btnHover}>
                 <MetalBtn
                   icon={ChevronRight}
@@ -1028,7 +1028,7 @@ const Navbar: React.FC<{ nav: (route: string) => void }> = ({ nav }) => {
             <div className='w-8 h-8 sm:w-8 sm:h-8 metal-emboss rounded-full flex justify-center items-center'>
               <img src='./logo.png' className='w-4' />
             </div>
-            <span className='hidden md:block text-xs sm:text-sm font-bold text-metal tracking-widest'>
+            <span className='hidden md:block text-xs sm:text-sm font-bold text-metal tracking-widest ml-2'>
               KHILDEV
             </span>
           </div>
@@ -1067,8 +1067,9 @@ const Navbar: React.FC<{ nav: (route: string) => void }> = ({ nav }) => {
             ))}
           </div>
 
+          {/* Search container hidden from iPad Air and below (lg: breakpoint used ~1024px) */}
           <div
-            className='liquid-border rounded-full p-[1px] cursor-pointer ml-auto md:ml-0'
+            className='hidden lg:block liquid-border rounded-full p-[1px] cursor-pointer ml-auto md:ml-0'
             onClick={() => setCmd(true)}
           >
             <div className='bg-[#0a0a0a] rounded-full flex items-center justify-center w-9 h-9 sm:w-auto sm:h-9 sm:px-4 hover:bg-[#111] transition-colors'>
