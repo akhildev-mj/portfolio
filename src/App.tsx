@@ -1024,12 +1024,12 @@ const Navbar: React.FC<{ nav: (route: string) => void }> = ({ nav }) => {
 
   return (
     <>
-      <nav className='fixed bottom-6 lg:bottom-auto lg:top-6 left-0 right-0 z-[100] flex justify-center px-4 pointer-events-none'>
+      <nav className='fixed bottom-3 lg:bottom-auto lg:top-6 left-0 right-0 z-[100] flex justify-center px-3 sm:px-4 pointer-events-none pb-[env(safe-area-inset-bottom)]'>
         <div
           className={cn(
-            'pointer-events-auto metal-surface rounded-full flex items-center transition-all duration-500 max-w-4xl',
-            'w-auto p-1.5',
-            'lg:w-full lg:px-6 lg:py-3 lg:justify-between',
+            'pointer-events-auto metal-surface rounded-full flex items-center transition-all duration-500 justify-between',
+            'w-full max-w-sm sm:max-w-md p-1.5',
+            'lg:max-w-4xl lg:px-6 lg:py-3 lg:w-full',
             scrolled
               ? 'shadow-[0_20px_40px_-10px_rgba(0,0,0,0.8)] border-[#222]'
               : 'border-transparent shadow-none',
@@ -1041,28 +1041,35 @@ const Navbar: React.FC<{ nav: (route: string) => void }> = ({ nav }) => {
             onClick={() => go('#home')}
           >
             <div className='w-8 h-8 metal-emboss rounded-full flex justify-center items-center'>
-              <img src='./logo.png' className='w-4' />
+              <img
+                src='./logo.png'
+                alt='Logo'
+                className='w-4'
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
             </div>
             <span className='text-xs sm:text-sm font-bold text-metal tracking-widest ml-2'>
               KHILDEV
             </span>
           </div>
 
-          <div className='flex gap-1 metal-inset px-1.5 sm:px-2 py-1.5 sm:py-1 rounded-full'>
+          <div className='flex w-full lg:w-auto justify-between lg:justify-center gap-1 sm:gap-2 metal-inset px-1.5 sm:px-2 py-1.5 sm:py-1 rounded-full'>
             {NAV_ITEMS.map((i) => (
               <button
                 key={i.name}
                 onClick={() => go(i.href)}
                 className={cn(
-                  'group flex items-center justify-center p-2 sm:p-2.5 transition-all duration-400 rounded-full border',
+                  'group flex flex-1 lg:flex-none items-center justify-center p-3 sm:p-2.5 transition-all duration-400 rounded-full border',
                   active === i.href.slice(1)
-                    ? 'metal-surface text-white border-[#333] px-3 sm:px-4'
-                    : 'text-gray-500 hover:text-gray-200 border-transparent hover:bg-white/5 hover:px-3 sm:hover:px-4',
+                    ? 'metal-surface text-white border-[#333] lg:px-4'
+                    : 'text-gray-500 hover:text-gray-200 border-transparent hover:bg-white/5 lg:hover:px-4',
                 )}
               >
                 <i.icon
                   className={cn(
-                    'w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 transition-transform duration-300',
+                    'w-4 h-4 sm:w-5 sm:h-5 shrink-0 transition-transform duration-300',
                     active === i.href.slice(1)
                       ? 'scale-110'
                       : 'group-hover:scale-110',
@@ -1070,10 +1077,10 @@ const Navbar: React.FC<{ nav: (route: string) => void }> = ({ nav }) => {
                 />
                 <span
                   className={cn(
-                    'overflow-hidden transition-all duration-400 ease-out whitespace-nowrap font-bold tracking-wide text-[10px] sm:text-xs',
+                    'hidden lg:block overflow-hidden transition-all duration-400 ease-out whitespace-nowrap font-bold tracking-wide text-[10px] sm:text-xs',
                     active === i.href.slice(1)
                       ? 'max-w-[100px] opacity-100 ml-2'
-                      : 'max-w-0 opacity-0 md:group-hover:max-w-[100px] md:group-hover:opacity-100 md:group-hover:ml-2',
+                      : 'max-w-0 opacity-0 group-hover:max-w-[100px] group-hover:opacity-100 group-hover:ml-2',
                   )}
                 >
                   {i.name}
@@ -1184,6 +1191,19 @@ const Navbar: React.FC<{ nav: (route: string) => void }> = ({ nav }) => {
 
 export default function App() {
   const [route, setRoute] = useState<string>('home');
+
+  useEffect(() => {
+    let metaThemeColor = document.querySelector(
+      'meta[name=theme-color]',
+    ) as HTMLMetaElement;
+    if (!metaThemeColor) {
+      metaThemeColor = document.createElement('meta');
+      metaThemeColor.name = 'theme-color';
+      document.getElementsByTagName('head')[0].appendChild(metaThemeColor);
+    }
+    metaThemeColor.content = '#161616';
+  }, []);
+
   return (
     <div className='relative min-h-screen font-sans selection:bg-gray-700 selection:text-white pb-safe'>
       <MetalStyles />
@@ -1233,7 +1253,7 @@ export default function App() {
           />
         )}
       </main>
-      <footer className='py-12 sm:py-16 pb-24 lg:pb-12 px-4 border-t border-[#111] text-center relative mt-auto'>
+      <footer className='py-12 sm:py-16 pb-28 lg:pb-12 px-4 border-t border-[#111] text-center relative mt-auto'>
         <div className='absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2'>
           <MetalBtn
             variant='liquid-icon'
