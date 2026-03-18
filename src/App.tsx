@@ -1015,10 +1015,15 @@ const Navbar: React.FC<{ nav: (route: string) => void }> = ({ nav }) => {
     if (h.startsWith('#')) {
       nav('home');
       setActive(h.slice(1));
-      setTimeout(
-        () => document.querySelector(h)?.scrollIntoView({ behavior: 'smooth' }),
-        100,
-      );
+      setTimeout(() => {
+        const el = document.querySelector(h) as HTMLElement;
+        if (el) {
+          const isDesktop = window.innerWidth >= 1024;
+          const offset = isDesktop ? 40 : 0;
+          const y = el.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }, 100);
     }
   };
 
