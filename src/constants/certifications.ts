@@ -2,6 +2,16 @@ import type { CertData } from '@/App';
 
 const CERTIFICATIONS_DATA: CertData[] = [
   {
+    title: 'Google AI Professional Certificate',
+    desc: 'Comprehensive use of AI tools and techniques across brainstorming, research, communication, content creation, data analysis, and coding, demonstrated through hands-on projects and a custom AI solution.',
+    image: '/certifications/ai-professional-google.png',
+    category: 'AI',
+    issuer: 'Google',
+    date: 'March 2026',
+    verifyUrl: 'https://coursera.org/share/da4bf80b4e475f435513ec1b1ce488de',
+    skills: [],
+  },
+  {
     title: 'Google Advanced Data Analytics Professional Certificate',
     desc: 'In-depth data analytics techniques using Google tools and techniques',
     image: '/certifications/google-advanced-data-analytics.png',
