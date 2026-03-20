@@ -28,7 +28,6 @@
 		"eslint-plugin-react-refresh": "^0.5.2",
 		"globals": "^17.4.0",
 		"postcss": "^8.5.8",
-		"shiki": "^4.0.2",
 		"tailwindcss": "^4.2.1",
 		"terser": "^5.46.1",
 		"typescript": "~5.9.3",
