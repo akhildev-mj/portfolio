@@ -122,6 +122,7 @@ export const Hero: React.FC = () => {
 										setGen(false);
 									}, 1000);
 								}}
+								aria-label='Generate code snippet'
 								className='glass-panel px-3 py-1.5 rounded-full hover:bg-white/80 transition-colors cursor-pointer shrink-0'>
 								{gen ? (
 									<Zap className='w-3.5 h-3.5 text-gray-700 animate-spin' />

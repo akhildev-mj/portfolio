@@ -9,6 +9,7 @@ export const Footer = memo(() => (
 			<GlassBtn
 				variant='liquid-icon'
 				icon={ArrowUp}
+				aria-label='Scroll to top of page'
 				onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
 				className='w-12 h-12 shadow-xl shadow-black/10'
 			/>
@@ -20,6 +21,7 @@ export const Footer = memo(() => (
 					href={l.href}
 					target='_blank'
 					rel='noreferrer'
+					aria-label={`Visit my ${l.label}`}
 					className='text-gray-500 hover:text-gray-900 transition-colors bg-white/40 p-3 rounded-full hover:bg-white/80 border border-white/60'>
 					<l.icon className='w-5 h-5' />
 				</a>

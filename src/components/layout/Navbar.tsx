@@ -53,6 +53,7 @@ export const Navbar: React.FC<{ nav: (route: string) => void }> = ({ nav }) => {
 					{NAV_ITEMS.map((i) => (
 						<button
 							key={i.name}
+							aria-label={i.name}
 							onClick={() => go(i.href)}
 							className={cn(
 								'group flex flex-1 md:flex-none items-center justify-center p-3 sm:p-2.5 transition-all duration-400 rounded-full cursor-pointer',

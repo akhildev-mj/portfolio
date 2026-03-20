@@ -4,7 +4,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Google AI Professional Certificate',
 		desc: 'Comprehensive use of AI tools and techniques across brainstorming, research, communication, content creation, data analysis, and coding, demonstrated through hands-on projects and a custom AI solution.',
-		image: '/certifications/ai-professional-google.png',
+		image: '/certifications/ai-professional-google.webp',
 		category: 'AI',
 		issuer: 'Google',
 		date: 'March 2026',
@@ -14,7 +14,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Google Advanced Data Analytics Professional Certificate',
 		desc: 'In-depth data analytics techniques using Google tools and techniques',
-		image: '/certifications/google-advanced-data-analytics.png',
+		image: '/certifications/google-advanced-data-analytics.webp',
 		category: 'Data Analytics',
 		issuer: 'Google',
 		date: 'May 2025',
@@ -24,7 +24,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Meta Full-Stack Engineer Professional Certificate',
 		desc: 'Full-stack development skills using frontend and backend tools',
-		image: '/certifications/meta-full-stack.png',
+		image: '/certifications/meta-full-stack.webp',
 		category: 'Development',
 		issuer: 'Meta',
 		date: 'September 2024',
@@ -35,7 +35,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Microsoft Technical Assistant - Python',
 		desc: 'Introduction to programming concepts with Python',
-		image: '/certifications/ms-python-intro.png',
+		image: '/certifications/ms-python-intro.webp',
 		category: 'Programming',
 		issuer: 'Microsoft',
 		date: 'February 2019',
@@ -46,7 +46,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Natural Language Processing Specialization Certificate',
 		desc: 'Techniques for working with and understanding human language data',
-		image: '/certifications/nlp-deeplearning.png',
+		image: '/certifications/nlp-deeplearning.webp',
 		category: 'NLP',
 		issuer: 'DeepLearning.AI',
 		date: 'March 2025',
@@ -56,7 +56,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'IBM Generative AI Engineering Professional Certificate',
 		desc: 'Professional-level certification in generative AI engineering concepts and techniques',
-		image: '/certifications/ibm-gen-ai.png',
+		image: '/certifications/ibm-gen-ai.webp',
 		category: 'AI',
 		issuer: 'IBM',
 		date: 'May 2025',
@@ -66,7 +66,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Google Project Management Professional Certificate',
 		desc: 'Professional-level certification in project management concepts and techniques',
-		image: '/certifications/google-pm.png',
+		image: '/certifications/google-pm.webp',
 		category: 'Project Management',
 		issuer: 'Google',
 		date: 'July 2025',
@@ -77,7 +77,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'IBM Data Science Professional Certificate',
 		desc: 'Professional-level certification in data science concepts and techniques',
-		image: '/certifications/ibm-data-science-professional.png',
+		image: '/certifications/ibm-data-science-professional.webp',
 		category: 'Data Science',
 		issuer: 'IBM',
 		date: 'April 2024',
@@ -87,7 +87,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Deep Learning Specialization Certificate',
 		desc: 'Mastering neural networks and deep learning frameworks',
-		image: '/certifications/deep-learning-deeplearningai.png',
+		image: '/certifications/deep-learning-deeplearningai.webp',
 		category: 'Data Science',
 		issuer: 'DeepLearning.AI',
 		date: 'April 2025',
@@ -97,7 +97,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'AI Engineering Specialization Certificate',
 		desc: 'Advanced AI engineering skills including deploying models and systems',
-		image: '/certifications/ai-engineering-scrimba.png',
+		image: '/certifications/ai-engineering-scrimba.webp',
 		category: 'AI',
 		issuer: 'Scrimba',
 		date: 'April 2025',
@@ -107,7 +107,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'IBM AI Developer Professional Certificate',
 		desc: 'Professional-level certification in AI development',
-		image: '/certifications/ibm-ai-developer.png',
+		image: '/certifications/ibm-ai-developer.webp',
 		category: 'AI',
 		issuer: 'IBM',
 		date: 'May 2025',
@@ -117,7 +117,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'TensorFlow Developer Professional Certificate',
 		desc: 'Building machine learning models with TensorFlow',
-		image: '/certifications/tensorflow-developer.png',
+		image: '/certifications/tensorflow-developer.webp',
 		category: 'Data Science',
 		issuer: 'DeepLearning.AI',
 		date: 'June 2024',
@@ -127,7 +127,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'IBM AI Engineering Professional Certificate',
 		desc: 'Professional-level certification in AI engineering concepts and techniques',
-		image: '/certifications/ibm-ai-engineering.png',
+		image: '/certifications/ibm-ai-engineering.webp',
 		category: 'AI',
 		issuer: 'IBM',
 		date: 'May 2025',
@@ -137,7 +137,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Google Business Intelligence Professional Certificate',
 		desc: 'Skills in data modeling and extract, transform, load (ETL) processes, data visualizations and dashboards',
-		image: '/certifications/google-bi.png',
+		image: '/certifications/google-bi.webp',
 		category: 'Data Analytics',
 		issuer: 'Google',
 		date: 'May 2025',
@@ -147,7 +147,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Meta Data Analyst Professional Certificate',
 		desc: 'Skills in data analysis using popular tools like SQL and Python',
-		image: '/certifications/meta-data-analyst.png',
+		image: '/certifications/meta-data-analyst.webp',
 		category: 'Data Analytics',
 		issuer: 'Meta',
 		date: 'June 2024',
@@ -157,7 +157,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Meta Generalist Software Engineer Professional Certificate',
 		desc: 'Foundational software engineering skills across web, mobile, and backend development',
-		image: '/certifications/meta-generalist.png',
+		image: '/certifications/meta-generalist.webp',
 		category: 'Development',
 		issuer: 'Meta',
 		date: 'September 2024',
@@ -168,7 +168,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Meta Back-End Developer Professional Certificate',
 		desc: 'Building scalable back-end services using modern technologies',
-		image: '/certifications/meta-backend-developer.png',
+		image: '/certifications/meta-backend-developer.webp',
 		category: 'Development',
 		issuer: 'Meta',
 		date: 'September 2024',
@@ -178,7 +178,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Meta Front-End Developer Professional Certificate',
 		desc: 'Developing modern, responsive front-end web applications',
-		image: '/certifications/meta-frontend-developer.png',
+		image: '/certifications/meta-frontend-developer.webp',
 		category: 'Development',
 		issuer: 'Meta',
 		date: 'August 2024',
@@ -188,7 +188,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Meta iOS Developer Professional Certificate',
 		desc: 'Skills for developing native mobile apps for iOS platforms',
-		image: '/certifications/meta-ios-developer.png',
+		image: '/certifications/meta-ios-developer.webp',
 		category: 'Development',
 		issuer: 'Meta',
 		date: 'March 2025',
@@ -198,7 +198,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Meta Database Engineer Professional Certificate',
 		desc: 'Expertise in database management, design, and optimization',
-		image: '/certifications/meta-database-engineer.png',
+		image: '/certifications/meta-database-engineer.webp',
 		category: 'Development',
 		issuer: 'Meta',
 		date: 'August 2024',
@@ -208,7 +208,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Meta React Native Professional Certificate',
 		desc: 'Building cross-platform mobile apps using React Native',
-		image: '/certifications/meta-react-native.png',
+		image: '/certifications/meta-react-native.webp',
 		category: 'Development',
 		issuer: 'Meta',
 		date: 'April 2025',
@@ -219,7 +219,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 		title:
 			'IBM Deep Learning with PyTorch, Keras and Tensorflow Professional Certificate',
 		desc: 'Hands-on experience with deep learning frameworks and applications',
-		image: '/certifications/ibm-deep-learning.png',
+		image: '/certifications/ibm-deep-learning.webp',
 		category: 'Data Science',
 		issuer: 'IBM',
 		date: 'May 2025',
@@ -229,7 +229,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'IBM Generative AI Engineering with LLMs Specialization Certificate',
 		desc: 'Advanced specialization in generative AI engineering with large language models',
-		image: '/certifications/ibm-gen-ai-specl.png',
+		image: '/certifications/ibm-gen-ai-specl.webp',
 		category: 'AI',
 		issuer: 'IBM',
 		date: 'May 2025',
@@ -239,7 +239,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'AI Foundations for Everyone Specialization Certificate',
 		desc: 'Fundamentals of Artificial Intelligence with real-world applications',
-		image: '/certifications/ai-foundations-ibm.png',
+		image: '/certifications/ai-foundations-ibm.webp',
 		category: 'AI',
 		issuer: 'IBM',
 		date: 'May 2025',
@@ -249,7 +249,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Applied Data Science Specialization Certificate',
 		desc: 'Hands-on skills in data science with real-world applications',
-		image: '/certifications/applied-data-science-ibm.png',
+		image: '/certifications/applied-data-science-ibm.webp',
 		category: 'Data Science',
 		issuer: 'IBM',
 		date: 'April 2025',
@@ -259,7 +259,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Data Science Fundamentals Specialization Certificate',
 		desc: 'Introduction to data science concepts and techniques',
-		image: '/certifications/data-science-fundamentals-ibm.png',
+		image: '/certifications/data-science-fundamentals-ibm.webp',
 		category: 'Data Science',
 		issuer: 'IBM',
 		date: 'April 2025',
@@ -269,7 +269,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Introduction to Data Science Specialization Certificate',
 		desc: 'Learn the basic techniques in data science and analysis',
-		image: '/certifications/intro-data-science-ibm.png',
+		image: '/certifications/intro-data-science-ibm.webp',
 		category: 'Data Science',
 		issuer: 'IBM',
 		date: 'April 2025',
@@ -279,7 +279,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Programming with Python',
 		desc: 'Learning Python programming with practical applications',
-		image: '/certifications/python-programming.png',
+		image: '/certifications/python-programming.webp',
 		category: 'Programming',
 		issuer: 'Internshala',
 		date: 'May 2018',
@@ -290,7 +290,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Android App Development',
 		desc: 'Learn Android app development from scratch',
-		image: '/certifications/android-development.png',
+		image: '/certifications/android-development.webp',
 		category: 'Development',
 		issuer: 'Internshala',
 		date: 'August 2018',
@@ -301,7 +301,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Web Development',
 		desc: 'Web development concepts including front-end and back-end',
-		image: '/certifications/web-development.png',
+		image: '/certifications/web-development.webp',
 		category: 'Development',
 		issuer: 'Internshala',
 		date: 'August 2018',
@@ -312,7 +312,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Google Agile Essentials',
 		desc: 'Agile methodologies in a data-driven world for teams and projects',
-		image: '/certifications/google-agile-essentials.png',
+		image: '/certifications/google-agile-essentials.webp',
 		category: 'Programming',
 		issuer: 'Google',
 		date: 'April 2025',
@@ -322,7 +322,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Google AI Essentials',
 		desc: "Essentials of AI, its applications, and how it's transforming industries",
-		image: '/certifications/google-ai-essentials.png',
+		image: '/certifications/google-ai-essentials.webp',
 		category: 'AI',
 		issuer: 'Google',
 		date: 'April 2025',
@@ -332,7 +332,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Google Prompting Essentials',
 		desc: 'How to effectively use prompting techniques for AI models',
-		image: '/certifications/google-prompting-essentials.png',
+		image: '/certifications/google-prompting-essentials.webp',
 		category: 'AI',
 		issuer: 'Google',
 		date: 'April 2025',
@@ -342,7 +342,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Python for Time Series Data Analysis',
 		desc: 'Time series data analysis using Python libraries',
-		image: '/certifications/python-time-series.png',
+		image: '/certifications/python-time-series.webp',
 		category: 'Data Science',
 		issuer: 'Udemy',
 		date: 'May 2024',
@@ -352,7 +352,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Data Science for Business | 6 Real-world Case Studies',
 		desc: 'Practical data science skills for solving real-world business problems',
-		image: '/certifications/data-science-business.png',
+		image: '/certifications/data-science-business.webp',
 		category: 'Data Science',
 		issuer: 'Udemy',
 		date: 'April 2024',
@@ -362,7 +362,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Remix.js - The Practical Guide',
 		desc: 'Learn Remix.js for modern web development',
-		image: '/certifications/remixjs-guide.png',
+		image: '/certifications/remixjs-guide.webp',
 		category: 'Development',
 		issuer: 'Udemy',
 		date: 'January 2024',
@@ -372,7 +372,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Flutter & Dart - The Complete Guide',
 		desc: 'Building mobile apps with Flutter and Dart',
-		image: '/certifications/flutter-dart-guide.png',
+		image: '/certifications/flutter-dart-guide.webp',
 		category: 'Development',
 		issuer: 'Udemy',
 		date: 'March 2022',
@@ -382,7 +382,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Docker & Kubernetes: The Practical Guide',
 		desc: 'Learn containerization and orchestration with Docker and Kubernetes',
-		image: '/certifications/docker-kubernetes-guide.png',
+		image: '/certifications/docker-kubernetes-guide.webp',
 		category: 'DevOps & Cloud',
 		issuer: 'Udemy',
 		date: 'February 2022',
@@ -392,7 +392,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Next.js & React - The Complete Guide',
 		desc: 'Learn to build full-stack web apps with React and Next.js',
-		image: '/certifications/nextjs-react-guide.png',
+		image: '/certifications/nextjs-react-guide.webp',
 		category: 'Development',
 		issuer: 'Udemy',
 		date: 'February 2022',
@@ -402,7 +402,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Complete Guide to Elasticsearch',
 		desc: 'Master Elasticsearch for real-time search and analytics',
-		image: '/certifications/elasticsearch-guide.png',
+		image: '/certifications/elasticsearch-guide.webp',
 		category: 'ELK Stack',
 		issuer: 'Udemy',
 		date: 'January 2022',
@@ -412,7 +412,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Data Processing with Logstash (and Filebeat)',
 		desc: 'Learn data processing and transformation with Logstash and Filebeat',
-		image: '/certifications/logstash-filebeat.png',
+		image: '/certifications/logstash-filebeat.webp',
 		category: 'ELK Stack',
 		issuer: 'Udemy',
 		date: 'January 2022',
@@ -422,7 +422,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'Data Visualization with Kibana',
 		desc: 'Create interactive dashboards and data visualizations with Kibana',
-		image: '/certifications/kibana-data-viz.png',
+		image: '/certifications/kibana-data-viz.webp',
 		category: 'ELK Stack',
 		issuer: 'Udemy',
 		date: 'January 2022',
@@ -432,7 +432,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: "NestJS: The Complete Developer's Guide",
 		desc: 'Learn NestJS for building server-side applications with TypeScript',
-		image: '/certifications/nestjs-guide.png',
+		image: '/certifications/nestjs-guide.webp',
 		category: 'Development',
 		issuer: 'Udemy',
 		date: 'December 2021',
@@ -442,7 +442,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'The Complete React Developer Course (w/ Hooks and Redux)',
 		desc: 'Building scalable React applications with hooks and Redux',
-		image: '/certifications/react-developer-course.png',
+		image: '/certifications/react-developer-course.webp',
 		category: 'Development',
 		issuer: 'Udemy',
 		date: 'April 2021',
@@ -452,7 +452,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'NodeJS - The Complete Guide (MVC, REST APIs, GraphQL, Deno)',
 		desc: 'Learn Node.js for back-end development with modern tools',
-		image: '/certifications/nodejs-guide.png',
+		image: '/certifications/nodejs-guide.webp',
 		category: 'Development',
 		issuer: 'Udemy',
 		date: 'January 2021',
@@ -462,7 +462,7 @@ const CERTIFICATIONS_DATA: CertData[] = [
 	{
 		title: 'The Complete JavaScript Course 2021: From Zero to Expert!',
 		desc: 'Comprehensive JavaScript course for front-end and back-end development',
-		image: '/certifications/javascript-complete-course.png',
+		image: '/certifications/javascript-complete-course.webp',
 		category: 'Programming',
 		issuer: 'Udemy',
 		date: 'December 2020',
