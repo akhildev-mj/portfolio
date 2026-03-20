@@ -93,6 +93,7 @@ export const Hero: React.FC = () => {
 									<GlassBtn
 										variant='icon'
 										icon={s.icon}
+										aria-label={`Visit my ${s.label}`}
 										onClick={() => window.open(s.href)}
 									/>
 								</m.div>
