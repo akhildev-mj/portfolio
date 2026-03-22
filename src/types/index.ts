@@ -1,6 +1,4 @@
-import type { ElementType } from 'react';
-
-export type IconType = ElementType;
+export type IconType = React.ElementType;
 
 export interface CertData {
 	id?: number;

@@ -2,7 +2,7 @@ import { ImgFallback } from '@/components/ui/ImgFallback';
 import type { CardProps, CertData } from '@/types';
 import { m } from 'framer-motion';
 import { BadgeCheck, Calendar } from 'lucide-react';
-import React, { memo } from 'react';
+import { memo } from 'react';
 
 const CertCardComponent: React.FC<CardProps<CertData>> = ({
 	item: c,

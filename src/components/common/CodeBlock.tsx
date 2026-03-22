@@ -1,5 +1,5 @@
 import { GRAMMAR } from '@/constants/grammar';
-import { memo, type ReactNode, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 
 interface CodeBlockProps {
 	code: string;
@@ -16,7 +16,7 @@ const CodeBlockComponent = ({ code, lang }: CodeBlockProps) => {
 			'gm'
 		);
 
-		const elements: ReactNode[] = [];
+		const elements: React.ReactNode[] = [];
 		let lastIndex = 0;
 		let match;
 

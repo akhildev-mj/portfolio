@@ -1,5 +1,5 @@
 import { cn } from '@/utils/cn';
-import React, { memo } from 'react';
+import { memo } from 'react';
 
 const ImgFallbackComponent: React.FC<{ src: string; className?: string }> = ({
 	src,

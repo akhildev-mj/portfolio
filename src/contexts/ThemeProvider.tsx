@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ThemeContext, type Theme } from './ThemeContext';
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
@@ -8,7 +8,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
 		const storedTheme = localStorage.getItem('theme') as Theme;
 		if (storedTheme === 'light' || storedTheme === 'dark') return storedTheme;
 
-		// If no stored preference, check system default ONCE
 		return window.matchMedia('(prefers-color-scheme: dark)').matches
 			? 'dark'
 			: 'light';
@@ -20,7 +19,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
 		root.classList.add(theme);
 		localStorage.setItem('theme', theme);
 
-		// Dynamically update the theme-color meta tag for mobile overscroll/status bars
 		let metaThemeColor = document.querySelector('meta[name="theme-color"]');
 		if (!metaThemeColor) {
 			metaThemeColor = document.createElement('meta');

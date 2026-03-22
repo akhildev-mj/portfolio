@@ -6,7 +6,6 @@ import { useSection } from '@/hooks/useSection';
 import { fadeInLeft } from '@/utils/animations';
 import { m } from 'framer-motion';
 import { Terminal } from 'lucide-react';
-import React from 'react';
 
 export const About: React.FC = () => {
 	const [ref, inView] = useSection();

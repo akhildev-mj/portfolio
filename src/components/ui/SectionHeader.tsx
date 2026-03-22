@@ -1,6 +1,6 @@
 import { fadeInUp } from '@/utils/animations';
 import { m } from 'framer-motion';
-import React, { memo } from 'react';
+import { memo } from 'react';
 
 const SectionHeaderComponent: React.FC<{
 	title: string;

@@ -1,6 +1,6 @@
 import type { IconType } from '@/types';
 import { cn } from '@/utils/cn';
-import React, { memo } from 'react';
+import { memo } from 'react';
 
 interface GlassBtnProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	variant?:

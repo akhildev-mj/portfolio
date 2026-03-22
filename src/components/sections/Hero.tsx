@@ -9,7 +9,7 @@ import {
 } from '@/utils/animations';
 import { AnimatePresence, m } from 'framer-motion';
 import { Download, Sparkles, Zap } from 'lucide-react';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const Hero: React.FC = () => {
 	const [roleIdx, setRole] = useState<number>(0);

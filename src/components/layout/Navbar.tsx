@@ -1,7 +1,7 @@
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { NAV_ITEMS } from '@/constants/ui';
 import { cn } from '@/utils/cn';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const Navbar: React.FC<{ nav: (route: string) => void }> = ({ nav }) => {
 	const [active, setActive] = useState<string>('home');
@@ -91,7 +91,6 @@ export const Navbar: React.FC<{ nav: (route: string) => void }> = ({ nav }) => {
 						</button>
 					))}
 
-					{/* Theme Toggle separated by margin instead of pipe */}
 					<div className='ml-2 sm:ml-4 flex items-center justify-center'>
 						<ThemeToggle />
 					</div>

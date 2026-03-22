@@ -7,7 +7,6 @@ import { useSection } from '@/hooks/useSection';
 import { btnHover, fadeInLeft, fadeInRight } from '@/utils/animations';
 import { m } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
-import React from 'react';
 
 export const Contact: React.FC = () => {
 	const [ref, inView] = useSection();

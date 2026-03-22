@@ -7,7 +7,6 @@ import type { CardProps } from '@/types';
 import { btnHover, stagger } from '@/utils/animations';
 import { m } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
-import React from 'react';
 
 export interface SectionGridProps<T> {
 	id: string;
