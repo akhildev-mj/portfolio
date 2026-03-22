@@ -54,9 +54,29 @@
 
 		<!-- Manifest -->
 		<link rel="manifest" href="/site.webmanifest" />
+
+		<script>
+			(function () {
+				try {
+					var storedTheme = localStorage.getItem('theme');
+					var isDark =
+						storedTheme === 'dark' ||
+						(!storedTheme &&
+							window.matchMedia('(prefers-color-scheme: dark)').matches);
+					if (isDark) {
+						document.documentElement.classList.add('dark');
+						document.documentElement.style.backgroundColor = '#0a0a0a';
+					} else {
+						document.documentElement.classList.remove('dark');
+						document.documentElement.style.backgroundColor = '#fafafa';
+					}
+				} catch (e) {}
+			})();
+		</script>
 	</head>
 
-	<body>
+	<body
+		class="bg-[#fafafa] text-gray-900 dark:bg-[#0a0a0a] dark:text-gray-100 antialiased">
 		<!-- App Root -->
 		<div id="root"></div>
 
