@@ -44,7 +44,7 @@ export const Navbar: React.FC<{ nav: (route: string) => void }> = ({ nav }) => {
 		<nav className='fixed top-4 left-0 right-0 z-[100] flex justify-center px-4'>
 			<div
 				className={cn(
-					'rounded-full flex items-center justify-between p-1.5 w-full max-w-[20rem] sm:max-w-md md:max-w-2xl lg:max-w-6xl transition-all duration-500',
+					'rounded-full flex items-center justify-between p-1.5 w-full max-w-[20rem] sm:max-w-md md:max-w-2xl lg:max-w-5xl transition-all duration-500',
 					isScrolled ? 'liquid-glass-strong-nav' : 'bg-transparent'
 				)}>
 				<div
@@ -90,11 +90,10 @@ export const Navbar: React.FC<{ nav: (route: string) => void }> = ({ nav }) => {
 							</div>
 						</button>
 					))}
-
-					<div className='ml-2 sm:ml-4 flex items-center justify-center'>
-						<ThemeToggle />
-					</div>
 				</div>
+			</div>
+			<div className='sm:ml-4 px-3 flex items-center justify-center'>
+				<ThemeToggle />
 			</div>
 		</nav>
 	);
