@@ -32,7 +32,7 @@ export const ROLES: string[] = [
 export const STATS: StatData[] = [
 	{ label: 'Years Experience', value: '5+', icon: LineChart },
 	{ label: 'Builds', value: '25+', icon: FolderKanban },
-	{ label: 'Credentials', value: '50+', icon: FileBadge },
+	{ label: 'Certifications', value: '50+', icon: FileBadge },
 	{ label: 'Tech', value: '20+', icon: Laptop },
 ];
 
@@ -75,8 +75,18 @@ export const SOCIALS: SocialData[] = [
 export const NAV_ITEMS: NavData[] = [
 	{ name: 'Home', href: '#home', icon: House, desc: 'Top' },
 	{ name: 'About', href: '#about', icon: User, desc: 'Info' },
-	{ name: 'Credentials', href: '#certs', icon: Award, desc: 'Credentials' },
-	{ name: 'Work', href: '#work', icon: BriefcaseBusiness, desc: 'Work' },
+	{
+		name: 'Certifications',
+		href: '#certs',
+		icon: Award,
+		desc: 'Certifications',
+	},
+	{
+		name: 'Projects',
+		href: '#projects',
+		icon: BriefcaseBusiness,
+		desc: 'Projects',
+	},
 	{ name: 'Contact', href: '#contact', icon: PhoneCall, desc: 'Reach out' },
 ];
 

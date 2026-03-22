@@ -51,7 +51,7 @@ export const SectionGrid = <T extends any>({
 				))}
 			</m.div>
 
-			{title === 'Credentials' && (
+			{title === 'Certifications' && (
 				<div
 					className='relative mb-12 overflow-hidden'
 					style={{

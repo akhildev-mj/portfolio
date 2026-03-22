@@ -40,7 +40,7 @@ export const Hero: React.FC = () => {
 						className='inline-flex items-center space-x-2 glass-panel rounded-full px-4 py-1.5 mb-6 sm:mb-8'>
 						<div className='w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_8px_#22c55e]' />
 						<span className='text-[10px] sm:text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider'>
-							Open to Work
+							Open to Projects
 						</span>
 					</m.div>
 

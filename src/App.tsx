@@ -55,31 +55,31 @@ export default function App() {
 							<Suspense fallback={<SectionLoader />}>
 								<SectionGrid<CertData>
 									id='certs'
-									title='Credentials'
+									title='Certifications'
 									data={CERTIFICATIONS}
 									Card={CertCard}
 									nav={setRoute}
-									navRoute='Credentials'
-									navText='All Credentials'
+									navRoute='Certifications'
+									navText='All Certifications'
 								/>
 								<SectionGrid<ProjectData>
-									id='work'
-									title='Work'
+									id='projects'
+									title='Projects'
 									data={PROJECTS}
 									Card={ProjCard}
 									nav={setRoute}
-									navRoute='work'
-									navText='All Work'
+									navRoute='projects'
+									navText='All Projects'
 								/>
 								<Contact />
 							</Suspense>
 						</>
 					)}
 
-					{route === 'Credentials' && (
+					{route === 'Certifications' && (
 						<Suspense fallback={<SectionLoader />}>
 							<ArchivePage<CertData>
-								title='Credentials Archive'
+								title='Certifications Archive'
 								cats={CERTIFICATION_CATEGORIES}
 								data={CERTIFICATIONS}
 								Card={CertCard}
@@ -87,10 +87,10 @@ export default function App() {
 							/>
 						</Suspense>
 					)}
-					{route === 'work' && (
+					{route === 'projects' && (
 						<Suspense fallback={<SectionLoader />}>
 							<ArchivePage<ProjectData>
-								title='Work Archive'
+								title='Projects Archive'
 								cats={PROJECT_CATEGORIES}
 								data={PROJECTS}
 								Card={ProjCard}
