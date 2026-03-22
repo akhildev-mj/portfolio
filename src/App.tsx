@@ -42,7 +42,7 @@ export default function App() {
 
 	return (
 		<LazyMotion features={domAnimation} strict>
-			<div className='relative min-h-screen bg-[#fafafa] text-gray-900 font-sans selection:bg-gray-200 selection:text-gray-900 pb-safe overflow-x-hidden'>
+			<div className='relative min-h-screen bg-[#fafafa] text-gray-900 selection:bg-gray-200 selection:text-gray-900 pb-safe overflow-x-hidden'>
 				<meta name='theme-color' content='#fafafa' />
 
 				<LiquidGlassStyles />

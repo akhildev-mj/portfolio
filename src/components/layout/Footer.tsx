@@ -7,7 +7,7 @@ export const Footer = memo(() => (
 	<footer className='py-12 sm:py-16 pb-28 lg:pb-12 px-4 border-t border-black/5 text-center relative mt-auto z-10'>
 		<div className='absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2'>
 			<GlassBtn
-				variant='liquid-icon'
+				variant='animated-liquid-icon'
 				icon={ArrowUp}
 				aria-label='Scroll to top of page'
 				onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

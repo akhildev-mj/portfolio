@@ -3,9 +3,15 @@ import { cn } from '@/utils/cn';
 import React, { memo } from 'react';
 
 interface GlassBtnProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-	variant?: 'liquid' | 'outline' | 'icon' | 'liquid-icon';
+	variant?:
+		| 'liquid'
+		| 'outline'
+		| 'icon'
+		| 'liquid-icon'
+		| 'animated-light'
+		| 'animated-liquid-icon';
 	icon?: IconType;
-	ref?: React.Ref<HTMLButtonElement>; // React 19 native ref prop
+	ref?: React.Ref<HTMLButtonElement>;
 }
 
 const GlassBtnComponent = ({
@@ -17,11 +23,17 @@ const GlassBtnComponent = ({
 	...props
 }: GlassBtnProps) => {
 	const styles = {
-		liquid: 'liquid-border rounded-full gap-3 px-5 py-2',
+		liquid:
+			'liquid-glass rounded-full gap-3 px-5 py-2 hover:bg-white/60 transition-colors',
 		outline:
-			'glass-panel rounded-full gap-2 px-6 py-2.5 hover:bg-white/80 text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors',
-		icon: 'glass-panel rounded-full w-12 h-12 hover:bg-white/80 transition-colors',
-		'liquid-icon': 'liquid-border rounded-full w-12 h-12',
+			'liquid-glass rounded-full gap-2 px-6 py-2.5 hover:bg-white/60 text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors',
+		icon: 'liquid-glass rounded-full w-12 h-12 hover:bg-white/60 transition-colors',
+		'liquid-icon':
+			'liquid-glass-strong rounded-full w-12 h-12 hover:bg-white/70 transition-colors',
+		'animated-liquid-icon':
+			'liquid-border-light rounded-full w-12 h-12 hover:bg-white/70 transition-colors',
+		'animated-light':
+			'liquid-border-light rounded-full gap-3 px-6 py-3 transition-colors text-gray-800 hover:text-gray-900 font-medium',
 	};
 
 	return (

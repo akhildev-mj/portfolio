@@ -29,7 +29,7 @@ export const About: React.FC = () => {
 								sys_profile.md
 							</span>
 						</div>
-						<div className='space-y-3 sm:space-y-4 text-xs sm:text-sm text-gray-700 leading-relaxed overflow-hidden w-full font-mono'>
+						<div className='space-y-3 sm:space-y-4 text-xs sm:text-sm text-gray-700 leading-relaxed overflow-hidden w-full'>
 							{ABOUT_MD.map((l, i) => (
 								<m.div
 									key={i}

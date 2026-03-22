@@ -88,6 +88,7 @@ export const SectionGrid = <T extends any>({
 				className='flex justify-center'>
 				<m.div {...btnHover}>
 					<GlassBtn
+						variant='animated-light'
 						icon={ChevronRight}
 						onClick={() => nav(navRoute)}
 						className='text-xs sm:text-sm shadow-lg shadow-black/5'>

@@ -47,7 +47,7 @@ export const Hero: React.FC = () => {
 					<m.h1
 						{...fadeInUp}
 						className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight leading-tight w-full'>
-						<span className='block text-gray-500 text-xl sm:text-2xl mb-1 sm:mb-2 font-normal'>
+						<span className='block text-gray-500 text-xl sm:text-2xl mb-1 sm:mb-2 font-normal tracking-normal'>
 							Hi, I'm
 						</span>
 						<span className='block text-glass-gradient pb-1 sm:pb-2'>
@@ -81,6 +81,7 @@ export const Hero: React.FC = () => {
 						className='flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-5 items-center'>
 						<m.div {...btnHover}>
 							<GlassBtn
+								variant='animated-light'
 								icon={Download}
 								className='text-xs sm:text-sm'
 								onClick={handleResumeClick}>
@@ -111,7 +112,7 @@ export const Hero: React.FC = () => {
 								<div className='w-3 h-3 rounded-full bg-red-400 shadow-[0_0_8px_#f87171] shrink-0' />
 								<div className='w-3 h-3 rounded-full bg-yellow-400 shadow-[0_0_8px_#facc15] shrink-0' />
 								<div className='w-3 h-3 rounded-full bg-green-400 shadow-[0_0_8px_#4ade80] shrink-0' />
-								<span className='text-gray-500 text-[10px] sm:text-xs font-mono ml-2 uppercase tracking-widest truncate'>
+								<span className='text-gray-500 text-[10px] sm:text-xs ml-2 uppercase tracking-widest truncate'>
 									sys.{CODE_TEMPLATES[tplIdx].language.toLowerCase()}
 								</span>
 							</div>
@@ -132,7 +133,7 @@ export const Hero: React.FC = () => {
 								)}
 							</button>
 						</div>
-						<div className='min-h-[140px] sm:min-h-[160px] font-mono text-xs sm:text-sm relative overflow-hidden w-full'>
+						<div className='min-h-[140px] sm:min-h-[160px] text-xs sm:text-sm relative overflow-hidden w-full'>
 							<m.div
 								key={tplIdx}
 								initial={{ opacity: 0, x: -10 }}

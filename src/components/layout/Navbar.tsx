@@ -38,14 +38,14 @@ export const Navbar: React.FC<{ nav: (route: string) => void }> = ({ nav }) => {
 
 	return (
 		<nav className='fixed top-4 left-0 right-0 z-[100] flex justify-center px-4'>
-			<div className='glass-panel bg-white/10 backdrop-blur-3xl border border-white/40 shadow-2xl shadow-blue-900/5 rounded-full flex items-center justify-between p-1.5 w-full max-w-[20rem] sm:max-w-md md:max-w-2xl lg:max-w-4xl'>
+			<div className='liquid-glass-strong-nav rounded-full flex items-center justify-between p-1.5 w-full max-w-[20rem] sm:max-w-md md:max-w-2xl lg:max-w-4xl'>
 				<div
 					className='hidden md:flex items-center cursor-pointer group px-4'
 					onClick={() => go('#home')}>
-					<div className='w-8 h-8 glass-inset bg-white/20 rounded-full flex justify-center items-center backdrop-blur-md font-bold text-gray-900'>
+					<div className='w-8 h-8 liquid-glass rounded-full flex justify-center items-center font-bold text-gray-900'>
 						A
 					</div>
-					<span className='text-sm font-bold text-gray-900 tracking-widest ml-0.5'>
+					<span className='text-sm font-bold text-gray-900 tracking-widest ml-1'>
 						KHILDEV
 					</span>
 				</div>
@@ -58,7 +58,8 @@ export const Navbar: React.FC<{ nav: (route: string) => void }> = ({ nav }) => {
 							className={cn(
 								'group flex flex-1 md:flex-none items-center justify-center p-3 sm:p-2.5 transition-all duration-400 rounded-full cursor-pointer',
 								active === i.href.slice(1)
-									? 'glass-inset bg-white/50 text-gray-900 shadow-sm border border-white/80 md:px-6'
+									? // Use liquid-glass for the active nav item
+										'liquid-glass text-gray-900 shadow-sm md:px-6'
 									: 'text-gray-500 hover:text-gray-900 hover:bg-white/40 md:px-4'
 							)}>
 							<i.icon

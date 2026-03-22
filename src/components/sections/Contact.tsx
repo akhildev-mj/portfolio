@@ -76,6 +76,7 @@ export const Contact: React.FC = () => {
 						<div className='flex justify-center lg:justify-end pt-4'>
 							<m.div {...btnHover}>
 								<GlassBtn
+									variant='animated-light'
 									icon={ChevronRight}
 									type='submit'
 									className='text-xs sm:text-sm w-full sm:w-auto shadow-lg shadow-black/5'>
