@@ -1,4 +1,5 @@
 import CodeBlock from '@/components/common/CodeBlock';
+import { SectionDivider } from '@/components/ui/SectionDivider';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { ABOUT_MD, STATS } from '@/constants/ui';
 import { useSection } from '@/hooks/useSection';
@@ -15,7 +16,7 @@ export const About: React.FC = () => {
 			id='about'
 			ref={ref}
 			className='py-16 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto relative z-10 w-full'>
-			<div className='absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent' />
+			<SectionDivider />
 			<SectionHeader title='About Me' isInView={inView} />
 			<div className='grid lg:grid-cols-2 gap-8 sm:gap-10 items-center w-full'>
 				<m.div

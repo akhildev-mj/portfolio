@@ -1,4 +1,5 @@
 import { GlassBtn } from '@/components/ui/GlassBtn';
+import { SectionDivider } from '@/components/ui/SectionDivider';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { CERTIFICATIONS } from '@/constants/certifications';
 import { useSection } from '@/hooks/useSection';
@@ -32,7 +33,6 @@ export const SectionGrid = <T extends any>({
 	navRoute,
 	navText,
 }: SectionGridProps<T>) => {
-	// Replaced local useRef and useInView with the custom hook
 	const [ref, inView] = useSection();
 
 	return (
@@ -40,7 +40,7 @@ export const SectionGrid = <T extends any>({
 			id={id}
 			ref={ref}
 			className='py-16 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto relative z-10 w-full'>
-			<div className='absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent' />
+			<SectionDivider />
 			<SectionHeader title={title} isInView={inView} />
 
 			<m.div

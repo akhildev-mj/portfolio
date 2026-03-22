@@ -1,5 +1,6 @@
 import { GlassBtn } from '@/components/ui/GlassBtn';
 import { GlassField } from '@/components/ui/GlassField';
+import { SectionDivider } from '@/components/ui/SectionDivider';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { CONTACT_INFO } from '@/constants/ui';
 import { useSection } from '@/hooks/useSection';
@@ -16,7 +17,7 @@ export const Contact: React.FC = () => {
 			id='contact'
 			ref={ref}
 			className='py-16 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto overflow-hidden relative z-10 w-full'>
-			<div className='absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent' />
+			<SectionDivider />
 			<SectionHeader
 				title="Let's Connect"
 				subtitle="Ready to collaborate on innovative projects? Let's create immersive solutions together."

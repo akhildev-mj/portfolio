@@ -14,11 +14,9 @@ const CertCardComponent: React.FC<CardProps<CertData>> = ({
 		animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
 		transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
 		whileHover={{ y: -8 }}
-		// Replaced old glass classes with liquid-glass-strong
 		className='group relative liquid-glass-strong rounded-[2rem] p-6 flex flex-col w-full transition-all duration-500 hover:bg-white/60'>
 		<div className='absolute inset-0 bg-gradient-to-tr from-white/40 via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-10' />
 		<div className='flex items-start mb-5 relative z-20'>
-			{/* Replaced glass-inset with liquid-glass */}
 			<div className='mr-5 w-16 h-16 sm:w-20 sm:h-20 liquid-glass rounded-2xl p-1 overflow-hidden transform group-hover:scale-105 transition-transform duration-500 flex-shrink-0'>
 				<ImgFallback src={c.image} className='rounded-xl h-full' />
 			</div>
@@ -37,7 +35,6 @@ const CertCardComponent: React.FC<CardProps<CertData>> = ({
 				c.skills.map((s, i) => (
 					<span
 						key={s}
-						// Replaced glass-inset with liquid-glass
 						className='px-3 py-1.5 text-[10px] uppercase font-bold liquid-glass text-gray-700 rounded-full transition-colors duration-300'
 						style={{ transitionDelay: `${i * 50}ms` }}>
 						{s}

@@ -15,7 +15,6 @@ const ProjCardComponent: React.FC<CardProps<ProjectData>> = ({
 		animate={isInView ? { opacity: 1, y: 0 } : {}}
 		transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
 		whileHover={{ y: -8 }}
-		// Replaced old glass classes with liquid-glass-strong
 		className='group relative liquid-glass-strong rounded-[2rem] overflow-hidden flex flex-col w-full transition-all duration-500 hover:bg-white/60'>
 		<div className='absolute inset-0 bg-gradient-to-tr from-white/40 via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-10' />
 		<div className='relative h-56 overflow-hidden'>
@@ -23,7 +22,6 @@ const ProjCardComponent: React.FC<CardProps<ProjectData>> = ({
 				<ImgFallback src={p.image} className='h-full' />
 			</div>
 			<div className='absolute inset-0 bg-gradient-to-t from-[#fafafa]/10 via-[#fafafa]/0 to-transparent' />
-			{/* Replaced glass-panel with liquid-glass-strong */}
 			<div className='absolute top-4 left-4 liquid-glass-strong px-4 py-1.5 rounded-full flex items-center space-x-2 z-20'>
 				<p.icon className='w-3.5 h-3.5 text-gray-600 group-hover:text-gray-900 transition-colors duration-300' />
 				<span className='text-[10px] text-gray-800 uppercase tracking-widest font-bold'>
@@ -42,7 +40,6 @@ const ProjCardComponent: React.FC<CardProps<ProjectData>> = ({
 				{p.tech.map((t, i) => (
 					<span
 						key={t}
-						// Replaced glass-inset with liquid-glass
 						className='px-3 py-1.5 text-[10px] uppercase font-bold liquid-glass text-gray-700 rounded-full transition-colors duration-300'
 						style={{ transitionDelay: `${i * 50}ms` }}>
 						{t}

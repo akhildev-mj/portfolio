@@ -17,12 +17,12 @@ import type { CertData, ProjectData } from '@/types';
 import { LazyMotion, domAnimation } from 'framer-motion';
 import { Suspense, lazy, useState } from 'react';
 
-// Change these two lines in src/App.tsx:
 const SectionGrid = lazy(() =>
 	import('@/components/sections/SectionGrid').then((m) => ({
 		default: m.SectionGrid,
 	}))
 ) as <T>(props: SectionGridProps<T>) => React.JSX.Element;
+
 const ArchivePage = lazy(() =>
 	import('@/pages/ArchivePage').then((m) => ({ default: m.ArchivePage }))
 ) as <T>(props: ArchivePageProps<T>) => React.JSX.Element;
@@ -54,7 +54,6 @@ export default function App() {
 						<>
 							<Hero />
 							<About />
-
 							<Suspense fallback={<SectionLoader />}>
 								<SectionGrid<CertData>
 									id='certs'
@@ -102,7 +101,6 @@ export default function App() {
 						</Suspense>
 					)}
 				</main>
-
 				<Footer />
 			</div>
 		</LazyMotion>

@@ -3,8 +3,41 @@ import { memo } from 'react';
 export const BackgroundBlobs = memo(() => (
 	<div className='fixed inset-0 z-0 overflow-hidden pointer-events-none bg-[#fafafa]'>
 		<div className='absolute inset-0 grid-pattern opacity-100' />
-		<div className='absolute top-[5%] left-[5%] w-[40vw] h-[40vw] bg-purple-300/40 rounded-full blur-[100px] mix-blend-multiply animate-[drift_20s_ease-in-out_infinite_alternate]' />
-		<div className='absolute bottom-[5%] right-[5%] w-[50vw] h-[50vw] bg-teal-300/30 rounded-full blur-[120px] mix-blend-multiply animate-[drift_25s_ease-in-out_infinite_alternate-reverse]' />
-		<div className='absolute top-[30%] right-[20%] w-[35vw] h-[35vw] bg-blue-200/40 rounded-full blur-[110px] mix-blend-multiply animate-[blobFloat_18s_ease-in-out_infinite_alternate]' />
+
+		{/* Blob 1 */}
+		<div
+			className='absolute top-[8%] left-[5%] 
+      w-[65vw] h-[65vw] md:w-[40vw] md:h-[40vw] 
+      bg-fuchsia-300/60 md:bg-fuchsia-100/45 
+      rounded-full blur-[100px] md:blur-[120px] 
+      mix-blend-multiply animate-[drift_20s_ease-in-out_infinite_alternate]'
+		/>
+
+		{/* Blob 2 */}
+		<div
+			className='absolute bottom-[8%] right-[5%] 
+      w-[70vw] h-[70vw] md:w-[50vw] md:h-[50vw] 
+      bg-blue-300/50 md:bg-blue-400/35 
+      rounded-full blur-[90px] md:blur-[130px] 
+      mix-blend-multiply animate-[drift_25s_ease-in-out_infinite_alternate-reverse]'
+		/>
+
+		{/* Blob 3 */}
+		<div
+			className='absolute top-[30%] right-[10%] 
+      w-[60vw] h-[60vw] md:w-[35vw] md:h-[35vw] 
+      bg-violet-300/55 md:bg-violet-400/45 
+      rounded-full blur-[95px] md:blur-[120px] 
+      mix-blend-multiply animate-[blobFloat_18s_ease-in-out_infinite_alternate]'
+		/>
+
+		{/* Blob 4 */}
+		<div
+			className='absolute bottom-[20%] left-[15%] 
+      w-[55vw] h-[55vw] md:w-[30vw] md:h-[30vw] 
+      bg-pink-300/50 md:bg-pink-400/40 
+      rounded-full blur-[70px] md:blur-[110px] 
+      mix-blend-multiply animate-[blobFloat_22s_ease-in-out_infinite_alternate-reverse]'
+		/>
 	</div>
 ));

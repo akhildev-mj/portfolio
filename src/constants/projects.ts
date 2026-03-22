@@ -1,4 +1,5 @@
 import type { ProjectData } from '@/types';
+import { getSortedCategories } from '@/utils/helpers';
 import { Brain, ChartBar, ChartLine, Globe } from 'lucide-react';
 
 const PROJECT_DATA: ProjectData[] = [
@@ -134,21 +135,4 @@ export const PROJECTS: ProjectData[] = PROJECT_DATA.map((project, index) => ({
 	...project,
 }));
 
-export const PROJECT_CATEGORIES = [
-	'All',
-	...new Set(
-		Object.entries(
-			PROJECTS.reduce(
-				(acc, cert) => {
-					const category = cert.category;
-					if (acc[category]) acc[category]++;
-					else acc[category] = 1;
-					return acc;
-				},
-				{} as Record<string, number>
-			)
-		)
-			.sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-			.map(([category]) => category)
-	),
-];
+export const PROJECT_CATEGORIES = getSortedCategories(PROJECTS);

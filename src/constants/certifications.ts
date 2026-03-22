@@ -1,4 +1,5 @@
 import type { CertData } from '@/types';
+import { getSortedCategories } from '@/utils/helpers';
 
 const CERTIFICATIONS_DATA: CertData[] = [
 	{
@@ -478,21 +479,4 @@ export const CERTIFICATIONS: CertData[] = CERTIFICATIONS_DATA.map(
 	})
 );
 
-export const CERTIFICATION_CATEGORIES = [
-	'All',
-	...new Set(
-		Object.entries(
-			CERTIFICATIONS.reduce(
-				(acc, cert) => {
-					const category = cert.category;
-					if (acc[category]) acc[category]++;
-					else acc[category] = 1;
-					return acc;
-				},
-				{} as Record<string, number>
-			)
-		)
-			.sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-			.map(([category]) => category)
-	),
-];
+export const CERTIFICATION_CATEGORIES = getSortedCategories(CERTIFICATIONS);
