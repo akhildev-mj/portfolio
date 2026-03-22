@@ -39,7 +39,7 @@ export const Hero: React.FC = () => {
 						{...fadeInUp}
 						className='inline-flex items-center space-x-2 glass-panel rounded-full px-4 py-1.5 mb-6 sm:mb-8'>
 						<div className='w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_8px_#22c55e]' />
-						<span className='text-[10px] sm:text-xs font-bold text-gray-700 uppercase tracking-wider'>
+						<span className='text-[10px] sm:text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider'>
 							Open to Work
 						</span>
 					</m.div>
@@ -47,7 +47,7 @@ export const Hero: React.FC = () => {
 					<m.h1
 						{...fadeInUp}
 						className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight leading-tight w-full'>
-						<span className='block text-gray-500 text-xl sm:text-2xl mb-1 sm:mb-2 font-normal tracking-normal'>
+						<span className='block text-gray-500 dark:text-gray-400 text-xl sm:text-2xl mb-1 sm:mb-2 font-normal tracking-normal'>
 							Hi, I'm
 						</span>
 						<span className='block text-glass-gradient pb-1 sm:pb-2'>
@@ -63,7 +63,7 @@ export const Hero: React.FC = () => {
 								animate={{ opacity: 1, y: 0 }}
 								exit={{ opacity: 0, y: -20 }}
 								transition={{ duration: 0.4 }}
-								className='text-lg sm:text-xl md:text-2xl text-gray-600 font-light tracking-wide truncate'>
+								className='text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 font-light tracking-wide truncate'>
 								{ROLES[roleIdx]}
 							</m.h2>
 						</AnimatePresence>
@@ -71,7 +71,7 @@ export const Hero: React.FC = () => {
 
 					<m.p
 						{...fadeInUp}
-						className='text-sm sm:text-base md:text-lg text-gray-500 my-6 sm:my-8 leading-relaxed max-w-lg mx-auto lg:mx-0 font-light'>
+						className='text-sm sm:text-base md:text-lg text-gray-500 dark:text-gray-400 my-6 sm:my-8 leading-relaxed max-w-lg mx-auto lg:mx-0 font-light'>
 						Transforming data into intelligent solutions with precision
 						engineering and immersive interfaces.
 					</m.p>
@@ -106,13 +106,13 @@ export const Hero: React.FC = () => {
 				<m.div
 					{...fadeInRight}
 					className='w-full max-w-lg mx-auto glass-panel rounded-[2.5rem] p-2 relative animate-[float_4s_ease-in-out_infinite] liquid-border-light min-w-0'>
-					<div className='glass-inset rounded-[2rem] p-5 sm:p-6 backdrop-blur-xl border border-white/20 w-full'>
+					<div className='glass-inset rounded-[2rem] p-5 sm:p-6 backdrop-blur-xl border border-white/20 dark:border-white/5 w-full'>
 						<div className='flex justify-between items-center mb-5 sm:mb-6 w-full'>
 							<div className='flex gap-2 items-center'>
 								<div className='w-3 h-3 rounded-full bg-red-400 shadow-[0_0_8px_#f87171] shrink-0' />
 								<div className='w-3 h-3 rounded-full bg-yellow-400 shadow-[0_0_8px_#facc15] shrink-0' />
 								<div className='w-3 h-3 rounded-full bg-green-400 shadow-[0_0_8px_#4ade80] shrink-0' />
-								<span className='text-gray-500 text-[10px] sm:text-xs ml-2 uppercase tracking-widest truncate'>
+								<span className='text-gray-500 dark:text-gray-400 text-[10px] sm:text-xs ml-2 uppercase tracking-widest truncate'>
 									sys.{CODE_TEMPLATES[tplIdx].language.toLowerCase()}
 								</span>
 							</div>
@@ -125,11 +125,11 @@ export const Hero: React.FC = () => {
 									}, 1000);
 								}}
 								aria-label='Generate code snippet'
-								className='glass-panel px-3 py-1.5 rounded-full hover:bg-white/80 transition-colors cursor-pointer shrink-0'>
+								className='glass-panel px-3 py-1.5 rounded-full hover:bg-white/80 dark:hover:bg-white/10 transition-colors cursor-pointer shrink-0'>
 								{gen ? (
-									<Zap className='w-3.5 h-3.5 text-gray-700 animate-spin' />
+									<Zap className='w-3.5 h-3.5 text-gray-700 dark:text-gray-300 animate-spin' />
 								) : (
-									<Sparkles className='w-3.5 h-3.5 text-gray-700' />
+									<Sparkles className='w-3.5 h-3.5 text-gray-700 dark:text-gray-300' />
 								)}
 							</button>
 						</div>

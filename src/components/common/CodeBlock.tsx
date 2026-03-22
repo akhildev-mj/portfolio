@@ -53,7 +53,7 @@ const CodeBlockComponent = ({ code, lang }: CodeBlockProps) => {
 	return (
 		<pre className='m-0 bg-transparent overflow-hidden max-w-full scrollbar-hide'>
 			<code
-				className={`language-${lang} text-gray-800 tracking-tight leading-relaxed`}>
+				className={`language-${lang} text-gray-800 dark:text-gray-200 tracking-tight leading-relaxed`}>
 				{highlightedCode}
 			</code>
 		</pre>

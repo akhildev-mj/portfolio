@@ -32,7 +32,7 @@ const Contact = lazy(() =>
 );
 
 const SectionLoader = () => (
-	<div className='w-full h-64 flex items-center justify-center animate-pulse text-gray-400'>
+	<div className='w-full h-64 flex items-center justify-center animate-pulse text-gray-400 dark:text-gray-500'>
 		Loading...
 	</div>
 );
@@ -42,9 +42,7 @@ export default function App() {
 
 	return (
 		<LazyMotion features={domAnimation} strict>
-			<div className='relative min-h-screen bg-[#fafafa] text-gray-900 selection:bg-gray-200 selection:text-gray-900 pb-safe overflow-x-hidden'>
-				<meta name='theme-color' content='#fafafa' />
-
+			<div className='relative min-h-screen selection:bg-gray-200 dark:selection:bg-gray-800 selection:text-gray-900 dark:selection:text-gray-100 pb-safe overflow-x-hidden transition-colors duration-500'>
 				<LiquidGlassStyles />
 				<BackgroundBlobs />
 				<Navbar nav={setRoute} />

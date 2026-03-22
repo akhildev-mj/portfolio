@@ -43,8 +43,8 @@ export const ArchivePage = <T extends any>({
 						className={cn(
 							'px-5 py-2 rounded-2xl text-xs font-semibold tracking-wide transition-all',
 							active === c
-								? 'glass-inset text-gray-900 shadow-sm border border-black/5'
-								: 'text-gray-500 hover:text-gray-800 hover:bg-white/40'
+								? 'glass-inset text-gray-900 dark:text-white shadow-sm border border-black/5 dark:border-white/5'
+								: 'text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white hover:bg-white/40 dark:hover:bg-white/10'
 						)}>
 						{c}
 					</button>

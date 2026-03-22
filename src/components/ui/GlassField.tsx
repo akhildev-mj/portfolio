@@ -18,7 +18,7 @@ const GlassFieldComponent = ({
 	...props
 }: GlassFieldProps) => {
 	const baseClasses =
-		'w-full glass-inset px-5 text-sm text-gray-900 placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300 disabled:opacity-50 transition-all hover:bg-white/60 backdrop-blur-md';
+		'w-full glass-inset px-5 text-sm text-gray-900 dark:text-gray-100 placeholder:text-gray-500 dark:placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300 dark:focus-visible:ring-gray-600 disabled:opacity-50 transition-all hover:bg-white/60 dark:hover:bg-white/5 backdrop-blur-md';
 
 	if (Component === 'textarea') {
 		return (
