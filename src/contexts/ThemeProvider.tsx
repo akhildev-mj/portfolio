@@ -19,6 +19,8 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
 		root.classList.add(theme);
 		localStorage.setItem('theme', theme);
 
+		root.style.backgroundColor = theme === 'dark' ? '#0a0a0a' : '#fafafa';
+
 		let metaThemeColor = document.querySelector('meta[name="theme-color"]');
 		if (!metaThemeColor) {
 			metaThemeColor = document.createElement('meta');
