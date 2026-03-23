@@ -3,12 +3,19 @@ import type { CardProps, CertData } from '@/types';
 import { BadgeCheck, Calendar } from 'lucide-react';
 import { memo } from 'react';
 
-const CertCardComponent: React.FC<CardProps<CertData>> = ({ item: c }) => (
+const CertCardComponent: React.FC<CardProps<CertData>> = ({
+	item: c,
+	index,
+}) => (
 	<article className='group relative liquid-glass-strong rounded-[2rem] p-6 flex flex-col w-full transition-all duration-500 hover:bg-white/60 dark:hover:bg-white/5 hover:-translate-y-2'>
 		<div className='absolute inset-0 bg-gradient-to-tr from-white/40 via-white/10 to-transparent dark:from-white/10 dark:via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-10' />
 		<div className='flex items-start mb-5 relative z-20'>
 			<div className='mr-5 w-16 h-16 sm:w-20 sm:h-20 liquid-glass rounded-2xl p-1 overflow-hidden transform group-hover:scale-105 transition-transform duration-500 flex-shrink-0'>
-				<ImgFallback src={c.image} className='rounded-xl h-full' />
+				<ImgFallback
+					src={c.image}
+					className='rounded-xl h-full'
+					priority={index < 2}
+				/>
 			</div>
 			<div className='flex flex-col flex-1 gap-y-1 justify-center h-16 sm:h-20'>
 				<h3 className='font-semibold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-gray-100 line-clamp-2 transition-colors duration-300 leading-snug'>

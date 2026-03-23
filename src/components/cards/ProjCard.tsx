@@ -4,12 +4,15 @@ import type { CardProps, ProjectData } from '@/types';
 import { ExternalLink, Github } from 'lucide-react';
 import { memo } from 'react';
 
-const ProjCardComponent: React.FC<CardProps<ProjectData>> = ({ item: p }) => (
+const ProjCardComponent: React.FC<CardProps<ProjectData>> = ({
+	item: p,
+	index,
+}) => (
 	<article className='group relative liquid-glass-strong rounded-[2rem] overflow-hidden flex flex-col w-full transition-all duration-500 hover:bg-white/60 dark:hover:bg-white/5 hover:-translate-y-2'>
 		<div className='absolute inset-0 bg-gradient-to-tr from-white/40 via-white/10 to-transparent dark:from-white/10 dark:via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-10' />
 		<div className='relative h-56 overflow-hidden'>
 			<div className='w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-out'>
-				<ImgFallback src={p.image} className='h-full' />
+				<ImgFallback src={p.image} className='h-full' priority={index < 2} />
 			</div>
 			<div className='absolute inset-0 bg-gradient-to-t from-[#fafafa]/10 via-[#fafafa]/0 to-transparent dark:from-[#0a0a0a]/50 dark:via-transparent' />
 			<div className='absolute top-4 left-4 liquid-glass-strong px-4 py-1.5 rounded-full flex items-center space-x-2 z-20'>

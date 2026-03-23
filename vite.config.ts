@@ -10,6 +10,9 @@ export default defineConfig({
 		sourcemap: false,
 		cssCodeSplit: true,
 		cssMinify: 'lightningcss',
+		modulePreload: {
+			polyfill: false,
+		},
 		rollupOptions: {
 			output: {
 				manualChunks(id) {
