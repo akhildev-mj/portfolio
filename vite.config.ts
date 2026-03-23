@@ -7,21 +7,6 @@ export default defineConfig({
 	plugins: [react(), tailwindcss()],
 	build: {
 		target: 'esnext',
-		minify: 'terser',
-		terserOptions: {
-			ecma: 5,
-			compress: {
-				drop_console: true,
-				drop_debugger: true,
-				passes: 2,
-				pure_funcs: ['console.info', 'console.debug'],
-				unsafe: true,
-				unsafe_arrows: true,
-			},
-			mangle: { toplevel: true },
-			format: { comments: false },
-			safari10: true,
-		},
 		sourcemap: false,
 		cssCodeSplit: true,
 		cssMinify: 'lightningcss',
