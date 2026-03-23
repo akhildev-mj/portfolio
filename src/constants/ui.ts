@@ -99,10 +99,6 @@ export const CODE_TEMPLATES: CodeTemplate[] = [
 		language: 'JavaScript',
 		code: 'const getUser = () => {\n  const user = {\n    name: "Akhildev MJ",\n    job: "AI Engineer",\n    skills: ["AI"]\n  };\n  return user;\n};\n',
 	},
-	{
-		language: 'C++',
-		code: '#include <iostream>\n#include <vector>\nusing namespace std;\n\nstruct User {\n  string name = "Akhildev MJ";\n  string job = "AI Engineer";\n  vector<string> skills;\n};\n',
-	},
 ];
 
 export const ABOUT_MD: string[] = [
