@@ -84,7 +84,7 @@ export const Hero: React.FC = () => {
 					</div>
 				</div>
 
-				<div className='w-full max-w-lg mx-auto glass-panel rounded-[2.5rem] p-2 relative animate-[float_4s_ease-in-out_infinite] liquid-border-light min-w-0'>
+				<div className='w-full max-w-lg mx-auto glass-panel rounded-[2.5rem] p-2 relative md:animate-[float_4s_ease-in-out_infinite] liquid-border-light min-w-0'>
 					<div className='glass-inset rounded-[2rem] p-5 sm:p-6 backdrop-blur-xl border border-white/20 dark:border-white/5 w-full'>
 						<div className='flex justify-between items-center mb-5 sm:mb-6 w-full'>
 							<div className='flex gap-2 items-center'>

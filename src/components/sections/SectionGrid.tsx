@@ -74,11 +74,7 @@ export const SectionGrid = <T extends any>({
 			{title === 'Certifications' && (
 				<div
 					ref={marqueeRef}
-					className='relative mb-12 overflow-hidden'
-					style={{
-						maskImage:
-							'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
-					}}>
+					className='relative mb-12 overflow-hidden [mask-image:none] md:[mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]'>
 					<div
 						className={cn(
 							'flex gap-4 w-max animate-scroll-left hover:[animation-play-state:paused]',
