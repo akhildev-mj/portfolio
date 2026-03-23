@@ -62,7 +62,7 @@ export const SOCIALS: SocialData[] = [
 	{ icon: Github, href: 'https://github.com/akhildev-mj', label: 'GitHub' },
 	{
 		icon: Linkedin,
-		href: 'https://linkedin.com/in/akhildevmj',
+		href: 'https://www.linkedin.com/in/akhildevmj',
 		label: 'LinkedIn',
 	},
 	{
