@@ -1,20 +1,10 @@
 import { ImgFallback } from '@/components/ui/ImgFallback';
 import type { CardProps, CertData } from '@/types';
-import { m } from 'framer-motion';
 import { BadgeCheck, Calendar } from 'lucide-react';
 import { memo } from 'react';
 
-const CertCardComponent: React.FC<CardProps<CertData>> = ({
-	item: c,
-	index,
-	isInView,
-}) => (
-	<m.article
-		initial={{ opacity: 0, y: 30, scale: 0.95 }}
-		animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-		transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
-		whileHover={{ y: -8 }}
-		className='group relative liquid-glass-strong rounded-[2rem] p-6 flex flex-col w-full transition-all duration-500 hover:bg-white/60 dark:hover:bg-white/5'>
+const CertCardComponent: React.FC<CardProps<CertData>> = ({ item: c }) => (
+	<article className='group relative liquid-glass-strong rounded-[2rem] p-6 flex flex-col w-full transition-all duration-500 hover:bg-white/60 dark:hover:bg-white/5 hover:-translate-y-2'>
 		<div className='absolute inset-0 bg-gradient-to-tr from-white/40 via-white/10 to-transparent dark:from-white/10 dark:via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-10' />
 		<div className='flex items-start mb-5 relative z-20'>
 			<div className='mr-5 w-16 h-16 sm:w-20 sm:h-20 liquid-glass rounded-2xl p-1 overflow-hidden transform group-hover:scale-105 transition-transform duration-500 flex-shrink-0'>
@@ -34,11 +24,10 @@ const CertCardComponent: React.FC<CardProps<CertData>> = ({
 		</p>
 		<div className='flex flex-wrap gap-2 mb-5 flex-1 relative z-20'>
 			{c.skills &&
-				c.skills.map((s, i) => (
+				c.skills.map((s) => (
 					<span
 						key={s}
-						className='px-3 py-1.5 text-[10px] uppercase font-bold liquid-glass text-gray-700 dark:text-gray-300 rounded-full transition-colors duration-300'
-						style={{ transitionDelay: `${i * 50}ms` }}>
+						className='px-3 py-1.5 text-[10px] uppercase font-bold liquid-glass text-gray-700 dark:text-gray-300 rounded-full transition-colors duration-300'>
 						{s}
 					</span>
 				))}
@@ -54,7 +43,7 @@ const CertCardComponent: React.FC<CardProps<CertData>> = ({
 				Verify <BadgeCheck className='w-4 h-4 ml-1.5' />
 			</button>
 		</div>
-	</m.article>
+	</article>
 );
 
 export const CertCard = memo(CertCardComponent);

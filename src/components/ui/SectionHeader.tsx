@@ -1,16 +1,10 @@
-import { fadeInUp } from '@/utils/animations';
-import { m } from 'framer-motion';
 import { memo } from 'react';
 
 const SectionHeaderComponent: React.FC<{
 	title: string;
 	subtitle?: string;
-	isInView: boolean;
-}> = ({ title, subtitle, isInView }) => (
-	<m.div
-		{...fadeInUp}
-		animate={isInView ? fadeInUp.animate : {}}
-		className='text-center mb-12 sm:mb-16 w-full'>
+}> = ({ title, subtitle }) => (
+	<div className='text-center mb-12 sm:mb-16 w-full'>
 		<h2 className='text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-glass-gradient px-4 tracking-tight'>
 			{title}
 		</h2>
@@ -20,7 +14,7 @@ const SectionHeaderComponent: React.FC<{
 				{subtitle}
 			</p>
 		)}
-	</m.div>
+	</div>
 );
 
 export const SectionHeader = memo(SectionHeaderComponent);

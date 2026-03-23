@@ -6,6 +6,9 @@ const LiquidGlassStylesComponent: React.FC = () => (
 		@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 		@keyframes drift { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(3vw, -3vw) scale(1.05); } }
 		@keyframes blobFloat { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-20px) scale(1.05); } }
+		@keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+		.animate-scroll-left { animation: scroll-left 40s linear infinite; }
 
 		/* Base Liquid Borders */
 		.liquid-border, .liquid-border-light { position: relative; z-index: 1; backdrop-filter: blur(10px); }
@@ -38,14 +41,14 @@ const LiquidGlassStylesComponent: React.FC = () => (
 		:is(.dark) .glass-inset { background: rgba(0,0,0,0.4); box-shadow: inset 0 2px 10px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); }
 
 		/* Background Grid */
-		.grid-pattern { 
-			background-image: linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px); 
-			background-size: 40px 40px; 
+		.grid-pattern {
+			background-image: linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+			background-size: 40px 40px;
 			-webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
-			mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%); 
+			mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
 		}
-		:is(.dark) .grid-pattern { 
-			background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); 
+		:is(.dark) .grid-pattern {
+			background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
 		}
 
 		/* Text Gradients */

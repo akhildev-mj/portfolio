@@ -13,7 +13,6 @@ A modern, responsive portfolio website built with **React.js** and **Tailwind CS
 - **React 19**
 - **TypeScript**
 - **Tailwind CSS 3**
-- **Framer Motion**
 - **Lucide React Icons**
 - **Vercel Analytics & Speed Insights**
 

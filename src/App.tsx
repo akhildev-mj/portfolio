@@ -14,7 +14,6 @@ import { PROJECTS, PROJECT_CATEGORIES } from '@/constants/projects';
 import type { ArchivePageProps } from '@/pages/ArchivePage';
 import { LiquidGlassStyles } from '@/styles/LiquidGlassStyles';
 import type { CertData, ProjectData } from '@/types';
-import { LazyMotion, domAnimation } from 'framer-motion';
 import { Suspense, lazy, useState } from 'react';
 
 const SectionGrid = lazy(() =>
@@ -41,66 +40,64 @@ export default function App() {
 	const [route, setRoute] = useState<string>('home');
 
 	return (
-		<LazyMotion features={domAnimation} strict>
-			<div className='relative min-h-screen selection:bg-gray-200 dark:selection:bg-gray-800 selection:text-gray-900 dark:selection:text-gray-100 pb-safe overflow-x-hidden transition-colors duration-500'>
-				<LiquidGlassStyles />
-				<BackgroundBlobs />
-				<Navbar nav={setRoute} />
+		<div className='relative min-h-screen selection:bg-gray-200 dark:selection:bg-gray-800 selection:text-gray-900 dark:selection:text-gray-100 pb-safe overflow-x-hidden transition-colors duration-500'>
+			<LiquidGlassStyles />
+			<BackgroundBlobs />
+			<Navbar nav={setRoute} />
 
-				<main className='relative z-10'>
-					{route === 'home' && (
-						<>
-							<Hero />
-							<About />
-							<Suspense fallback={<SectionLoader />}>
-								<SectionGrid<CertData>
-									id='certs'
-									title='Certifications'
-									data={CERTIFICATIONS}
-									Card={CertCard}
-									nav={setRoute}
-									navRoute='Certifications'
-									navText='All Certifications'
-								/>
-								<SectionGrid<ProjectData>
-									id='projects'
-									title='Projects'
-									data={PROJECTS}
-									Card={ProjCard}
-									nav={setRoute}
-									navRoute='projects'
-									navText='All Projects'
-								/>
-								<Contact />
-							</Suspense>
-						</>
-					)}
-
-					{route === 'Certifications' && (
+			<main className='relative z-10'>
+				{route === 'home' && (
+					<>
+						<Hero />
+						<About />
 						<Suspense fallback={<SectionLoader />}>
-							<ArchivePage<CertData>
-								title='Certifications Archive'
-								cats={CERTIFICATION_CATEGORIES}
+							<SectionGrid<CertData>
+								id='certs'
+								title='Certifications'
 								data={CERTIFICATIONS}
 								Card={CertCard}
 								nav={setRoute}
+								navRoute='Certifications'
+								navText='All Certifications'
 							/>
-						</Suspense>
-					)}
-					{route === 'projects' && (
-						<Suspense fallback={<SectionLoader />}>
-							<ArchivePage<ProjectData>
-								title='Projects Archive'
-								cats={PROJECT_CATEGORIES}
+							<SectionGrid<ProjectData>
+								id='projects'
+								title='Projects'
 								data={PROJECTS}
 								Card={ProjCard}
 								nav={setRoute}
+								navRoute='projects'
+								navText='All Projects'
 							/>
+							<Contact />
 						</Suspense>
-					)}
-				</main>
-				<Footer />
-			</div>
-		</LazyMotion>
+					</>
+				)}
+
+				{route === 'Certifications' && (
+					<Suspense fallback={<SectionLoader />}>
+						<ArchivePage<CertData>
+							title='Certifications Archive'
+							cats={CERTIFICATION_CATEGORIES}
+							data={CERTIFICATIONS}
+							Card={CertCard}
+							nav={setRoute}
+						/>
+					</Suspense>
+				)}
+				{route === 'projects' && (
+					<Suspense fallback={<SectionLoader />}>
+						<ArchivePage<ProjectData>
+							title='Projects Archive'
+							cats={PROJECT_CATEGORIES}
+							data={PROJECTS}
+							Card={ProjCard}
+							nav={setRoute}
+						/>
+					</Suspense>
+				)}
+			</main>
+			<Footer />
+		</div>
 	);
 }

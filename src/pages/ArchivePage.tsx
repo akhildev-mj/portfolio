@@ -55,7 +55,7 @@ export const ArchivePage = <T extends any>({
 					? data
 					: data.filter((d: any) => d.category === active)
 				).map((d: any, i: number) => (
-					<Card key={d.id} item={d} index={i} isInView={true} />
+					<Card key={d.id} item={d} index={i} />
 				))}
 			</div>
 		</div>

@@ -29,7 +29,6 @@ export default defineConfig({
 			output: {
 				manualChunks(id) {
 					if (id.includes('node_modules')) {
-						if (id.includes('framer-motion')) return 'vendor-framer';
 						if (id.includes('lucide-react')) return 'vendor-icons';
 						if (
 							id.includes('react') ||

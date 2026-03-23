@@ -54,5 +54,4 @@ export interface CodeTemplate {
 export interface CardProps<T> {
 	item: T;
 	index: number;
-	isInView: boolean;
 }
