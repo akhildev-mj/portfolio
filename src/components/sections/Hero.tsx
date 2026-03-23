@@ -1,7 +1,7 @@
 import CodeBlock from '@/components/common/CodeBlock';
 import { GlassBtn } from '@/components/ui/GlassBtn';
+import { Download, Sparkles, Zap } from '@/components/ui/Icons';
 import { CODE_TEMPLATES, ROLES, SOCIALS } from '@/constants/ui';
-import { Download, Sparkles, Zap } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export const Hero: React.FC = () => {

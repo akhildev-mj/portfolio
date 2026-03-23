@@ -1,6 +1,6 @@
+import { BadgeCheck, Calendar } from '@/components/ui/Icons';
 import { ImgFallback } from '@/components/ui/ImgFallback';
 import type { CardProps, CertData } from '@/types';
-import { BadgeCheck, Calendar } from 'lucide-react';
 import { memo } from 'react';
 
 const CertCardComponent: React.FC<CardProps<CertData>> = ({

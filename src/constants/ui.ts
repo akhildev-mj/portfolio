@@ -14,7 +14,7 @@ import {
 	Phone,
 	PhoneCall,
 	User,
-} from 'lucide-react';
+} from '@/components/ui/Icons';
 import type {
 	CodeTemplate,
 	ContactData,

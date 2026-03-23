@@ -1,10 +1,10 @@
 import { GlassBtn } from '@/components/ui/GlassBtn';
+import { ChevronRight } from '@/components/ui/Icons';
 import { SectionDivider } from '@/components/ui/SectionDivider';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { CERTIFICATIONS } from '@/constants/certifications';
 import type { CardProps } from '@/types';
 import { cn } from '@/utils/cn';
-import { ChevronRight } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
 export interface SectionGridProps<T> {

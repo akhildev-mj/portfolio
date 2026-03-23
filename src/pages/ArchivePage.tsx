@@ -1,7 +1,7 @@
 import { GlassBtn } from '@/components/ui/GlassBtn';
+import { ArrowLeft } from '@/components/ui/Icons';
 import type { CardProps } from '@/types';
 import { cn } from '@/utils/cn';
-import { ArrowLeft } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export interface ArchivePageProps<T> {

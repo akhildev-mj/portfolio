@@ -1,6 +1,6 @@
+import { Brain, ChartBar, ChartLine, Globe } from '@/components/ui/Icons';
 import type { ProjectData } from '@/types';
 import { getSortedCategories } from '@/utils/helpers';
-import { Brain, ChartBar, ChartLine, Globe } from 'lucide-react';
 
 const PROJECT_DATA: ProjectData[] = [
 	{

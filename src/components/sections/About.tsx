@@ -1,8 +1,8 @@
 import CodeBlock from '@/components/common/CodeBlock';
+import { Terminal } from '@/components/ui/Icons';
 import { SectionDivider } from '@/components/ui/SectionDivider';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { ABOUT_MD, STATS } from '@/constants/ui';
-import { Terminal } from 'lucide-react';
 
 export const About: React.FC = () => {
 	return (

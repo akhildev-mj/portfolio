@@ -1,6 +1,6 @@
 import { GlassBtn } from '@/components/ui/GlassBtn';
+import { Moon, Sun } from '@/components/ui/Icons';
 import { useTheme } from '@/contexts/ThemeContext';
-import { Moon, Sun } from 'lucide-react';
 
 export const ThemeToggle = () => {
 	const { theme, setTheme } = useTheme();

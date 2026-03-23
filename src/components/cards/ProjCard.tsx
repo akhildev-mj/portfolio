@@ -1,7 +1,7 @@
 import { GlassBtn } from '@/components/ui/GlassBtn';
+import { ExternalLink, Github } from '@/components/ui/Icons';
 import { ImgFallback } from '@/components/ui/ImgFallback';
 import type { CardProps, ProjectData } from '@/types';
-import { ExternalLink, Github } from 'lucide-react';
 import { memo } from 'react';
 
 const ProjCardComponent: React.FC<CardProps<ProjectData>> = ({

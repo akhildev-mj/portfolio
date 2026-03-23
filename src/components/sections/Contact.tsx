@@ -1,9 +1,9 @@
 import { GlassBtn } from '@/components/ui/GlassBtn';
 import { GlassField } from '@/components/ui/GlassField';
+import { ChevronRight } from '@/components/ui/Icons';
 import { SectionDivider } from '@/components/ui/SectionDivider';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { CONTACT_INFO } from '@/constants/ui';
-import { ChevronRight } from 'lucide-react';
 
 export const Contact: React.FC = () => {
 	return (

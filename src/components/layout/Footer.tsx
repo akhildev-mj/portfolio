@@ -1,6 +1,6 @@
 import { GlassBtn } from '@/components/ui/GlassBtn';
+import { ArrowUp, Heart } from '@/components/ui/Icons';
 import { SOCIALS } from '@/constants/ui';
-import { ArrowUp, Heart } from 'lucide-react';
 import { memo } from 'react';
 
 export const Footer = memo(() => (
