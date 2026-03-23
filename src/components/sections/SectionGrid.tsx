@@ -3,7 +3,9 @@ import { SectionDivider } from '@/components/ui/SectionDivider';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { CERTIFICATIONS } from '@/constants/certifications';
 import type { CardProps } from '@/types';
+import { cn } from '@/utils/cn';
 import { ChevronRight } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 
 export interface SectionGridProps<T> {
 	id: string;
@@ -15,10 +17,11 @@ export interface SectionGridProps<T> {
 	navText: string;
 }
 
-const certificationsLoop = Array(5)
-	.fill(CERTIFICATIONS)
-	.flat()
-	.map(({ image, title }, index) => ({ id: index, image, title }));
+const certificationsLoop = CERTIFICATIONS.map(({ image, title }, index) => ({
+	id: index,
+	image,
+	title,
+}));
 
 export const SectionGrid = <T extends any>({
 	id,
@@ -29,6 +32,32 @@ export const SectionGrid = <T extends any>({
 	navRoute,
 	navText,
 }: SectionGridProps<T>) => {
+	const marqueeRef = useRef<HTMLDivElement>(null);
+	const [isVisible, setIsVisible] = useState(false);
+
+	useEffect(() => {
+		if (title !== 'Certifications') return;
+
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				setIsVisible(entry.isIntersecting);
+			},
+			{ threshold: 0.1 }
+		);
+
+		const currentMarquee = marqueeRef.current;
+
+		if (currentMarquee) {
+			observer.observe(currentMarquee);
+		}
+
+		return () => {
+			if (currentMarquee) {
+				observer.unobserve(currentMarquee);
+			}
+		};
+	}, [title]);
+
 	return (
 		<section
 			id={id}
@@ -44,12 +73,18 @@ export const SectionGrid = <T extends any>({
 
 			{title === 'Certifications' && (
 				<div
+					ref={marqueeRef}
 					className='relative mb-12 overflow-hidden'
 					style={{
 						maskImage:
 							'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
 					}}>
-					<div className='flex gap-4 w-max animate-scroll-left hover:[animation-play-state:paused]'>
+					<div
+						className={cn(
+							'flex gap-4 w-max animate-scroll-left hover:[animation-play-state:paused]',
+							!isVisible && '[animation-play-state:paused]'
+						)}
+						style={{ animationDuration: '60s' }}>
 						{certificationsLoop.map((cert, idx) => (
 							<img
 								key={`${cert.id}-${idx}`}
@@ -57,6 +92,7 @@ export const SectionGrid = <T extends any>({
 								height={80}
 								src={cert.image}
 								alt={cert.title}
+								loading='lazy'
 								className='rounded-xl object-cover h-20 w-20'
 							/>
 						))}

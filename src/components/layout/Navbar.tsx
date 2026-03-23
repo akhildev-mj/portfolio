@@ -8,18 +8,29 @@ export const Navbar: React.FC<{ nav: (route: string) => void }> = ({ nav }) => {
 	const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
 	useEffect(() => {
-		const handleScroll = () => {
-			setIsScrolled(window.scrollY > 50);
+		let ticking = false;
 
-			const sp = window.scrollY + window.innerHeight / 3;
-			const cur = [...NAV_ITEMS].reverse().find((i) => {
-				const el = document.getElementById(i.href.slice(1));
-				return el && el.offsetTop <= sp;
-			});
-			if (cur) setActive(cur.href.slice(1));
+		const handleScroll = () => {
+			if (!ticking) {
+				window.requestAnimationFrame(() => {
+					setIsScrolled(window.scrollY > 50);
+
+					const sp = window.scrollY + window.innerHeight / 3;
+					const cur = [...NAV_ITEMS].reverse().find((i) => {
+						const el = document.getElementById(i.href.slice(1));
+						return el && el.offsetTop <= sp;
+					});
+					if (cur) setActive(cur.href.slice(1));
+
+					ticking = false;
+				});
+				ticking = true;
+			}
 		};
-		window.addEventListener('scroll', handleScroll);
+
+		window.addEventListener('scroll', handleScroll, { passive: true });
 		handleScroll();
+
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, []);
 

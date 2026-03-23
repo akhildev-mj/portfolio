@@ -9,6 +9,7 @@ const ImgFallbackComponent: React.FC<{ src: string; className?: string }> = ({
 		<img
 			src={src}
 			alt='thumbnail'
+			loading='lazy'
 			onError={(e) =>
 				((e.currentTarget as HTMLImageElement).src =
 					'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800')
