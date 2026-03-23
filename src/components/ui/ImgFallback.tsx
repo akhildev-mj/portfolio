@@ -5,7 +5,7 @@ const ImgFallbackComponent: React.FC<{ src: string; className?: string }> = ({
 	src,
 	className,
 }) => (
-	<div className={cn('bg-gray-100 backdrop-blur-sm', className)}>
+	<div className={cn(className)}>
 		<img
 			src={src}
 			alt='thumbnail'
