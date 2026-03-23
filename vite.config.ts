@@ -9,7 +9,6 @@ export default defineConfig({
 		target: 'esnext',
 		sourcemap: false,
 		cssCodeSplit: true,
-		cssMinify: 'lightningcss',
 		modulePreload: {
 			polyfill: false,
 		},

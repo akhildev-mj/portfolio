@@ -10,7 +10,7 @@ const SectionHeaderComponent: React.FC<{
 		</h2>
 		<div className='w-12 sm:w-16 h-1 bg-gray-300 rounded-full mx-auto mb-4 sm:mb-6 backdrop-blur-md' />
 		{subtitle && (
-			<p className='text-gray-500 max-w-2xl mx-auto text-xs sm:text-sm tracking-wide px-4'>
+			<p className='text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-xs sm:text-sm tracking-wide px-4'>
 				{subtitle}
 			</p>
 		)}
