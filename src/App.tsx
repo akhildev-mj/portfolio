@@ -12,7 +12,6 @@ import {
 } from '@/constants/certifications';
 import { PROJECTS, PROJECT_CATEGORIES } from '@/constants/projects';
 import type { ArchivePageProps } from '@/pages/ArchivePage';
-import { LiquidGlassStyles } from '@/styles/LiquidGlassStyles';
 import type { CertData, ProjectData } from '@/types';
 import { Suspense, lazy, useState } from 'react';
 
@@ -41,7 +40,6 @@ export default function App() {
 
 	return (
 		<div className='relative min-h-screen selection:bg-gray-200 dark:selection:bg-gray-800 selection:text-gray-900 dark:selection:text-gray-100 pb-safe overflow-x-hidden transition-colors duration-500'>
-			<LiquidGlassStyles />
 			<BackgroundBlobs />
 			<Navbar nav={setRoute} />
 

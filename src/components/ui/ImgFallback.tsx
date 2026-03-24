@@ -17,7 +17,7 @@ const ImgFallbackComponent: React.FC<{
 				((e.currentTarget as HTMLImageElement).src =
 					'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800')
 			}
-			className='w-full h-full object-cover opacity-90 transition-all duration-700 ease-out mix-blend-multiply'
+			className='w-full h-full object-cover opacity-90 transition-all duration-700 ease-out'
 		/>
 	</div>
 );
