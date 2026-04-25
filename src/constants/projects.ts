@@ -4,6 +4,24 @@ import { getSortedCategories } from '@/utils/helpers';
 
 const PROJECT_DATA: ProjectData[] = [
 	{
+		title: 'Copilot Workflow Starter',
+		desc: 'A starter template for building AI-powered applications using GitHub Copilot.',
+		image: '/projects/copilot-workflow.jpeg',
+		category: 'Web Development',
+		tech: [
+			'Copilot',
+			'GitHub',
+			'VS Code',
+			'Agents',
+			'Prompts',
+			'Skills',
+			'Instructions',
+		],
+		icon: Globe,
+		github: 'https://github.com/akhildev-mj/copilot-workflow-starter',
+		live: 'https://github.com/akhildev-mj/copilot-workflow-starter',
+	},
+	{
 		title: 'Audocare AI Voice Agent',
 		desc: 'Intelligent, speech-driven assistant that engages users in real-time conversations to detect and assess symptoms of illness',
 		image: '/projects/audocare-ai.jpeg',
