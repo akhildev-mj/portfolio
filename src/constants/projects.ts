@@ -19,7 +19,7 @@ const PROJECT_DATA: ProjectData[] = [
 		],
 		icon: Globe,
 		github: 'https://github.com/akhildev-mj/copilot-workflow-starter',
-		live: 'https://github.com/akhildev-mj/copilot-workflow-starter',
+		live: 'https://github.com/akhildev-mj/copilot-workflow-starter/releases/tag/v1.0.0',
 	},
 	{
 		title: 'Audocare AI Voice Agent',
